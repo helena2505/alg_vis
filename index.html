@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+        <script src="plain-draggable.min.js"></script>
         <header><h1>Визуализация алгоритмов и структур данных</h1></header>
 	<div class="layout">
 	<div class="optionsCol">
@@ -19,8 +20,14 @@
 	<div class="canvasCol">
 	</div>
 	<div class="picturesColj">
-        <div></div>
-	</div>
-	<script src="main.js"></script>
+        </div>
+        <object id="draggable"
+type="image/svg+xml"
+data="picture.svg">
+<img
+src="picture.png">
+</object>
+        <div id="draggable">Drag This</div>
+        <script src="main.js"></script>
 </body>
 </html>
