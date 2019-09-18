@@ -65,7 +65,10 @@ body {
 .fill {
 	background-image: url('http://source.unsplash.com/random/150x150');
 	position: absolute;
+<<<<<<< HEAD
 	object-fit: cover;
+=======
+>>>>>>> 7074de73b6b23423ee0a050d93f5c658a6045c39
 	height: 150px;
 	width: 150px;
 	top: 5px;
@@ -75,7 +78,11 @@ body {
 
 .empty {
 	display: inline-block;
+<<<<<<< HEAD
 	position: sticky;
+=======
+	position: relative;
+>>>>>>> 7074de73b6b23423ee0a050d93f5c658a6045c39
 	height: 160px;
 	width: 160px;
 	margin: 10px;
