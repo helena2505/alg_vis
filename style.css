@@ -1,0 +1,60 @@
+body {
+ font: 12pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
+ background: #9d59aa; /* Цвет фона */
+ color: whitesmoke;
+}
+
+#hdr {
+    color: rgb(109, 22, 44);
+}
+
+#header {
+ align-self: center;
+ align-content: center;
+ font-size: 2.2em; /* Размер текста */
+ text-align: center; /* Выравнивание по центру */
+ padding: 5px; /* Отступы вокруг текста */
+}
+
+#footer {
+ background: #8fa09b; /* Цвет фона подвала */
+ color: #fff; /* Цвет текста */
+ padding: 5px; /* Отступы вокруг текста */
+ clear: left; /* Отменяем действие float */
+}
+
+.optionList li{
+	list-style-type: none
+}
+
+
+.layout {
+	overflow: hidden;
+}
+
+.globCol1, .globCol2 {
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+
+.globCol3 {
+	width: 60%;
+	height: 100%;
+	float: left;
+}
+
+.layout div div{
+    margin: 0 10px; /* Отступы */
+    padding: 10px; /* Поля */
+    height: 100%; /* Высота колонок */
+    background: #00fa9a; /* Цвет фона */ 
+    color: #f5e8d0; /* Цвет текста */
+    overflow: auto;
+} 
+
+.drawing {
+	height: 100%;
+	width: 100%;
+	background: #ffffff;
+}
