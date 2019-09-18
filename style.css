@@ -1,6 +1,6 @@
 body {
  font: 12pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
- background: #9d59aa; /* Цвет фона */
+ background: darkslategray; /* Цвет фона */
  color: whitesmoke;
 }
 
@@ -18,7 +18,7 @@ body {
 
 #footer {
  background: #8fa09b; /* Цвет фона подвала */
- color: #fff; /* Цвет текста */
+ color: aliceblue; /* Цвет текста */
  padding: 5px; /* Отступы вокруг текста */
  clear: left; /* Отменяем действие float */
 }
@@ -40,15 +40,18 @@ body {
 
 .globCol3 {
 	width: 60%;
-	height: 100%;
+	height: 610px;
 	float: left;
+	background-color: aliceblue;
+	align-self: center;
+	table-layout: auto;
 }
 
 .layout div div{
     margin: 0 10px; /* Отступы */
     padding: 10px; /* Поля */
     height: 100%; /* Высота колонок */
-    background: #00fa9a; /* Цвет фона */ 
+    background: darksalmon; /* Цвет фона */ 
     color: #f5e8d0; /* Цвет текста */
     overflow: auto;
 } 
@@ -57,4 +60,26 @@ body {
 	height: 100%;
 	width: 100%;
 	background: #ffffff;
+}
+
+.fill {
+	background-image: url('http://source.unsplash.com/random/150x150');
+	position: absolute;
+	object-fit: cover;
+	height: 150px;
+	width: 150px;
+	top: 5px;
+	left: 5px;
+	cursor: pointer;
+}
+
+.empty {
+	display: inline-block;
+	position: sticky;
+	height: 160px;
+	width: 160px;
+	margin: 10px;
+	top: 5px;
+	border: 3px salmon solid;
+	background-color: wheat;
 }
