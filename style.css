@@ -16,11 +16,19 @@ body {
  padding: 5px; /* Отступы вокруг текста */
 }
 
-#footer {
- background: #8fa09b; /* Цвет фона подвала */
- color: aliceblue; /* Цвет текста */
- padding: 5px; /* Отступы вокруг текста */
- clear: left; /* Отменяем действие float */
+.saveButton {
+	padding: 5px 5px;
+	text-align: center;
+	align-self: center;
+	background-color: azure;
+    width: 40%;
+    height: 20%;
+    box-shadow: 0 0 0 rgba(0,0,0,0.1), inset 0 0 0 rgba(0,0,0,0.1);
+    font-size: 15px;
+}
+
+.button:hover{
+    background: rgb(255, 163, 88);
 }
 
 .optionList li{
@@ -32,13 +40,20 @@ body {
 	overflow: hidden;
 }
 
-.globCol1, .globCol2 {
+.optionsCol {
 	width: 20%;
 	height: 100%;
 	float: left;
 }
 
-.globCol3 {
+.picturesCol {
+	width: 20%;
+	height: 100%;
+	float: right;
+	background-color: darksalmon;
+}
+
+.canvasCol {
 	width: 60%;
 	height: 610px;
 	float: left;
@@ -53,8 +68,8 @@ body {
     height: 100%; /* Высота колонок */
     background: darksalmon; /* Цвет фона */ 
     color: #f5e8d0; /* Цвет текста */
-    overflow: auto;
-} 
+	overflow: auto;
+}
 
 .drawing {
 	height: 100%;
@@ -65,10 +80,7 @@ body {
 .fill {
 	background-image: url('http://source.unsplash.com/random/150x150');
 	position: absolute;
-<<<<<<< HEAD
 	object-fit: cover;
-=======
->>>>>>> 7074de73b6b23423ee0a050d93f5c658a6045c39
 	height: 150px;
 	width: 150px;
 	top: 5px;
@@ -78,11 +90,7 @@ body {
 
 .empty {
 	display: inline-block;
-<<<<<<< HEAD
 	position: sticky;
-=======
-	position: relative;
->>>>>>> 7074de73b6b23423ee0a050d93f5c658a6045c39
 	height: 160px;
 	width: 160px;
 	margin: 10px;
