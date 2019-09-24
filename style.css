@@ -16,6 +16,18 @@ body {
  padding: 5px; /* Отступы вокруг текста */
 }
 
+#nav {
+	background-color: aqua;
+}
+
+#footer {
+	background-color: blue;
+}
+
+#main {
+	background-color: rebeccapurple;
+}
+
 .saveButton {
 	padding: 5px 5px;
 	text-align: center;
