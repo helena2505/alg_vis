@@ -22,7 +22,7 @@ body {
 }
 
 #drawing {
-	height: 580px;
+	height: 590px;
 	width: auto;
 	overflow: hidden;
 }
@@ -38,7 +38,7 @@ body {
 
 #canvasCol {
 	height: 580px;
-	width: 68%;
+	width: 83%;
 	float: left;
 	padding: 5px;
 	background-color: aliceblue;
