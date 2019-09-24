@@ -3,7 +3,7 @@ var lst = document.getElementById('options');
 let lis;
 
 draggable = new PlainDraggable(document.getElementById('draggable'));
-draggable.containment = document.getElementById('canvasCol');
+draggable.containment = document.getElementById('drawing');
 
 variable.onclick = function() {
 	createMenu(4, ['Нарисовать', 'Присвоить новое значение', '', '']);

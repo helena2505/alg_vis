@@ -21,6 +21,12 @@ body {
 	overflow: hidden;
 }
 
+#drawing {
+	height: 580px;
+	width: auto;
+	overflow: hidden;
+}
+
 #picturesCol {
 	height: 580px;
 	width: 15%;
