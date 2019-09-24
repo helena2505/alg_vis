@@ -4,28 +4,48 @@ body {
  color: whitesmoke;
 }
 
-#hdr {
-    color: rgb(109, 22, 44);
-}
-
 #header {
- align-self: center;
- align-content: center;
- font-size: 2.2em; /* Размер текста */
- text-align: center; /* Выравнивание по центру */
- padding: 5px; /* Отступы вокруг текста */
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 6px;
 }
 
-#nav {
-	background-color: aqua;
+#navigation {
+    line-height: 40px;
+    background-color: yellowgreen;
+    height: 500px;
+    width: 15%;
+	float: left;
+	padding: 5px;
+	overflow: hidden;
+}
+
+#picturesCol {
+	height: 500px;
+	width: 15%;
+	padding: 5px;
+	float: right;
+	background-color: white;
+	overflow: hidden;
+}
+
+#canvasCol {
+	height: 500px;
+	width: 68%;
+	float: left;
+	padding: 5px;
+	background-color: aliceblue;
+	margin-left: auto;
+	position: relative;
 }
 
 #footer {
-	background-color: blue;
-}
-
-#main {
-	background-color: rebeccapurple;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 6px;
+    clear: both;
 }
 
 .saveButton {
@@ -47,31 +67,8 @@ body {
 	list-style-type: none
 }
 
-
 .layout {
 	overflow: hidden;
-}
-
-.optionsCol {
-	width: 20%;
-	height: 100%;
-	float: left;
-}
-
-.picturesCol {
-	width: 20%;
-	height: 100%;
-	float: right;
-	background-color: darksalmon;
-}
-
-.canvasCol {
-	width: 60%;
-	height: 610px;
-	float: left;
-	background-color: white;
-	align-self: center;
-	table-layout: auto;
 }
 
 .layout div div{
