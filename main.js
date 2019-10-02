@@ -77,12 +77,12 @@ function handleDragStart(e) {
     e.dataTransfer.setData('text/html', this.innerHTML);
   }
   
-  var cols = document.querySelectorAll('#columns .column');
+  var cols = document.querySelectorAll('#columns .element');
   [].forEach.call(cols, function(col) {
     col.addEventListener('dragstart', handleDragStart, false);
   });
 
-  canvas_drop = document.getElementById("outer-dropzone")
+  canvas_drop = document.querySelectorAll('#drawing #outer-dropzone #columns .element');
 
 function handleDragOver(e) {
     if (e.preventDefault) {
@@ -99,22 +99,15 @@ function handleDragOver(e) {
     this.classList.add('over');
   }
   
-  /*function handleDragLeave(e) {
+  function handleDragLeave(e) {
     this.classList.remove('over');  // this / e.target is previous target element.
-  }*/
+  }
 
   function handleDrop(e) {
     // this/e.target is current target element.
   
     if (e.stopPropagation) {
       e.stopPropagation(); // Stops some browsers from redirecting.
-    }
-  
-    // Don't do anything if dropping the same column we're dragging.
-    if (dragSrcEl != this) {
-      // Set the source column's HTML to the HTML of the columnwe dropped on.
-      dragSrcEl.innerHTML = this.innerHTML;
-      this.innerHTML = e.dataTransfer.getData('text/html');
     }
   
     return false;
@@ -131,14 +124,14 @@ function handleDragOver(e) {
   var cols = document.querySelectorAll('#columns .column');
   [].forEach.call(cols, function(col) {
     col.addEventListener('dragstart', handleDragStart, false);
-    //col.addEventListener('dragleave', handleDragLeave, false);
-    col.addEventListener('drop', handleDrop, false);
     col.addEventListener('dragend', handleDragEnd, false);
   });
 
+  canvas_drop.addEventListener('drop', handleDrop, false);
   canvas_drop.addEventListener('dragenter', handleDragEnter, false);
   canvas_drop.addEventListener('dragover', handleDragOver, false);
   canvas_drop.addEventListener('dragend', handleDragEnd, false);
+  canvas_drop.addEventListener('dragleave', handleDragLeave, false);
 
 //иконка при перетаскивании
   var dragIcon = document.createElement('img');
