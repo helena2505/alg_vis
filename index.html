@@ -34,6 +34,9 @@
 
             <li class="elementListItem">
                 <h4>Статический массив</h4>
+                <div class="drag">
+                    <img id="yes-drop" class="drag-drop" src="variable.svg" width="100" height="70" alt="draw variable">
+                </div>
             </li>
 
             <li class="elementListItem">
@@ -65,14 +68,22 @@
     </div>
 
     <div id="drawing">
-        <div id="outer-dropzone" class="dropzone"></div>
+        <div id="outer-dropzone" class="dropzone">
+            <div id="columns">
+                <div class="column" draggable="true">
+                    <header>A</header>
+                </div>
+                <div class="column" draggable="true">
+                    <header>B</header>
+                </div>
+            </div>
+        </div>
         <!--div id="picturesCol"-->
-        <img id="yes-drop" class="drag-drop" src="variable.svg" width="100" height="70" alt="draw variable">
+        <!--img id="columns" class="column" src="variable.svg" draggable=true width="100" height="70" alt="draw variable"-->
         <!--/div-->
-    </div>
-    <div id="footer">footer</div>
-    <script src="main.js" type="module"></script>
-    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+        <div id="footer">footer</div>
+        <script src="main.js" type="module"></script>
+        <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
 </body>
 
 </html>
