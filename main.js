@@ -82,6 +82,8 @@ function handleDragStart(e) {
     col.addEventListener('dragstart', handleDragStart, false);
   });
 
+  canvas_drop = document.getElementById("outer-dropzone")
+
 function handleDragOver(e) {
     if (e.preventDefault) {
       e.preventDefault(); // Necessary. Allows us to drop.
@@ -97,9 +99,9 @@ function handleDragOver(e) {
     this.classList.add('over');
   }
   
-  function handleDragLeave(e) {
+  /*function handleDragLeave(e) {
     this.classList.remove('over');  // this / e.target is previous target element.
-  }
+  }*/
 
   function handleDrop(e) {
     // this/e.target is current target element.
@@ -129,12 +131,14 @@ function handleDragOver(e) {
   var cols = document.querySelectorAll('#columns .column');
   [].forEach.call(cols, function(col) {
     col.addEventListener('dragstart', handleDragStart, false);
-    col.addEventListener('dragenter', handleDragEnter, false)
-    col.addEventListener('dragover', handleDragOver, false);
-    col.addEventListener('dragleave', handleDragLeave, false);
+    //col.addEventListener('dragleave', handleDragLeave, false);
     col.addEventListener('drop', handleDrop, false);
     col.addEventListener('dragend', handleDragEnd, false);
   });
+
+  canvas_drop.addEventListener('dragenter', handleDragEnter, false);
+  canvas_drop.addEventListener('dragover', handleDragOver, false);
+  canvas_drop.addEventListener('dragend', handleDragEnd, false);
 
 //иконка при перетаскивании
   var dragIcon = document.createElement('img');
