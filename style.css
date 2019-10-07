@@ -1,6 +1,6 @@
 body {
     font: 12pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
-    background: darkslategray; /* Цвет фона */
+    background: rgb(138, 102, 138);; /* Цвет фона */
     color: whitesmoke;
     font-family: sans-serif;
     padding: 0;
