@@ -3,6 +3,7 @@ body {
     background: darkslategray; /* Цвет фона */
     color: whitesmoke;
     font-family: sans-serif;
+    padding: 0;
 }
 
 #header {
@@ -10,17 +11,6 @@ body {
     color: white;
     text-align: center;
     padding: 6px;
-    border-radius: 5px;
-}
-
-#navigation {
-    line-height: 40px;
-    background-color: rgb(138, 102, 138);
-    height: 590px;
-    width: 15%;
-    float: left;
-    padding: 0px;
-    overflow: auto;
     border-radius: 5px;
 }
 
