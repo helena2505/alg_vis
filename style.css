@@ -2,6 +2,7 @@ body {
     font: 12pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
     background: darkslategray; /* Цвет фона */
     color: whitesmoke;
+    font-family: sans-serif;
 }
 
 #header {
@@ -14,7 +15,7 @@ body {
 
 #navigation {
     line-height: 40px;
-    background-color: plum;
+    background-color: rgb(138, 102, 138);
     height: 590px;
     width: 15%;
     float: left;
@@ -35,9 +36,8 @@ body {
     width: 19%;
     padding: 0px;
     float: right;
-    background-color: plum;
+    background-color: rgb(138, 102, 138);
     overflow: auto;
-    float: right;
     border-radius: 5px;
 }
 
@@ -63,10 +63,6 @@ body {
 
 .button:hover{
     background: rgb(255, 163, 88);
-}
-
-.optionList li{
-    list-style-type: none
 }
 
 .layout {
@@ -127,16 +123,4 @@ body {
 .drag-drop.can-drop {
     color: #000;
     background-color: transparent;
-}
-
-li {
-    padding-left: 2em;
-    padding-right: 0em;
-}
-
-li:hover {
-    -webkit-box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
-    box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
-    background-color: rgb(233, 168, 233);
-    cursor: pointer;
 }
