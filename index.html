@@ -1,80 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Algorithm and structure visualisation</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-    <div id="header">
-        <h1>Визуализация алгоритмов и структур данных</h1>
-    </div>
+<div id="header">
+    <h1>Визуализация алгоритмов и структур данных</h1>
+</div>
 
-    <div id="navigation">
-        <ul id="elementList">
-            <li class="elementListItem">
-                <h4>Целое число</h4>
+<div id="navigation">
+    <button>Сохранить</button>
+    <button>Сбросить</button>
+</div>
+
+<div id="drawing">
+    <div id="outer-dropzone" class="dropzone"></div>
+    <div id="picturesCol">
+        <ul class="menu">
+            <li>
+                <div>Переменная</div>
+                <img id="vr" src="variable.svg" width="100" height="70" alt="draw variable">
             </li>
-
-            <li class="elementListItem">
-                <h4>Вещественное число</h4>
-            </li>
-
-            <li class="elementListItem">
-                <h4>Символ</h4>
-            </li>
-
-            <li class="elementListItem">
-                <h4>Указатель</h4>
-            </li>
-
-            <li class="elementListItem">
-                <h4>Статический массив</h4>
-                <img id="columns" class="element" src="variable.svg" draggable=true width="100" height="70"
-                    alt="draw variable">
-            </li>
-
-            <li class="elementListItem">
-                <h4>Структура</h4>
-            </li>
-
-            <li class="elementListItem">
-                <h4>Стек</h4>
-            </li>
-
-            <li class="elementListItem">
-                <h4>Очередь</h4>
-            </li>
-
-            <li class="elementListItem">
-                <h4>Двусвязный список</h4>
-            </li>
-
-            <li class="elementListItem">
-                <h4>Бинарное дерево</h4>
-            </li>
-
-            <li class="elementListItem">
-                <h4>Множество</h4>
+            <li>
+                <div>Элемент однонаправленного списка</div>
+                <img id="one_list" src="stack_queue.svg" width="100" height="70" alt="draw variable">
             </li>
         </ul>
-        <button>Сохранить</button>
-        <button>Сбросить</button>
     </div>
+</div>
 
-    <div id="drawing">
-        <div id="outer-dropzone" class="dropzone"></div>
-        <div id="picturesCol"><img id="columns" class="element" src="variable.svg" draggable=true width="100" height="70"
-            alt="draw variable">
-        <!--img id="columns" class="column" src="variable.svg" draggable=true width="100" height="70" alt="draw variable"-->
-        </div>
-        <div id="footer">footer</div>
-        <script src="main.js" type="module"></script>
-        <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+<div id="footer">footer</div>
+
+<script src="main.js" type="module"></script>
+<script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
 </body>
-
 </html>
