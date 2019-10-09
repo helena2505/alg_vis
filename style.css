@@ -1,6 +1,6 @@
 body {
     font: 10pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
-    background: rgb(138, 102, 138);; /* Цвет фона */
+    background: rgb(138, 102, 138); /* Цвет фона */
     color: whitesmoke;
     font-family: sans-serif;
     padding: 0;
@@ -19,27 +19,6 @@ body {
     width: auto;
     overflow: hidden;
     border-radius: 5px;
-}
-
-#picturesCol {
-    height: 100%;
-    width: 19%;
-    padding: 0px;
-    float: right;
-    background-color: rgb(138, 102, 138);
-    overflow: auto;
-    border-radius: 5px;
-}
-
-.saveButton {
-    padding: 5px 5px;
-    text-align: center;
-    align-self: center;
-    background-color: azure;
-    width: 40%;
-    height: 20%;
-    box-shadow: 0 0 0 rgba(0,0,0,0.1), inset 0 0 0 rgba(0,0,0,0.1);
-    font-size: 15px;
 }
 
 .button:hover{
