@@ -1,4 +1,4 @@
-#navigation {
+#footer {
     line-height: 40px;
     background: transparent;
     /*background-color: rgb(138, 102, 138);*/
@@ -7,6 +7,8 @@
     float: left;
     padding: 0px;
     overflow: auto;
+    border-radius: 5px;
+    clear: both;
     border-radius: 5px;
 }
 

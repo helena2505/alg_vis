@@ -1,5 +1,5 @@
 body {
-    font: 12pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
+    font: 10pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
     background: rgb(138, 102, 138);; /* Цвет фона */
     color: whitesmoke;
     font-family: sans-serif;
@@ -10,12 +10,12 @@ body {
     background-color: pink;
     color: white;
     text-align: center;
-    padding: 6px;
+    padding: 4px;
     border-radius: 5px;
 }
 
 #drawing {
-    height: 590px;
+    height: 570px;
     width: auto;
     overflow: hidden;
     border-radius: 5px;
@@ -28,15 +28,6 @@ body {
     float: right;
     background-color: rgb(138, 102, 138);
     overflow: auto;
-    border-radius: 5px;
-}
-
-#footer {
-    background-color: pink;
-    color: white;
-    text-align: center;
-    padding: 6px;
-    clear: both;
     border-radius: 5px;
 }
 
