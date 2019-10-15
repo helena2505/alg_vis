@@ -15,7 +15,7 @@ body {
 }
 
 #drawing {
-    height: 570px;
+    height: 500px;
     width: auto;
     overflow: hidden;
     border-radius: 5px;

@@ -13,7 +13,8 @@
 
 <body>
     <div id="header">
-        <h2>Визуализация алгоритмов и структур данных</h2>
+        <h1>⠀</h1>
+        <h1>⠀</h1>
     </div>
 
     <div id="navigation">
@@ -21,26 +22,35 @@
     </div>
 
     <div id="drawing">
-        <div id="outer-dropzone" class="dropzone"></div>
+        <div id="outer-dropzone" class="dropzone">
+            <button class="btn btn4">Редактировать</button>
+        </div>
         <div id="picturesCol">
             <ul class="menu">
                 <li>
                     <!--Чтобы bullet не отрывалась от названия, тут стоит невидимый пробел между словом и bullet-->
-                    <div>&#9773;⠀Элемент статического массива</div>
-                    <img id="vr" src="variable.svg" width="100" height="70" alt="draw variable">
+                    <div>&#9773;⠀Cтатический массив</div>
+                    <ul>
+                        <li>
+                            Сортировка методом установки
+                        </li>
+                        <li>
+                            Сортировка методом пузырька
+                        </li>
+                        <li>
+                            Удаление элемента методом сдвига
+                        </li>
+                    </ul>
+                    <!--img id="vr" src="variable.svg" width="100" height="70" alt="draw variable"-->
                 </li>
                 <li>
-                    <div>&#9773;⠀Элемент однонаправленного списка</div>
-                    <img id="one_list" src="stack_queue.svg" width="100" height="70" alt="draw variable">
+                    <div>&#9773;⠀Однонаправленный список</div>
+                    <!--img id="one_list" src="stack_queue.svg" width="100" height="70" alt="draw variable"-->
                 </li>
                 <li>
-                    <div>&#9773;⠀Элемент дерева</div>
-                    <img id="tree_node" src="tree_node.svg" width="100" height="70" alt="draw tree node">
+                    <div>&#9773;⠀Дерево</div>
+                    <!--img id="tree_node" src="tree_node.svg" width="100" height="70" alt="draw tree node"-->
                 </li>
-                <li>
-                        <div>&#9773;⠀Try</div>
-                        <img id="try" src="try.svg" width="100" height="70" alt="draw tree node">
-                    </li>
             </ul>
         </div>
     </div>
@@ -48,6 +58,7 @@
     <div id="footer">
         <div class="container">
             <button class="btn btn2">Сбросить</button>
+            <button class="btn btn4" id="op_button">Выйти из режима оператора</button>
         </div>
     </div>
 
