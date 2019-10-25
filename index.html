@@ -9,9 +9,29 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="menu_style.css" />
     <link rel="stylesheet" href="footer_style.css" />
+    <link rel="stylesheet" href="modal_style.css" />
 </head>
 
 <body>
+    <button id="modalBtn" class="button">Click here</button>
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeBtn">&times;</span>
+                <h2>Modal Header</h2>
+            </div>
+            <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, maxime consequuntur consequatur
+                    molestias neque pariatur provident recusandae numquam autem quam est voluptatibus laboriosam
+                    delectus at nesciunt praesentium dicta assumenda iusto!</p>
+            </div>
+            <div class="modal-footer">
+                <h3>Modal footer</h3>
+            </div>
+        </div>
+    </div>
+
+
     <div id="header">
         <h1>⠀</h1>
         <h1>⠀</h1>
@@ -75,6 +95,7 @@
     </div>
 
     <script src="main.js" type="module"></script>
+    <script src="modal.js" type="module"></script>
     <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
 </body>
 
