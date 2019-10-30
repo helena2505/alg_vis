@@ -1,10 +1,10 @@
-#picturesCol {
+#picturesCol,
+#picturesCol1 {
     height: 100%;
-    width: 19%;
+    width: 20%;
     padding: 0px;
     float: right;
-    background-color: rgb(212, 154, 212);
-    /*background: transparent;*/
+    background-color: plum;
     overflow: auto;
     border-radius: 5px;
 }
@@ -13,6 +13,10 @@
     list-style-type: none;
     box-sizing: border-box;
     padding-left: 8px;
+}
+
+.editor {
+    list-style-type: none;
 }
 
 .menu li {

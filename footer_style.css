@@ -1,44 +1,58 @@
+/*Стиль нижнего прямоугольника*/
 #footer {
-    line-height: 40px;
-    background: transparent;
-    /*background-color: rgb(138, 102, 138);*/
-    height: 30%;
+    background-color: pink;
+    height: 10%;
     width: 100%;
     float: left;
     padding: 0px;
     overflow: auto;
     border-radius: 5px;
-    /*clear: both;*/
+    clear: both;
 }
 
 .container {
-    text-align: left;
     margin-top: 5px;
+    text-align: center;
+    width: 100%;
 }
 
+/*Стиль кноки*/
 .btn{
     border: 1px solid pink;
     background: none;
-    padding: 10px 20px;
-    font: 20px Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
     cursor: pointer;
+    font-family: "montserrat";
+    font-size: 20px;
     margin: 10px;
     transition: 0.8s;
+    padding: 10px 20px;
     position: relative;
     overflow: hidden;
   }
-  .btn1,.btn2{
-    color: pink;
+
+    .btn-ref,
+  .btn1,
+  .btn2,
+  .btn3,
+  .btn4,
+  .btn5 {
+        color: orchid;
+        transition: color 0.2s linear;
+        text-decoration: none;
   }
-  .btn3,.btn4{
+
+  .btn1:hover,
+  .btn5:hover,
+  .btn2:hover{
     color: #fff;
   }
-  .btn1:hover,.btn2:hover{
+
+  .btn3:hover,
+  .btn4:hover,
+  .btn-ref:hover {
     color: #fff;
   }
-  .btn3:hover,.btn4:hover{
-    color: pink;
-  }
+
   .btn::before{
     content: "";
     position: absolute;
@@ -49,24 +63,44 @@
     z-index: -1;
     transition: 0.8s;
   }
-  .btn1::before,.btn3::before{
+
+  .btn1::before,
+  .btn5::before,
+  .btn3::before{
     top: 0;
     border-radius: 0 0 50% 50%;
   }
-  .btn2::before,.btn4::before{
+
+  .btn2::before,
+  .btn4::before,
+  .btn-ref::before {
     bottom: 0;
     border-radius: 50% 50% 0 0;
   }
-  .btn3::before,.btn4::before{
+
+  .btn3::before,
+  .btn4::before,
+  .btn-ref {
     height: 180%;
   }
-  .btn1:hover::before,.btn2:hover::before{
+
+  .btn1:hover::before,
+  .btn5:hover::before,
+  .btn2:hover::before {
     height: 180%;
   }
-  .btn3:hover::before,.btn4:hover::before{
+
+  .btn3:hover::before,
+  .btn4:hover::before
+  .btn-ref:hover::before{
     height: 0%;
   }
   
   #op_button {
     float: right;
   }
+
+  /*.btn-ref {
+      color: orchid;
+      text-decoration: none;
+  }*/

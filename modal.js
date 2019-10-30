@@ -1,7 +1,7 @@
 // Get modal element
 var modal_1wayList = document.getElementById('list1Modal');
 // Get open modal button
-var modalBtn1List = document.getElementById('modalBtn1List');
+var modalBtn1List = document.getElementById('cont2');
 // Get close button
 var closeBtn = document.getElementsByClassName('closeBtn')[0];
 

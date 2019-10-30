@@ -1,86 +1,82 @@
 body {
-    font: 10pt Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif; /* Шрифт на веб-странице */
+    font: 10pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
     background: rgb(138, 102, 138); /* Цвет фона */
     color: whitesmoke;
     font-family: sans-serif;
     padding: 0;
+    margin: 0;
+}
+
+.operator {
+    height: 100vh;
+    width: 100%;
 }
 
 #header {
     background-color: pink;
-    color: white;
-    text-align: center;
-    padding: 4px;
     border-radius: 5px;
+    color: white;
+    height: 10%;
+    padding: 4px;
+    text-align: center;
 }
 
 #drawing {
-    height: 500px;
-    width: auto;
+    height: 80%;
+    width: 100%;
     overflow: hidden;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .button:hover{
     background: rgb(255, 163, 88);
 }
 
-.layout {
-    overflow: hidden;
-}
-
-.layout div div{
-    margin: 0 0px; /* Отступы */
-    padding: 0px; /* Поля */
-    height: 100%; /* Высота колонок */
-    background: darksalmon; /* Цвет фона */
-    color: #f5e8d0; /* Цвет текста */
-    overflow: auto;
-}
-
-
-#outer-dropzone {
-    height: 100%;
-    width: 80%;
-    background-color: white;
-    float: left;
-    border-radius: 5px;
-}
-
-#inner-dropzone {
-    height: 80px;
-}
-
 .dropzone {
     background-color: white;
-    border: dashed 4px transparent;
+    border: 4px black;
     border-radius: 5px;
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    height: 100%;
     margin: 0px auto 0px;
+    overflow: hidden;
     padding: 0px;
-    width: 80%;
-    transition: background-color 0.3s;
-}
-
-.drop-active {
-    border-color: #aaa;
     position: relative;
+    width: 80%;
 }
 
-.drop-target {
-    background-color: #29e;
-    border-color: #fff;
-    border-style: solid;
+.menu-draw {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0px auto 0px;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    width: 80%;
 }
 
-.drag-drop {
-    display: inline-block;
-    touch-action: none;
-    -webkit-transform: translate(0px, 0px);
-    transform: translate(0px, 0px);
-    transition: background-color 0.3s;
+.primitives {
+    background-color: mediumorchid;
+    border-radius: 5px;
+    float: left;
+    height: 100%;
+    left: 0;
+    margin-top: 0;
+    overflow: auto;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    width: 20%;
 }
 
-.drag-drop.can-drop {
-    color: #000;
-    background-color: transparent;
+.primitives-active {
+    transform: translateX(0%);
 }
+
