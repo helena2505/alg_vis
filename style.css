@@ -67,7 +67,7 @@ body {
 
 /* Primitives edit menu */
 .primitives {
-    background-color: mediumorchid;
+    background-color: plum;
     border-radius: 5px;
     float: left;
     height: 100%;
@@ -82,4 +82,15 @@ body {
 /* Show primitives */
 .primitives-active {
     transform: translateX(0%);
+}
+
+#qbutton {
+    color: white;
+}
+
+#qbutton:hover {
+    -webkit-box-shadow: 0px 0px 5px rgba(255,255,255,0.9);
+    box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+    transform: scale(1.03);
+    cursor: pointer;
 }
