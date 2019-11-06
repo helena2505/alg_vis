@@ -29,5 +29,4 @@ function outsideClick(e) {
     if (e.target == modal_1wayList){
         modal_1wayList.style.display = 'none';
     }
-    
 }

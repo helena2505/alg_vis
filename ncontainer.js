@@ -8,6 +8,7 @@ let inputName = document.getElementById("str-inp1"); // Строка ввода
 let containerName = ''; // Строка для хранения введенного имени контейнера
 let baseList = document.getElementById("available-containers"); // Список контейнеров
 let close = document.getElementById("cross1"); // Крестик модального окна
+window.addEventListener('click', outsideClick); // Listen for outside click
 
 // Добавление к каждой картинке обработчика события начала перетаскивания
 for(let i = 0; i < allPictures.length; i++) {
@@ -51,9 +52,9 @@ finishButton.onclick = function(event) {
 
 confButton.onclick = function() {
     /* Функция-обработчик нажатия на кнопку ОК
-   * Делает видимым меню с графическими примитивами, если была введена непустая строка
-   * Ничего не принимает, ничего не возвращает
-   * Автор: Елена Карелина
+     * Делает видимым меню с графическими примитивами, если была введена непустая строка
+     * Ничего не принимает, ничего не возвращает
+     * Автор: Елена Карелина
     */
     containerName = inputName.value; // Сохранение введенного имени контейнера
     if (containerName === "") // Если введена пустая строка, предупреждаем пользователя и ничего не делаем
@@ -71,4 +72,14 @@ close.onclick = function() {
    * Автор: Елена Карелина
     */
     modalWindow.style.display = "none";
+}
+
+function outsideClick(e) {
+    /* Function has no input parameters
+    * Functions closes modal on outside click
+    * Function doesn't return anything
+    * Author: Shorygina Tatyana */
+    if (e.target == modalWindow){
+        modalWindow.style.display = 'none';
+    }
 }

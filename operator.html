@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="menu_style.css" />
     <link rel="stylesheet" href="footer_style.css" />
     <link rel="stylesheet" href="context_menu.css" />
-    <link rel="stylesheet" href="modal_window.css" />
+    <link rel="stylesheet" href="modal_add.css" />
     <link rel="stylesheet" href="modal_style.css" />
 </head>
 
@@ -33,25 +33,32 @@
                             <img id="circule" src="pictures1/circ.svg" width="100" height="70" alt="draw circle">
                         </li>
                         <li>
-                            <img id="right_arrow" src="pictures1/right_arrow.svg" width="100" height="70" alt="draw right arrow">
+                            <img id="right_arrow" src="pictures1/right_arrow.svg" width="100" height="70"
+                                alt="draw right arrow">
                         </li>
                         <li>
-                            <img id="left_arrow" src="pictures1/left_arrow.svg" width="100" height="70" alt="draw left arrow">
+                            <img id="left_arrow" src="pictures1/left_arrow.svg" width="100" height="70"
+                                alt="draw left arrow">
                         </li>
                         <li>
-                            <img id="left_down_arrow" src="pictures1/left_down_arrow.svg" width="100" height="70" alt="draw left down arrow">
+                            <img id="left_down_arrow" src="pictures1/left_down_arrow.svg" width="100" height="70"
+                                alt="draw left down arrow">
                         </li>
                         <li>
-                            <img id="right_down_arrow" src="pictures1/right_down_arrow.svg" width="100" height="70" alt="draw right down arrow">
+                            <img id="right_down_arrow" src="pictures1/right_down_arrow.svg" width="100" height="70"
+                                alt="draw right down arrow">
                         </li>
                         <li>
-                            <img id="stack_queue_without_arrow" src="pictures1/stack_queue_without_arrow.svg" width="100" height="70" alt="draw stack/queue without arrow">
+                            <img id="stack_queue_without_arrow" src="pictures1/stack_queue_without_arrow.svg"
+                                width="100" height="70" alt="draw stack/queue without arrow">
                         </li>
                         <li>
-                            <img id="tree_node" src="pictures1/tree_node.svg" width="100" height="70" alt="draw tree_node">
+                            <img id="tree_node" src="pictures1/tree_node.svg" width="100" height="70"
+                                alt="draw tree_node">
                         </li>
                         <li>
-                            <img id="rectangle" src="pictures1/rectangle.svg" width="100" height="70" alt="draw variable">
+                            <img id="rectangle" src="pictures1/rectangle.svg" width="100" height="70"
+                                alt="draw variable">
                         </li>
                         <li>
                             <img id="array" src="pictures1/try.svg" width="100" height="70" alt="draw array element">
@@ -92,7 +99,8 @@
         <div id="footer">
             <div class="container">
                 <button class="btn btn2">Сбросить</button>
-                <button class="btn btn4" id="op_button"> <a href="index.html" class="btn-ref">Выйти из режима оператора</a></button>
+                <button class="btn btn4" id="op_button"> <a href="index.html" class="btn-ref">Выйти из режима
+                        оператора</a></button>
             </div>
         </div>
     </div>
@@ -112,31 +120,42 @@
         </ul>
     </nav>
     <!--Dialog window for entering info about container-->
-    <div class="dialog-add" id="modal-window">
-        <span id="cross1">&times</span>
-        <div class="hint">Название контейнера</div>
-        <input class="input-str" id="str-inp1" type="text">
-        <div class="hint">Описание</div>
-        <input class="input-str" id="str-inp2" type="text">
-        <btn class="confirm" id="conf">OK</btn>
+    <div class="modal" id="modal-window">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="cross1">&times</span>
+                <h2>Добавить структуру данных</h2>
+            </div>
+            <div class="modal-body">
+                <div class="hint">Название контейнера</div>
+                <input class="input-str" id="str-inp1" type="text">
+                <div class="hint">Описание</div>
+                <input class="input-str" id="str-inp2" type="text">
+                <btn class="confirm" id="conf">OK</btn>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
     </div>
     <!--Modal window for displaying info about structures-->
     <div id="list1Modal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="closeBtn">&times;</span>
-                    <h2>Однонаправленный список</h2>
-                </div>
-                <div class="modal-body">
-                    <p>Линейный однонаправленный список — это структура данных, состоящая из элементов одного типа, связанных между собой последовательно посредством указателей.</p>
-                    <img id="one_list" src="pictures1/stack_queue.svg" width="100" height="70" alt="draw variable">
-                    <div><button id="editBtn" class="button">Редактировать</button></div>
-                    <div><button id="deleteBtn" class="button">Удалить</button></div>
-                </div>
-                <div class="modal-footer">
-                    <h3> </h3>
-                </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeBtn">&times;</span>
+                <h2>Однонаправленный список</h2>
             </div>
+            <div class="modal-body">
+                <p>Линейный однонаправленный список — это структура данных, состоящая из элементов одного типа,
+                    связанных между собой последовательно посредством указателей.</p>
+                <img id="one_list" src="pictures1/stack_queue.svg" width="100" height="70" alt="draw variable">
+                <div><button id="editBtn" class="button">Редактировать</button></div>
+                <div><button id="deleteBtn" class="button">Удалить</button></div>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
     </div>
 
     <!--Scripts-->
