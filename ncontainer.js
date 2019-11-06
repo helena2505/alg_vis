@@ -43,11 +43,32 @@ finishButton.onclick = function(event) {
     */
     event.preventDefault(); // Отключение дефолтного обработчика
     graphEditor.classList.remove("primitives-active"); // Удаление из списка классов класса, в котором прописана полная видимость меню
-    let tmp = document.createElement("li"); // Создание нового элемента списка
-    tmp.innerHTML = "&#9773; " + containerName; // Добавление текста - введенного имени контейнера
-    tmp.classList.add("one-container"); // Назначение элементу класса элемента списка контейнеров
-    tmp.id = containerName; // Назначение элементу id
-    baseList.prepend(tmp) // Присоединение элемента к списку (в начало)
+    let xhr = new XMLHttpRequest(); // Создание нового HTTP запроса к серверу
+    xhr.open("POST", "include/test.php", true); // Определение типа и адреса запроса
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Передача кодировки информации
+    xhr.send('name=' + encodeURIComponent(containerName) + '&descr=' + encodeURIComponent(containerDescription)); // Передача информации
+    xhr.onreadystatechange = function() { // Ждём ответа от сервера
+        /* Функция-обработчик события получения ответа от сервера
+        * В случае подтверждения сервером удачного добавления в БД добавляет имя контейнера в интерфейс
+        * Ничего не принимает, ничего не возвращает
+        * Автор: Елена Карелина
+        */
+        if (xhr.readyState == 4) { // Ответ пришёл
+            if(xhr.status == 200) { // Сервер вернул код 200 (что хорошо)
+                let results = xhr.responseText.split(' ');
+                if (results[0] === "1") { // Если добавление в БД было произведено корректно, добавляем контейнер в интерфейс
+                    let tmp = document.createElement("li"); // Создание нового элемента списка
+                    tmp.innerHTML = "&#9773; " + containerName; // Добавление текста - введенного имени контейнера
+                    tmp.classList.add("one-container"); // Назначение элементу класса элемента списка контейнеров
+                    tmp.id = results[1]; // Назначение элементу id
+                    baseList.appendChild(tmp) // Присоединение элемента к списку (в конец, как лежит в БД)
+                }
+                else {
+                    alert('При добавлении в базу данных произошла ошибка');
+                }
+            }
+        }
+    };
 }
 
 confButton.onclick = function() {

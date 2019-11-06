@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+require_once 'include/database.php';
+?>
 <html lang="en">
 
 <head>
@@ -71,24 +74,15 @@
             <!--Structures menu-->
             <div id="structures-col">
                 <ul class="menu" id="available-containers">
-                    <li id="cont1" class="one-container">
-                        <div>&#9773;⠀Переменная</div>
-                        <img id="vr" src="pictures1/variable.svg" width="100" height="70" alt="draw variable">
-                    </li>
-                    <li id="cont2" class="one-container">
-                        <div>&#9773;⠀Однонаправленный список</div>
-                        <img id="one_list" src="pictures1/stack_queue.svg" width="100" height="70" alt="draw variable">
-                    </li>
-                    <li id="cont3" class="one-container">
-                        <div>&#9773;⠀Дерево</div>
-                        <img id="tree_node" src="pictures1/tree_node.svg" width="100" height="70" alt="draw tree node">
-                    </li>
-                    <li id="cont4" class="one-container">
-                        <div>&#9773;⠀Массив</div>
-                        <img id="array" src="pictures1/try.svg" width="100" height="70" alt="draw array element">
-                    </li>
+                <?php foreach ($containers as $container):
+                        $id = strval($container["id"]);
+                        ?>
+                        <li class="one-container" id=<?=$id?>><div>&#9773; <?=$container["container_name"]?></div></li>
+                    <?php endforeach; ?>
+                </ul>
+                <ul class="menu">
                     <li>
-                        <div id="add_a_container">+ Создать новый контейнер</div>
+                        <div id="add_a_container" class="one-container">+ Создать новый контейнер</div>
                     </li>
                 </ul>
             </div>

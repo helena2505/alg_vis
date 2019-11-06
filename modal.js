@@ -1,16 +1,39 @@
-var modal_1wayList = document.getElementById('list1Modal'); // Get modal element
-var modalBtn1List = document.getElementById('cont2'); // Get open modal button
-var closeBtn = document.getElementsByClassName('closeBtn')[0]; // Get close button
+let lst = document.getElementById('available-containers');
+let modal_1wayList = document.getElementById('list1Modal'); // Get modal element
+let modalBtn1List = document.getElementById('cont2'); // Get open modal button
+let allCont = lst.querySelectorAll('li'); // All containers
+let contName = document.getElementById('cont-name'); // Container name
+let contDescr = document.getElementById('cont-descr'); // Container description
+let closeBtn = document.getElementsByClassName('closeBtn')[0]; // Get close button
 modalBtn1List.addEventListener('click', openModal); // Listen for open click
 closeBtn.addEventListener('click', closeModal); // Listen for close click
 window.addEventListener('click', outsideClick); // Listen for outside click
 
-function openModal() {
-    /* Function has no input parameters
-    * Functions opens modal
-    * Function doesn't return anything
-    * Author: Shorygina Tatyana */
+
+lst.onclick = function(event) {
+    if(event.target.tagName === 'LI')
+        openModal(event);
+};
+
+function openModal(event) {
     modal_1wayList.style.display = 'block';
+    let xhr = new XMLHttpRequest(); // Создание нового HTTP запроса к серверу
+    xhr.open("POST", "include/info.php", true); // Определение типа и адреса запроса
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Передача кодировки информации
+    xhr.send('id=' + encodeURIComponent(event.target.id)); // Передача информации
+    xhr.onreadystatechange = function() { // Ждём ответа от сервера
+        /* Функция-обработчик события получения ответа от сервера
+        * В случае подтверждения сервером удачного добавления в БД добавляет имя контейнера в интерфейс
+        * Ничего не принимает, ничего не возвращает
+        * Автор: Елена Карелина
+        */
+        if (xhr.readyState == 4) { // Ответ пришёл
+            if(xhr.status == 200) { // Сервер вернул код 200 (что хорошо)
+                contName.innerHTML = document.getElementById(event.target.id).textContent;
+                contDescr.innerHTML = xhr.responseText;
+            }
+        }
+    };
 }
 
 function closeModal() {
