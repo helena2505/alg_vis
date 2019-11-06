@@ -1,6 +1,6 @@
 let lst = document.getElementById('available-containers');
 let modal_1wayList = document.getElementById('list1Modal'); // Get modal element
-let modalBtn1List = document.getElementById('cont2'); // Get open modal button
+//let modalBtn1List = document.getElementById('cont2'); // Get open modal button
 let allCont = lst.querySelectorAll('li'); // All containers
 let contName = document.getElementById('cont-name'); // Container name
 let contDescr = document.getElementById('cont-descr'); // Container description

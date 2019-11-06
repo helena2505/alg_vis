@@ -77,7 +77,7 @@ require_once 'include/database.php';
                 <?php foreach ($containers as $container):
                         $id = strval($container["id"]);
                         ?>
-                        <li class="one-container" id=<?=$id?>><div>&#9773; <?=$container["container_name"]?></div></li>
+                        <li class="one-container" id=<?=$id?>>&#9773; <?=$container["container_name"]?></li>
                     <?php endforeach; ?>
                 </ul>
                 <ul class="menu">
