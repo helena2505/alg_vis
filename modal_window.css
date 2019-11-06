@@ -1,8 +1,9 @@
+/* Dialog window for adding new structure */
 .dialog-add {
     background-color: rgba(255, 0, 255, 0.5);
     border: black solid 1px;
     display: none;
-    height: 25%;
+    height: 35%;
     left: 30%;
     overflow: hidden;
     position: fixed;
@@ -23,7 +24,7 @@
     height: 15%;
     margin-left: 20%;
     margin-right: 20%;
-    margint-top: 5%;
+    margin-top: 5%;
     width: 60%;
 }
 

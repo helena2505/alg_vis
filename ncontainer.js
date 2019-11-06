@@ -29,7 +29,7 @@ addButton.onclick = function(event) {
     * Делает видимым меню с графическими примитивами
     * Принимает на вход событие, ничего не возвращает
     * Автор: Елена Карелина
-     */
+    */
     event.preventDefault(); // Отключение дефолтного обработчика
     modalWindow.style.display = 'block'
 }

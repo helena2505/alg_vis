@@ -1,29 +1,31 @@
-// Get modal element
-var modal_1wayList = document.getElementById('list1Modal');
-// Get open modal button
-var modalBtn1List = document.getElementById('cont2');
-// Get close button
-var closeBtn = document.getElementsByClassName('closeBtn')[0];
+var modal_1wayList = document.getElementById('list1Modal'); // Get modal element
+var modalBtn1List = document.getElementById('cont2'); // Get open modal button
+var closeBtn = document.getElementsByClassName('closeBtn')[0]; // Get close button
+modalBtn1List.addEventListener('click', openModal); // Listen for open click
+closeBtn.addEventListener('click', closeModal); // Listen for close click
+window.addEventListener('click', outsideClick); // Listen for outside click
 
-// Listen for open click
-modalBtn1List.addEventListener('click', openModal);
-// Listen for close click
-closeBtn.addEventListener('click', closeModal);
-// Listen for outside click
-window.addEventListener('click', outsideClick);
-
-// Function to open modal
 function openModal() {
+    /* Function has no input parameters
+    * Functions opens modal
+    * Function doesn't return anything
+    * Author: Shorygina Tatyana */
     modal_1wayList.style.display = 'block';
 }
 
-// Function to close modal
 function closeModal() {
+    /* Function has no input parameters
+    * Functions closes modal
+    * Function doesn't return anything
+    * Author: Shorygina Tatyana */
     modal_1wayList.style.display = 'none';
 }
 
-// Function to close modal if outside click
 function outsideClick(e) {
+    /* Function has no input parameters
+    * Functions closes modal on outside click
+    * Function doesn't return anything
+    * Author: Shorygina Tatyana */
     if (e.target == modal_1wayList){
         modal_1wayList.style.display = 'none';
     }

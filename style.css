@@ -1,17 +1,20 @@
+/* Body */
 body {
-    font: 10pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
-    background: rgb(138, 102, 138); /* Цвет фона */
+    font: 10pt Arial, Helvetica, sans-serif;
+    background: rgb(138, 102, 138);
     color: whitesmoke;
     font-family: sans-serif;
     padding: 0;
     margin: 0;
 }
 
+/* Operator mode */
 .operator {
     height: 100vh;
     width: 100%;
 }
 
+/* Header */
 #header {
     background-color: pink;
     border-radius: 5px;
@@ -21,6 +24,7 @@ body {
     text-align: center;
 }
 
+/* Drawing window */
 #drawing {
     height: 80%;
     width: 100%;
@@ -30,10 +34,7 @@ body {
     justify-content: space-between;
 }
 
-.button:hover{
-    background: rgb(255, 163, 88);
-}
-
+/* Zone where it's allowed to drop objects */
 .dropzone {
     background-color: white;
     border: 4px black;
@@ -49,6 +50,7 @@ body {
     width: 80%;
 }
 
+/* Drawing window class */
 .menu-draw {
     background-color: white;
     border-radius: 5px;
@@ -63,6 +65,7 @@ body {
     width: 80%;
 }
 
+/* Primitives edit menu */
 .primitives {
     background-color: mediumorchid;
     border-radius: 5px;
@@ -76,6 +79,7 @@ body {
     width: 20%;
 }
 
+/* Show primitives */
 .primitives-active {
     transform: translateX(0%);
 }

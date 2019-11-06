@@ -1,3 +1,4 @@
+
 .button {
     border: none;
     background: none;
@@ -17,6 +18,7 @@
     transform: scale(1.03);
 }
 
+/* Modal window */
 .modal {
     color: black;
     display: none;
@@ -32,6 +34,7 @@
     animation-duration: 1s;
 }
 
+/* Modal content */
 .modal-content {
     background-color: #f4f4f4;
     margin: 10% auto;
@@ -39,20 +42,24 @@
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0, 0.17); 
 }
 
+/* Modal header */
 .modal-header{
     background: rgb(212, 154, 212);
     padding: 15px;
     color: #fff;
 }
 
+/* Modal header content */
 .modal-header h2{
     margin: 0;
 }
 
+/* Modal body content */
 .modal-body {
     padding: 20px;
 }
 
+/* Modal footer */
 .modal-footer {
     background: rgb(212, 154, 212);
     padding: 10px;
@@ -60,22 +67,26 @@
     text-align: center;
 }
 
+/* Exit button */
 .closeBtn {
     color: #fff;
     float: right;
     font-size: 30px;
 }
 
+/* Exit button on hover and focus */
 .closeBtn:hover, .closeBtn:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
+/* Buttons to delete and edit modal info from modal window */
 #deleteBtn, #editBtn {
     color: #000;
 }
 
+/* Modal opening */
 @keyframes modalopen {
     from{opacity : 0}
     to{opacity: 1}

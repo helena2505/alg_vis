@@ -11,31 +11,36 @@
     <link rel="stylesheet" href="context_menu.css" />
 </head>
 <body>
+<!--Student mode-->
 <div class="operator">
     <div id="header">
         <h1>Режим обучаемого</h1>
     </div>
-
+    <!--Drawing window-->
     <div id="drawing">
         <div class="menu-draw">
+            <!--Editor menu with primitives-->
             <div class="primitives" id="graph-primitives">
                 <ul class="editor">
                     <li>
-                        <img id="rectangle" src="pictures1/rect.svg" width="80" height="50" alt="draw variable">
+                        <img id="rectangle" src="pictures1/rect.svg" width="80" height="50" alt="rectangle">
                     </li>
                     <li>
-                        <img id="circule" src="pictures1/circ.svg" width="100" height="70" alt="draw variable">
+                        <img id="circule" src="pictures1/circ.svg" width="100" height="70" alt="circle">
                     </li>
+                    <!--Button to finish editing new structure primitive-->
                     <li>
                         <button class="btn btn5" id="qbutton">Готово</button>
                     </li>
             </div>
+            <!--Zone where it's allowed to drop objects-->
             <div id="outer-dropzone" class="dropzone"></div>
         </div>
-        <div id="picturesCol1">
+        <!--Structures column-->
+        <div id="structures-col">
+            <!--Structures list-->
             <ul class="menu" id="available-containers1">
                 <li class="one-container">
-                    <!--Чтобы bullet не отрывалась от названия, тут стоит невидимый пробел между словом и bullet-->
                     <div>&#9773;⠀Переменная</div>
                     <img src="pictures1/variable.svg" width="100" height="70" alt="draw variable">
                 </li>
@@ -55,6 +60,7 @@
         </div>
     </div>
 
+    <!--Footer-->
     <div id="footer">
         <div class="container">
             <button class="btn btn2">Сбросить</button>

@@ -1,4 +1,4 @@
-let containerMenu = document.getElementById('available-containers'); // Меню доступных контейнеров
+let containerMenu = document.getElementById('available-containers'); // Available containers menu
 let allPictures = containerMenu.querySelectorAll('img'); // Загрузка всех изображений, находящихся в меню
 let dropLoc = document.getElementById("outer-dropzone"); // Канва, на которую осуществляется перетаскивание
 

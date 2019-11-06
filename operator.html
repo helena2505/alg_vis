@@ -15,14 +15,16 @@
 </head>
 
 <body>
+    <!--Operator mode-->
     <div class="operator">
         <div id="header">
             <h1>Режим оператора</h1>
         </div>
-
+        <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw">
                 <div class="primitives" id="graph-primitives">
+                    <!--Primitives editor-->
                     <ul class="editor">
                         <li>
                             <img id="rectangle" src="pictures1/rect.svg" width="80" height="50" alt="draw rectangle">
@@ -58,12 +60,13 @@
                             <button class="btn btn5" id="qbutton">Готово</button>
                         </li>
                 </div>
+                <!--Zone where it's allowed to drop objects-->
                 <div id="outer-dropzone" class="dropzone"></div>
             </div>
-            <div id="picturesCol1">
+            <!--Structures menu-->
+            <div id="structures-col">
                 <ul class="menu" id="available-containers">
                     <li id="cont1" class="one-container">
-                        <!--Чтобы bullet не отрывалась от названия, тут стоит невидимый пробел между словом и bullet-->
                         <div>&#9773;⠀Переменная</div>
                         <img id="vr" src="pictures1/variable.svg" width="100" height="70" alt="draw variable">
                     </li>
@@ -85,7 +88,7 @@
                 </ul>
             </div>
         </div>
-
+        <!--Footer-->
         <div id="footer">
             <div class="container">
                 <button class="btn btn2">Сбросить</button>
@@ -93,7 +96,7 @@
             </div>
         </div>
     </div>
-    <!-- Контекстное меню для удаления-->
+    <!--Context menu for removal-->
     <nav class="context-menu" id="my-menu">
         <ul class="context-menu__items">
             <li class="context-menu__item">
@@ -108,7 +111,7 @@
             </li>
         </ul>
     </nav>
-    <!-- Диалоговое окно для ввода информации о контейнере-->
+    <!--Dialog window for entering info about container-->
     <div class="dialog-add" id="modal-window">
         <span id="cross1">&times</span>
         <div class="hint">Название контейнера</div>
@@ -117,8 +120,7 @@
         <input class="input-str" id="str-inp2" type="text">
         <btn class="confirm" id="conf">OK</btn>
     </div>
-
-    <!--button id="modalBtn" class="button">Click here</button-->
+    <!--Modal window for displaying info about structures-->
     <div id="list1Modal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -137,7 +139,7 @@
             </div>
     </div>
 
-    <!-- подключение скриптов-->
+    <!--Scripts-->
     <script src="main.js" type="module"></script>
     <script src="ncontainer.js" type="module"></script>
     <script src="delete_container.js" type="module"></script>

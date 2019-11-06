@@ -1,5 +1,5 @@
-#picturesCol,
-#picturesCol1 {
+/* Structures menu column */
+#structures-col {
     height: 100%;
     width: 20%;
     padding: 0px;
@@ -9,16 +9,19 @@
     border-radius: 5px;
 }
 
+/* Structures menu */
 .menu {
     list-style-type: none;
     box-sizing: border-box;
     padding-left: 8px;
 }
 
+/* Primitives editor menu */
 .editor {
     list-style-type: none;
 }
 
+/* Menu list item */
 .menu li {
     padding-right: 0em;
     padding-left: 8px;
@@ -29,11 +32,13 @@
     height: auto;
 }
 
+/* Menu list item div */
 .menu li div {
     text-align: left;
     width: 94%;
 }
 
+/* Menu list item on hover */
 .menu li:hover {
     -webkit-box-shadow: 0px 0px 5px rgba(255,255,255,0.9);
     box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
