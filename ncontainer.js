@@ -72,19 +72,21 @@ finishButton.onclick = function(event) {
         }
     };
 }
-
 confButton.onclick = function() {
     /* Функция-обработчик нажатия на кнопку ОК
-     * Делает видимым меню с графическими примитивами, если была введена непустая строка
-     * Ничего не принимает, ничего не возвращает
-     * Автор: Елена Карелина
+   * Делает видимым меню с графическими примитивами, если была введена непустая строка
+   * Ничего не принимает, ничего не возвращает
+   * Автор: Елена Карелина
     */
     containerName = inputName.value; // Сохранение введенного имени контейнера
     if (containerName === "") // Если введена пустая строка, предупреждаем пользователя и ничего не делаем
         alert("Не введено имя контейнера")
     else { // В противном случае переходим в режим графического редактора
+        containerDescription = inputDescription.value;
         modalWindow.style.display = "none"; // Отключаем видимость модального окна
         graphEditor.classList.add("primitives-active"); // Добавление к списку классов класса, в котором прописана полная видимость меню
+        inputName.value = '';
+        inputDescription.value = '';
     }
 }
 
@@ -94,6 +96,8 @@ close.onclick = function() {
    * Ничего не принимает, ничего не возвращает
    * Автор: Елена Карелина
     */
+    inputName.value = '';
+    inputDescription.value = '';
     modalWindow.style.display = "none";
 }
 
