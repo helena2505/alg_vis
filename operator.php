@@ -132,22 +132,18 @@ require_once 'include/database.php';
     </div>
     <!--Modal window for displaying info about structures-->
     <div id="list1Modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="closeBtn">&times;</span>
-                <h2>Однонаправленный список</h2>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="closeBtn">&times;</span>
+                    <h2 id="cont-name"></h2>
+                </div>
+                <div class="modal-body">
+                    <p id="cont-descr"></p>
+                </div>
+                <div class="modal-footer">
+                    <h3> </h3>
+                </div>
             </div>
-            <div class="modal-body">
-                <p>Линейный однонаправленный список — это структура данных, состоящая из элементов одного типа,
-                    связанных между собой последовательно посредством указателей.</p>
-                <img id="one_list" src="pictures1/stack_queue.svg" width="100" height="70" alt="draw variable">
-                <div><button id="editBtn" class="button">Редактировать</button></div>
-                <div><button id="deleteBtn" class="button">Удалить</button></div>
-            </div>
-            <div class="modal-footer">
-                <h3> </h3>
-            </div>
-        </div>
     </div>
 
     <!--Scripts-->
