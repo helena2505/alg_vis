@@ -1,4 +1,4 @@
-
+/* Button to open modal */
 .button {
     border: none;
     background: none;
@@ -10,6 +10,7 @@
     color: #fff;
 }
 
+/* Button to open modal on hover */
 .button:hover {
     -webkit-box-shadow: 0px 0px 5px rgba(255,255,255,0.9);
     box-shadow: 0px 0px 7px rgba(255,255,255,0.9);

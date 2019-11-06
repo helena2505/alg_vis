@@ -1,0 +1,42 @@
+.hint {
+    font-size: 20px;
+    /*height: 15%;*/
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+}
+
+.input-str {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 2%;
+    width: 60%;
+}
+
+.confirm {
+    color: #fff;
+    float: right;
+    font-size: 20px;
+    background: transparent;
+    height: 10%;
+    margin-top: 4%;
+}
+
+.confirm:hover, .confirm:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#cross1 {
+    color: #fff;
+    float: right;
+    font-size: 30px;
+}
+
+#cross1:hover, #cross1:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
