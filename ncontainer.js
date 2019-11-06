@@ -6,6 +6,8 @@ let modalWindow = document.getElementById("modal-window"); // Модальное
 let confButton = document.getElementById("conf"); // Кнопка ОК модального окна
 let inputName = document.getElementById("str-inp-name"); // Строка ввода
 let containerName = ''; // Строка для хранения введенного имени контейнера
+let inputDescription = document.getElementById("str-inp2"); // Строка ввода
+let containerDescription = ''; //Строка для хранения введенного описания контейнера
 let baseList = document.getElementById("available-containers"); // Список контейнеров
 let close = document.getElementById("cross1"); // Крестик модального окна
 window.addEventListener('click', outsideClick); // Listen for outside click
