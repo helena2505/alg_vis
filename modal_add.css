@@ -1,3 +1,4 @@
+/*Label for describing what info is requested to be input*/
 .hint {
     font-size: 20px;
     /*height: 15%;*/
@@ -6,7 +7,7 @@
     margin-right: 15%;
     width: 70%;
 }
-
+ /*Input string for typing info*/
 .input-str {
     margin-left: 20%;
     margin-right: 20%;
@@ -14,6 +15,7 @@
     width: 60%;
 }
 
+/*Button OK*/
 .confirm {
     color: #fff;
     float: right;
@@ -23,18 +25,22 @@
     margin-top: 4%;
 }
 
-.confirm:hover, .confirm:focus {
+/*Button OK hoover and focus*/
+.confirm:hover,
+.confirm:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
+/*Cross for closing modal window*/
 #cross1 {
     color: #fff;
     float: right;
     font-size: 30px;
 }
 
+/*Cross for closing modal window hoover and focus*/
 #cross1:hover, #cross1:focus {
     color: #000;
     text-decoration: none;

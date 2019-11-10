@@ -1,3 +1,15 @@
+function someFunction(firstParam, secondParam) {
+    /* The function takes two numbers
+    * The function computes the average value of these numbers
+    * The function returns the rounded value of the computed average
+    * Author: Elena Karelina
+     */
+    let average = (firstParam + secondParam)/2;
+    return Math.round(average);
+}
+
+result = someFunction(1, 2);  //Calling function which does something magic
+
 let containerMenu = document.getElementById('available-containers'); // Available containers menu
 let allPictures = containerMenu.querySelectorAll('img'); // Загрузка всех изображений, находящихся в меню
 let dropLoc = document.getElementById("outer-dropzone"); // Канва, на которую осуществляется перетаскивание

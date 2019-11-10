@@ -91,7 +91,7 @@ require_once 'include/database.php';
         <div id="footer">
             <div class="container">
                 <button class="btn btn2">Сбросить</button>
-                <button class="btn btn4" id="op_button"> <a href="index.html" class="btn-ref">Выйти из режима
+                <button class="btn btn4" id="op_button"> <a href="index.php" class="btn-ref">Выйти из режима
                         оператора</a></button>
             </div>
         </div>
