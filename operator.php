@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+require_once 'include/database.php';
+?>
 <html lang="en">
 
 <head>
@@ -71,24 +74,15 @@
             <!--Structures menu-->
             <div id="structures-col">
                 <ul class="menu" id="available-containers">
-                    <li id="cont1" class="one-container">
-                        <div>&#9773;⠀Переменная</div>
-                        <img id="vr" src="pictures1/variable.svg" width="100" height="70" alt="draw variable">
-                    </li>
-                    <li id="cont2" class="one-container">
-                        <div>&#9773;⠀Однонаправленный список</div>
-                        <img id="one_list" src="pictures1/stack_queue.svg" width="100" height="70" alt="draw variable">
-                    </li>
-                    <li id="cont3" class="one-container">
-                        <div>&#9773;⠀Дерево</div>
-                        <img id="tree_node" src="pictures1/tree_node.svg" width="100" height="70" alt="draw tree node">
-                    </li>
-                    <li id="cont4" class="one-container">
-                        <div>&#9773;⠀Массив</div>
-                        <img id="array" src="pictures1/try.svg" width="100" height="70" alt="draw array element">
-                    </li>
+                <?php foreach ($containers as $container):
+                        $id = strval($container["id"]);
+                        ?>
+                        <li class="one-container" id=<?=$id?>>&#9773; <?=$container["container_name"]?></li>
+                    <?php endforeach; ?>
+                </ul>
+                <ul class="menu">
                     <li>
-                        <div id="add_a_container">+ Создать новый контейнер</div>
+                        <div id="add_a_container" class="one-container">+ Создать новый контейнер</div>
                     </li>
                 </ul>
             </div>
@@ -97,7 +91,7 @@
         <div id="footer">
             <div class="container">
                 <button class="btn btn2">Сбросить</button>
-                <button class="btn btn4" id="op_button"> <a href="index.html" class="btn-ref">Выйти из режима
+                <button class="btn btn4" id="op_button"> <a href="index.php" class="btn-ref">Выйти из режима
                         оператора</a></button>
             </div>
         </div>
@@ -138,22 +132,18 @@
     </div>
     <!--Modal window for displaying info about structures-->
     <div id="list1Modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="closeBtn">&times;</span>
-                <h2>Однонаправленный список</h2>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="closeBtn">&times;</span>
+                    <h2 id="cont-name"></h2>
+                </div>
+                <div class="modal-body">
+                    <p id="cont-descr"></p>
+                </div>
+                <div class="modal-footer">
+                    <h3> </h3>
+                </div>
             </div>
-            <div class="modal-body">
-                <p>Линейный однонаправленный список — это структура данных, состоящая из элементов одного типа,
-                    связанных между собой последовательно посредством указателей.</p>
-                <img id="one_list" src="pictures1/stack_queue.svg" width="100" height="70" alt="draw variable">
-                <div><button id="editBtn" class="button">Редактировать</button></div>
-                <div><button id="deleteBtn" class="button">Удалить</button></div>
-            </div>
-            <div class="modal-footer">
-                <h3> </h3>
-            </div>
-        </div>
     </div>
 
     <!--Scripts-->

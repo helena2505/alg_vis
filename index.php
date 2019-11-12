@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    require_once('include/database.php');
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,22 +43,11 @@
         <div id="structures-col">
             <!--Structures list-->
             <ul class="menu" id="available-containers1">
-                <li class="one-container">
-                    <div>&#9773;⠀Переменная</div>
-                    <img src="pictures1/variable.svg" width="100" height="70" alt="draw variable">
-                </li>
-                <li class="one-container">
-                    <div>&#9773;⠀Однонаправленный список</div>
-                    <img src="pictures1/stack_queue.svg" width="100" height="70" alt="draw variable">
-                </li>
-                <li class="one-container">
-                    <div>&#9773;⠀Дерево</div>
-                    <img src="pictures1/tree_node.svg" width="100" height="70" alt="draw tree node">
-                </li>
-                <li class="one-container">
-                    <div>&#9773;⠀Массив</div>
-                    <img src="pictures1/try.svg" width="100" height="70" alt="draw array element">
-                </li>
+            <?php foreach ($containers as $container):
+                    $id = strval($container["id"]);
+                    ?>
+                <li class="one-container" id=$id><div>&#9773; <?=$container["container_name"]?></div></li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
@@ -64,7 +56,7 @@
     <div id="footer">
         <div class="container">
             <button class="btn btn2">Сбросить</button>
-            <button class="btn btn4" id="op_button"> <a href="operator.html" class="btn-ref">Войти в режим оператора</a></button>
+            <button class="btn btn4" id="op_button"> <a href="operator.php" class="btn-ref">Войти в режим оператора</a></button>
         </div>
     </div>
 </div>
