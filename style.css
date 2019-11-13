@@ -84,15 +84,21 @@ body {
     transform: translateX(0%);
 }
 
-/*Button "Готово" on graphical editor*/
 #qbutton {
     color: white;
 }
 
-/*Button "Готово" on graphical editor hoover*/
 #qbutton:hover {
     -webkit-box-shadow: 0px 0px 5px rgba(255,255,255,0.9);
     box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
     transform: scale(1.03);
     cursor: pointer;
+}
+
+.algorithm-list {
+    display: none;
+}
+
+.algorithm-list-vis {
+    display: block;
 }
