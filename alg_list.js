@@ -18,18 +18,18 @@ function showAlgorithms(event) {
         algList.classList.remove("algorithm-list-vis");
     }
     else {
-        let xhr = new XMLHttpRequest(); // Making new HTTP request to server
-        xhr.open("POST", "include/alg_list.php", true); // Definition of type an address of the request
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Encoding info transition
-        xhr.send('id=' + encodeURIComponent(targetContainer)); // Info transition
-        xhr.onreadystatechange = function() { // Waiting for reply from server
-            /* Function handling server answer event
-            * In case of successful addition to DB inserts the name of the container into interface
-            * No input parameters, no output parameters
-            * Authot: Elena Karelina
+        let xhr = new XMLHttpRequest(); // Создание нового HTTP запроса к серверу
+        xhr.open("POST", "include/alg_list.php", true); // Определение типа и адреса запроса
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Передача кодировки информации
+        xhr.send('id=' + encodeURIComponent(targetContainer)); // Передача информации
+        xhr.onreadystatechange = function() { // Ждём ответа от сервера
+            /* Функция-обработчик события получения ответа от сервера
+            * В случае подтверждения сервером удачного добавления в БД добавляет имя контейнера в интерфейс
+            * Ничего не принимает, ничего не возвращает
+            * Автор: Елена Карелина
             */
-            if (xhr.readyState == 4) { // Got answer
-                if(xhr.status == 200) { // Server returned 200 (which is good)
+            if (xhr.readyState == 4) { // Ответ пришёл
+                if(xhr.status == 200) { // Сервер вернул код 200 (что хорошо)
                     let algorithms = xhr.responseText.split('\\n');
                     for(let i = 0; i < algorithms.length - 1; i++) {
                         let new_element = document.createElement('LI');
