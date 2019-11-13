@@ -94,3 +94,11 @@ body {
     transform: scale(1.03);
     cursor: pointer;
 }
+
+.algorithm-list {
+    display: none;
+}
+
+.algorithm-list-vis {
+    display: block;
+}

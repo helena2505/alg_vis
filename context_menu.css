@@ -1,8 +1,8 @@
 /* Context menu */
 .context-menu {
     display: none;
-    background-color: lightgoldenrodyellow;
-    border: solid 1px maroon;
+    background-color: white;
+    border: solid 1px plum;
     box-shadow: 1px 1px 2px #cfcfcf;
     font-family: "montserrat";
     font-size: 14px;
@@ -11,6 +11,9 @@
     position: absolute;
     width: 200px;
     z-index: 10;
+    border-radius: 5px;
+    animation-name: context_menu_open;
+    animation-duration: 0.6s;
 }
 
 /* Display context menu */
@@ -25,15 +28,28 @@
     padding: 0;
 }
 
-/* ?????????????????????????????????????????????????????????????????????????????????? */
+/* Context menu items linked to DB actions */
 .context-menu__link {
     display: block;
     color: darkorchid;
     padding: 4px 12px;
     text-decoration: none;
+    animation-name: context_menu_open;
+    animation-duration: 0.8s;
+    transition: .4s;
 }
 
+/* Context menu item on hover */
 .context-menu__link:hover {
-    color: #fff;
-    background-color: bisque;
+    color: white;
+    background-color: pink;
+    -webkit-box-shadow: 0px 0px 5px rgba(255,255,255,0.9);
+    box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+@keyframes context_menu_open {
+    from{opacity : 0}
+    to{opacity: 1}
 }

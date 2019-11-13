@@ -7,7 +7,7 @@
     transition: 0.8s;
     position: relative;
     overflow: hidden;
-    color: #fff;
+    color: white;
 }
 
 /* Button to open modal on hover */
@@ -47,7 +47,7 @@
 .modal-header{
     background: rgb(212, 154, 212);
     padding: 15px;
-    color: #fff;
+    color: white;
 }
 
 /* Modal header content */
@@ -64,27 +64,27 @@
 .modal-footer {
     background: rgb(212, 154, 212);
     padding: 10px;
-    color: #fff;
+    color: white;
     text-align: center;
 }
 
 /* Exit button */
 .closeBtn {
-    color: #fff;
+    color: white;
     float: right;
     font-size: 30px;
 }
 
 /* Exit button on hover and focus */
 .closeBtn:hover, .closeBtn:focus {
-    color: #000;
+    color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
 /* Buttons to delete and edit modal info from modal window */
 #deleteBtn, #editBtn {
-    color: #000;
+    color: black;
 }
 
 /* Modal opening */

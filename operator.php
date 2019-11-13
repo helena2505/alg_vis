@@ -78,6 +78,7 @@ require_once 'include/database.php';
                         $id = strval($container["id"]);
                         ?>
                         <li class="one-container" id=<?=$id?>>&#9773; <?=$container["container_name"]?></li>
+                        <ul class="algorithm-list" id=<?="alg".$id?>></ul>
                     <?php endforeach; ?>
                 </ul>
                 <ul class="menu">
@@ -91,7 +92,7 @@ require_once 'include/database.php';
         <div id="footer">
             <div class="container">
                 <button class="btn btn2">Сбросить</button>
-                <button class="btn btn4" id="op_button"> <a href="index.html" class="btn-ref">Выйти из режима
+                <button class="btn btn4" id="op_button"> <a href="index.php" class="btn-ref">Выйти из режима
                         оператора</a></button>
             </div>
         </div>
@@ -105,8 +106,8 @@ require_once 'include/database.php';
                 </a>
             </li>
             <li class="context-menu__item">
-                <a href="#" class="context-menu__link">
-                    <i class="fa fa-eye"></i> Изменить
+                <a href="#" class="context-menu__link" id="show-info">
+                    <i class="fa fa-eye"></i> Посмотреть информацию
                 </a>
             </li>
         </ul>
@@ -149,8 +150,9 @@ require_once 'include/database.php';
     <!--Scripts-->
     <script src="main.js" type="module"></script>
     <script src="ncontainer.js" type="module"></script>
-    <script src="delete_container.js" type="module"></script>
+    <script src="delete_container.js" type="text/javascript"></script>
     <script src="modal.js" type="module"></script>
+    <script src="alg_list.js" type="text/javascript"></script>
 </body>
 
 </html>
