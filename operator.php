@@ -78,6 +78,7 @@ require_once 'include/database.php';
                         $id = strval($container["id"]);
                         ?>
                         <li class="one-container" id=<?=$id?>>&#9773; <?=$container["container_name"]?></li>
+                        <ul class="algorithm-list" id=<?="alg".$id?>></ul>
                     <?php endforeach; ?>
                 </ul>
                 <ul class="menu">
@@ -106,7 +107,7 @@ require_once 'include/database.php';
             </li>
             <li class="context-menu__item">
                 <a href="#" class="context-menu__link">
-                    <i class="fa fa-eye"></i> Изменить
+                    <i class="fa fa-eye" id="show-info"></i> Посмотреть информацию
                 </a>
             </li>
         </ul>
@@ -151,6 +152,7 @@ require_once 'include/database.php';
     <script src="ncontainer.js" type="module"></script>
     <script src="delete_container.js" type="module"></script>
     <script src="modal.js" type="module"></script>
+    <script src="alg_list.js" type="module"></script>
 </body>
 
 </html>

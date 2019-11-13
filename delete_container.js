@@ -1,115 +1,116 @@
-let menu = document.getElementById('my-menu'); // Context menu let
-let menuState = 0; // Let of context's menu state (visible or not, not visible by default)
-let activeClassName = "context-menu--active" // Class name for enableing context menu's visibility
-let taskItemClassName = 'menu'; // Menu's class name
-let menuPosition = 0; // Let for context menu's position
-let menuPositionX = 0; // Let for coordinate X of context menu
-let menuPositionY = 0; // Let for coordinate Y of context menu
-let windowWidth = 0; // Let for keeping the window's width
-let windowHeight = 0; // Let for keeping the window's height
-let clickCoords; // Let for keeping the coordinates where the click occured
-let clickCoordsX; // Let for keeping the coordinate X where the click occured
-let clickCoordsY; // Let for keeping the coordinate Y where the click occured
-let deleteContainer = document.getElementById("delete-container"); // Let of context menu's button "Удалить контейнер"
-let elementForDelete = ''; // ID of deleted container
+let menu = document.getElementById('my-menu'); // Переменная контекстного меню
+let menuState = 0; // Переменная состояния контекстного меню (видно или не видно, по умолчанию не видно)
+let activeClassName = "context-menu--active" // Название класса для включения выидимости контекстного меню
+let taskItemClassName = 'menu'; // Название класа меню
+let menuPosition = 0; // Переменная для позиционирования контекстного меню
+let menuPositionX = 0; // Переменная для координаты X контекстного меню
+let menuPositionY = 0; // Переменная для координаты Y контекстного меню
+let windowWidth = 0; // Переменная для хранения ширины окна
+let windowHeight = 0; // Переменная для хранения высоты окна
+let clickCoords; // Переменная для хранения координат, на которых был совершен клик
+let clickCoordsX; // Переменная для хранения координаты X, на которых был совершен клик
+let clickCoordsY; // Переменная для хранения координаты Y, на которых был совершен клик
+let deleteContainer = document.getElementById("delete-container"); // Переменная кнопки контекстного меню "Удалить контейнер"
+let elementForDelete = ''; // ID удаляемого контейнера
 
-// Adding event listener of right click for all document's area
+// Добавление обработчика события правого клика на всей странице
 document.addEventListener( "contextmenu", function(event) {
-    /* Event listener of right click
-    * The function disables default listener if the right click has been on containers' list
-    * Input parameter: event
-    * Author: Elena Karelina
+    /* Функция обработчик события нажатия на правую кнопку мыши на всей странице
+    * Отключает дефолтный обработчик в случае, если было произведено нажатие на список контейнеров
+    * Принимает на вход событие
+    * Автор: Елена Карелина
      */
-    if (clickInsideElement(event, taskItemClassName)) { // Checking that the right click has been on the containers list
-        event.preventDefault(); // Disabling the default listener
-        toggleMenuOn(); // Enabling context menu visibility
+    if (clickInsideElement(event, taskItemClassName)) { // Вызов функции проверки того, что нажатие было совершено в области списка контейнеров
+        event.preventDefault(); // Отключение дефолтного обработчика
+        toggleMenuOn(); // Вызов функции для включения видимости контекстного меню
     }
 });
 
-// Adding event listener of left click for all document's area
+// Добавление обработчика события нажатия на левую клавишу мыши на всей странице
 document.addEventListener( "click", function(event) {
-    /* Event listener of left click
-    * The function disables the visibility of the context menu if the left click has occured
-    * Input parameter: event. Output parameters: no
-    * Author: Elena Karelina
+    /*Функция-обработчик события нажатия на левую клавишу
+    * Отключает видимость контекстного меню в случае, если произошло нажатие на левую клавишу
+    * Принимает на вход событие, ничего не возвращает
+    * Автор: Елена Карелина
      */
-    var button = event.which || event.button; // Checking that left click has happened indeed
+    var button = event.which || event.button; // Проверка того, что действительно произошло нажатие на левую кнопку мыши
     if (button === 1) {
-        toggleMenuOff(); // Disabling context menu visibility
+        toggleMenuOff(); // Вызов функции для выключения видимости контекстного меню
     }
 });
 
-//  Adding event listener of pressing escape key
+// Добавление обработчика события нажатия на клавишу escape
 window.onkeyup = function(event) {
-    /* Event listner of pressing escape
-    * The function disables the visibility of the context menu if clicking escape has occured
-    * Input parameter: event. Output parameters: no
-    * Author: Elena Karelina
+    /*Функция-обработчик события нажатия на клавишу escape
+    * Отключает видимость контекстного меню в случае, если произошло нажатие на клавишу escape
+    * Принимает на вход событие, ничего не возвращает
+    * Автор: Елена Карелина
      */
-    if (event.keyCode === 27) { // Checking that pressing escape has happened indeed
-        toggleMenuOff(); // Disabling context menu visibility
+    if (event.keyCode === 27) { //Проверка того, что код нажатой клавиши равен коду escape
+        toggleMenuOff(); // Вызов функции для выключения видимости контекстного меню
     }
 }
 
-//  Adding event listener of resizing window
+// Добавление обработчика события изменения размера окна
 window.onresize = function(event) {
-    /* Event listener of resizing window
-    * The function disables the visibility of the context menu if clicking escape has occured
-    * Input parameter: event. Output parameters: no
-    * Author: Elena Karelina
+    /*Функция-обработчик события изменения размеров окна
+    * Отключает видимость контекстного меню в случае, если произошло изменение размеров окна
+    * Принимает на вход событие, ничего не возвращает
+    * Автор: Елена Карелина
      */
-    toggleMenuOff(); // Disabling context menu visibility
+    toggleMenuOff(); // Вызов функции для выключения видимости контекстного меню
 };
 
 function clickInsideElement(event, className) {
-    /* The function checks that the left click has been on the list of containers
-    * Input parameters: event, class name of the parent element
-    * Returns the parent element of className if the click has been on it, otherwise returns false
-    * Author: Elena Karelina
+    /* Функция проверки того, что нажатие на правую клавишу произошло в области меню контейнеров
+    * Принимает на вход событие и имя класса списка контейнера
+    * Возвращает объект-список контейнеров в случае, если нажатие было произведено в область списка
+    * В противном случае возвращает false
+    * Автор: Елена Карелина
      */
-    let el = event.srcElement || event.target; // Getting the element on which the click has been
-    if (el.id === 'add_a_container') { // If it was the button "Добавить контейнер", disable default listener
-        // and don't enable context menu visibility
+    let el = event.srcElement || event.target; // Получение элемента, на который был произведен правый клик
+    if (el.id === 'add_a_container') { // Если нажали на пункт "Добавить контейнер", то отключаем дефолтный обработчик
+        // и не включаем контекстное меню
         event.preventDefault();
         return false;
     }
-    if (el.classList.contains(className)) { // If the click has occured on the neccessary element just return it
+    if (el.classList.contains(className)) { // Если нажали на общий список ul, сразу его возвращаем
         return el;
     } else { //Ищем родительский элемент элемента
         do {
-            if (el.tagName === 'LI') // If one of the parents' element is li remember its id for deleting
+            if (el.tagName === 'LI') // Если встретился элемент списка типа li, запоминаем его ID, по которому потом будем удалять
                 elementForDelete = el.id;
-            if (el.classList && el.classList.contains(className)) { // If one of the parents' element is the element of className
-                // remember its id for deleting
+            if (el.classList && el.classList.contains(className)) { // Если встретили список ul нужного класса (который хранит контейнеры),
+                // возвращаем его
                 return el;
             }
-        } while (el = el.parentNode); // The loop continues while the last parent element
+        }while (el = el.parentNode); //До тех пор, пока не дойдем до последнего родительского элемента
     }
-    return false; // This line is to be executed only in case when none of the parents' elements belongs to the class className
+    return false; // Сюда попадаем только в том случае, если нажатый элемент не принадлежит нужному списку, возвращаем false
 }
 
-// Adding event listener for right click
+//Добавление обработчика события нажатия на правую кнопку
 document.addEventListener( "contextmenu", function(event) {
-    /* Event listener of right click
-    * The function shows the context menu in place where the right click has happened if it has happened on the containers' list
-    * Otherwise the function hides the context menu
-    * Input parameters: event, class name of the parent element
-    * Author: Elena Karelina
+    /* Функция-обработчик события нажатия на правую кнопку в любом месте документа
+    * Функция показывает контекстное меню в месте, где было произвдено нажатие, в случае, если нажатие было произведено в области списка
+    * В противном случае функция убирает контекстное меню
+    * Функция принимает на вход событие, ничего не возвращает
+    * Автор: Елена Карелина
      */
-    if (clickInsideElement(event, taskItemClassName)) { // Checking that the right click has happened on the containers' list
-        event.preventDefault(); // Disabling default listener
-        toggleMenuOn(); // Enabling visibility of context menu
-        positionMenu(event); // Calling the function for positioning menu
-    } else { // If the right click hasn't been on containers list
-        toggleMenuOff(); // Disabling visibility of context menu
+    if (clickInsideElement(event, taskItemClassName)) { //Проверка, что нажатие правой клавиши было на объект списка контейнера
+        event.preventDefault(); // Отключение дефолтного обработчика
+        toggleMenuOn(); // Вызов функции показа контекстного меню
+        positionMenu(event); // Вызов функции позиционирования меню
+    } else { //Если нажатие было не по списку
+        toggleMenuOff(); // Отключаем видимость контекстного меню
     }
     });
 
 function toggleMenuOff() {
-    /* The function disables visibility of the context menu
-    * Input parameters: none
-    * Output parameters: none
-    * Author: Elena Karelina
+    /* Функция делает контекстное меню невидимым
+    * Принимаемые параметры: нет
+    * Возвращаемые параметры: нет
+    * Автор: Елена Карелина
      */
     if ( menuState !== 0 ) {
         menuState = 0;
@@ -118,10 +119,10 @@ function toggleMenuOff() {
 }
 
 function toggleMenuOn() {
-    /* The function enables visibility of the context menu
-    * Input parameters: none
-    * Output parameters: none
-    * Author: Elena Karelina
+    /* Функция делает контекстное меню видимым
+    * Принимаемые параметры: нет
+    * Возвращаемые параметры: нет
+    * Автор: Елена Карелина
      */
     if (menuState !== 1) {
         menuState = 1;
@@ -130,24 +131,24 @@ function toggleMenuOn() {
 }
 
 function getPosition(e) {
-    /* The function of computing the mouse's coordinates at clicking
-    * Input parameter: event
-    * Output parameters: the mouse's coordinates at click
-    * Author: Elena Karelina
+    /* Функция расчета координат стрелки при нажатии правой клавиши
+    * Принимаемые параметры: событие
+    * Возвращаемые параметры: координаты стрелки в окне при нажатии
+    * Автор: Елена Карелина
      */
     let posX = 0;
     let posY = 0;
-    // If the event is empty set it to the current window event
+    // Если пришло пустое событие, присваиваем текущее событие окна
     if (!e) var e = window.event;
 
-    if (e.pageX || e.pageY) { // If both coordinates are not empty the function returns them
+    if (e.pageX || e.pageY) { //Если обе абсолютные координаты не 0, возвращаем их значения
         posX = e.pageX;
         posY = e.pageY;
-    } else if (e.clientX || e.clientY) { // Otherwise computing the coordinates using scrolling parameters
+    } else if (e.clientX || e.clientY) { // В проивном случае вычисляем координаты через клиентские координаты и прокрутку страницы
         posX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
         posY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
-    // Returning the mouse coordinates
+    // Возвращение координат стрелки
     return {
         x: posX,
         y: posY
@@ -155,58 +156,61 @@ function getPosition(e) {
 }
 
 function positionMenu(event) {
-    /* The function sets the context menu's position
-    * Input parameters: none
-    * Output parameters: none
-    * Author: Elena Karelina
+    /* Функция, позиционирующая контекстное меню
+    * Принимаемые параметры: событие
+    * Возвращаемые параметры: нет
+    * Автор: Елена Карелина
      */
-    clickCoords = getPosition(event); // Computing the mouse's coordinates
+    clickCoords = getPosition(event); // Вычисление координат мыши
     clickCoordsX = clickCoords.x;
     clickCoordsY = clickCoords.y;
 
-    let menuWidth = menu.offsetWidth + 4; // Computing the context menu's size and adding 4 pixels of border to them
+    let menuWidth = menu.offsetWidth + 4; //Вычисление размеров контекстного меню и добавление 4 пикселей зазора между ним и краем окна
     let menuHeight = menu.offsetHeight + 4;
 
-    windowWidth = window.innerWidth; // Getting the window's size
+    windowWidth = window.innerWidth; // Вычисление размеров окна браузера
     windowHeight = window.innerHeight;
 
-    if ( (windowWidth - clickCoordsX) < menuWidth ) { // Checking that the context menu's size and position have enough width in the window
-        menu.style.left = windowWidth - menuWidth + "px"; // If not setting the X coordinate with value window width + border
+    if ( (windowWidth - clickCoordsX) < menuWidth ) { // Проверка того, что меню целиком помещается в окно по ширине
+        menu.style.left = windowWidth - menuWidth + "px"; // Если не помещается, присваиваем координате X значение, равное
+        // ширине меню + зазор
     } else {
-        menu.style.left = clickCoordsX + "px"; // Otherwise setting the X coordinate with the value of the mouse coordinates
+        menu.style.left = clickCoordsX + "px"; // Иначе присваиваем значение координаты мыши
     }
 
-    if ( (windowHeight - clickCoordsY) < menuHeight ) { // Checking that the context menu's size and position have enough height in the window
-        menu.style.top = windowHeight - menuHeight + "px"; // If not setting the Y coordinate with value window width + border
+    if ( (windowHeight - clickCoordsY) < menuHeight ) { // Проверка того, что меню целиком помещается в окно по высоте
+        menu.style.top = windowHeight - menuHeight + "px"; // Если не помещается, присваиваем координате Y значение, равное
+        // высоте меню + зазор
     } else {
-        menu.style.top = clickCoordsY + "px"; // Otherwise setting the Y coordinate with the value of the mouse coordinates
+        menu.style.top = clickCoordsY + "px"; // Иначе присваиваем значение координаты мыши
     }
 }
 
 deleteContainer.onclick = function(event) {
-    /* Event listener for the click on button "Удалить контейнер" of the context menu
-    * The function deletes a container from a list
-    * Input parameter: event. Output parameter: none
-    * Author: Elena Karelina
+    /* Функция-обработчик события нажатия на кнопку "Удалить контейнер" контекстного меню
+    * Принимаемые параметры: событие
+    * Возвращаемые параметры: нет
+    * Функция удаляет выбранный контейнер из списка
+    * Автор: Елена Карелина
      */
-    let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    xhr.open("POST", "include/delete_cont.php", true); // Setting type and address
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
+    let xhr = new XMLHttpRequest(); // Создание нового HTTP запроса к серверу
+    xhr.open("POST", "include/delete_cont.php", true); // Определение типа и адреса запроса
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Передача кодировки информации
     xhr.send('id=' + encodeURIComponent(elementForDelete));
-    xhr.onreadystatechange = function() { // Waiting for the server's response
-        /* Event listener for the server's response
-        * In case of confirmation of deleting from database deletes the container's name from the interface
-        * Input parameter: none. Output parameter: none
-        * Author: Elena Karelina
+    xhr.onreadystatechange = function() { // Ждём ответа от сервера
+        /* Функция-обработчик события получения ответа от сервера
+        * В случае подтверждения сервером удачного добавления в БД добавляет имя контейнера в интерфейс
+        * Ничего не принимает, ничего не возвращает
+        * Автор: Елена Карелина
         */
-        if (xhr.readyState == 4) { // The answer has been recieved
-            if(xhr.status == 200) { // The returned server's answer is 200 (OK)
-                if(xhr.responseText === "1") { // If the deleting was succesful delete from the interface
-                    let deletedContainer = document.getElementById(elementForDelete); // Remember the element which is neccessary to delete
-                    // its ID has been saved in function clickInsideElement
+        if (xhr.readyState == 4) { // Ответ пришёл
+            if(xhr.status == 200) { // Сервер вернул код 200 (что хорошо)
+                if(xhr.responseText === "1") { // Если добавление в БД было произведено корректно, добавляем контейнер в интерфейс
+                    let deletedContainer = document.getElementById(elementForDelete); // Записываем в переменную элемент списка, который необходимо удалить
+                    // его ID был сохранен в функции clickInsideElement
                     let containerMenu = document.getElementById('available-containers');
-                    containerMenu.removeChild(deletedContainer); // Deleting li element
-                    elementForDelete = ''; // Forgetting the deleted id
+                    containerMenu.removeChild(deletedContainer); //Удаляем элемент списка
+                    elementForDelete = ''; // Затираем ID удаленного элемента списка
                 }
                 else {
                     alert('При удалении из базы данных произошла ошибка');
