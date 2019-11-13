@@ -219,3 +219,7 @@ deleteContainer.onclick = function(event) {
         }
     };
 }
+
+function getLiId() {
+    return elementForDelete;
+}
