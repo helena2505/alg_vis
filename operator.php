@@ -106,8 +106,8 @@ require_once 'include/database.php';
                 </a>
             </li>
             <li class="context-menu__item">
-                <a href="#" class="context-menu__link">
-                    <i class="fa fa-eye" id="show-info"></i> Посмотреть информацию
+                <a href="#" class="context-menu__link" id="show-info">
+                    <i class="fa fa-eye"></i> Посмотреть информацию
                 </a>
             </li>
         </ul>
@@ -150,9 +150,9 @@ require_once 'include/database.php';
     <!--Scripts-->
     <script src="main.js" type="module"></script>
     <script src="ncontainer.js" type="module"></script>
-    <script src="delete_container.js" type="module"></script>
+    <script src="delete_container.js" type="text/javascript"></script>
     <script src="modal.js" type="module"></script>
-    <script src="alg_list.js" type="module"></script>
+    <script src="alg_list.js" type="text/javascript"></script>
 </body>
 
 </html>
