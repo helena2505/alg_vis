@@ -1,92 +1,96 @@
+/* Body */
 body {
- font: 12pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
- background: darkslategray; /* Цвет фона */
- color: whitesmoke;
+    font: 10pt Arial, Helvetica, sans-serif;
+    background: rgb(138, 102, 138);
+    color: whitesmoke;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
-#hdr {
-    color: rgb(109, 22, 44);
+/* Operator mode */
+.operator {
+    height: 100vh;
+    width: 100%;
 }
 
+/* Header */
 #header {
- align-self: center;
- align-content: center;
- font-size: 2.2em; /* Размер текста */
- text-align: center; /* Выравнивание по центру */
- padding: 5px; /* Отступы вокруг текста */
+    background-color: pink;
+    border-radius: 5px;
+    color: white;
+    height: 10%;
+    padding: 4px;
+    text-align: center;
 }
 
-#footer {
- background: #8fa09b; /* Цвет фона подвала */
- color: aliceblue; /* Цвет текста */
- padding: 5px; /* Отступы вокруг текста */
- clear: left; /* Отменяем действие float */
+/* Drawing window */
+#drawing {
+    height: 80%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.optionList li{
-	list-style-type: none
+/* Zone where it's allowed to drop objects */
+.dropzone {
+    background-color: white;
+    border: 4px black;
+    border-radius: 5px;
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0px auto 0px;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    width: 80%;
 }
 
-
-.layout {
-	overflow: hidden;
+/* Drawing window class */
+.menu-draw {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0px auto 0px;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    width: 80%;
 }
 
-.globCol1, .globCol2 {
-	width: 20%;
-	height: 100%;
-	float: left;
-}
-
-.globCol3 {
-	width: 60%;
-	height: 610px;
-	float: left;
-	background-color: aliceblue;
-	align-self: center;
-	table-layout: auto;
-}
-
-.layout div div{
-    margin: 0 10px; /* Отступы */
-    padding: 10px; /* Поля */
-    height: 100%; /* Высота колонок */
-    background: darksalmon; /* Цвет фона */ 
-    color: #f5e8d0; /* Цвет текста */
+/* Primitives edit menu */
+.primitives {
+    background-color: plum;
+    border-radius: 5px;
+    float: left;
+    height: 100%;
+    left: 0;
+    margin-top: 0;
     overflow: auto;
-} 
-
-.drawing {
-	height: 100%;
-	width: 100%;
-	background: #ffffff;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    width: 20%;
 }
 
-.fill {
-	background-image: url('http://source.unsplash.com/random/150x150');
-	position: absolute;
-<<<<<<< HEAD
-	object-fit: cover;
-=======
->>>>>>> 7074de73b6b23423ee0a050d93f5c658a6045c39
-	height: 150px;
-	width: 150px;
-	top: 5px;
-	left: 5px;
-	cursor: pointer;
+/* Show primitives */
+.primitives-active {
+    transform: translateX(0%);
 }
 
-.empty {
-	display: inline-block;
-<<<<<<< HEAD
-	position: sticky;
-=======
-	position: relative;
->>>>>>> 7074de73b6b23423ee0a050d93f5c658a6045c39
-	height: 160px;
-	width: 160px;
-	margin: 10px;
-	top: 5px;
-	border: 3px salmon solid;
-	background-color: wheat;
+#qbutton {
+    color: white;
+}
+
+#qbutton:hover {
+    -webkit-box-shadow: 0px 0px 5px rgba(255,255,255,0.9);
+    box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+    transform: scale(1.03);
+    cursor: pointer;
 }
