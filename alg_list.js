@@ -19,7 +19,7 @@ function showAlgorithms(event) {
     */
     let targetContainer = event.target.id; // Getting id of the container for which the list is required
     let contId = "alg" + event.target.id; // Forming the id of the ul element for the algorithms list
-    let algList = document.getElementById(contId); // Let for this element
+    let algList = document.getElementById(contId); // Let for algorithms list
     if(algList.classList.contains("algorithm-list-vis")) { // If the list is already visible
         let allLi = algList.querySelectorAll('LI'); // Cleaning it
         for(let j = 0; j < allLi.length; j++) {
@@ -41,11 +41,16 @@ function showAlgorithms(event) {
             if (xhr.readyState == 4) { // The answer has been got
                 if(xhr.status == 200) { // The server's returned code 200 (success)
                     let algorithms = xhr.responseText.split('\\n'); // Separate algorithms' names from each other
+                    let new_element;
                     for(let i = 0; i < algorithms.length - 1; i++) { // Adding new elements (li) into the list (ul)
-                        let new_element = document.createElement('LI');
+                        new_element = document.createElement('LI');
                         new_element.innerText = algorithms[i];
                         algList.appendChild(new_element);
                     }
+                    new_element = document.createElement('LI'); // Adding button "Добавить алгоритм"
+                    new_element.id = "add-alg" + event.target.id;
+                    new_element.innerHTML = "+ Добавить новый контейнер"
+                    algList.appendChild(new_element);
                 }
             }
         };
