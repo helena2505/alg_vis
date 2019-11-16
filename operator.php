@@ -112,11 +112,11 @@ require_once 'include/database.php';
             </li>
         </ul>
     </nav>
-    <!--Dialog window for entering info about container-->
+    <!--Dialog window for entering info about a container-->
     <div class="modal" id="modal-window">
         <div class="modal-content">
             <div class="modal-header">
-                <span id="cross1">&times</span>
+                <span class="cross" id="cross1">&times</span>
                 <h2>Добавить структуру данных</h2>
             </div>
             <div class="modal-body">
@@ -135,7 +135,7 @@ require_once 'include/database.php';
     <div id="list1Modal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <span class="closeBtn">&times;</span>
+                    <span class="closeBtn" id="cross0">&times;</span>
                     <h2 id="cont-name"></h2>
                 </div>
                 <div class="modal-body">
@@ -147,11 +147,33 @@ require_once 'include/database.php';
             </div>
     </div>
 
+    <!--Dialog window for entering info about an algorithm-->
+    <div class="modal" id="dialog-add-alg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="cross" id="cross2">&times</span>
+                <h2>Добавить новый алгоритм</h2>
+            </div>
+            <div class="modal-body">
+                <div class="hint" id="alg-name">Имя алгоритма</div>
+                <input class="input-str" id="str-inp-alg-name" type="text">
+                <div class="hint" id="alg-info">Описание алгоритма</div>
+                <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-inp-alg-info"></textarea>
+                <div class="hint" id="alg-dif">Сложность алгоритма</div>
+                <input class="input-str" id="str-inp-alg-dif" type="text">
+                <btn class="confirm" id="conf1">OK</btn>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
     <!--Scripts-->
     <script src="main.js" type="module"></script>
     <script src="ncontainer.js" type="module"></script>
     <script src="delete_container.js" type="text/javascript"></script>
-    <script src="modal.js" type="module"></script>
+    <script src="modal.js" type="text/javascript"></script>
     <script src="alg_list.js" type="text/javascript"></script>
     <script src="alg_add.js" type="text/javascript"></script>
 </body>

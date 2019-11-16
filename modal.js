@@ -17,12 +17,12 @@ function closeModal() {
     modal_1wayList.style.display = 'none';
 }
 
-function outsideClick(e) {
+function outsideClick(event) {
     /* Function has no input parameters
     * Functions closes modal on outside click
     * Function doesn't return anything
     * Author: Shorygina Tatyana */
-    if (e.target == modal_1wayList){
+    if (event.target == modal_1wayList){
         modal_1wayList.style.display = 'none';
     }
 }

@@ -1,5 +1,3 @@
-let lst = document.getElementById('available-containers'); // Let for list of the available containers
-
 lst.onclick = function(event) {
     /* Event listener for clicking on the list of the containers
     * The function calls the function of showing list of the container's algorithms
@@ -18,7 +16,6 @@ function showAlgorithms(event) {
     * Input parameter: event. Output parameter: none.
     * Author: Elena Karelina
     */
-    console.log('Function executed');
     let targetContainer = event.target.id; // Getting id of the container for which the list is required
     let contId = "alg" + event.target.id; // Forming the id of the ul element for the algorithms list
     let algList = document.getElementById(contId); // Let for algorithms list
