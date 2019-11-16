@@ -65,6 +65,11 @@ finishButton.onclick = function(event) {
                     tmp.classList.add("one-container"); // Setting class name
                     tmp.id = results[1]; // Setting id from database which was received from server
                     baseList.appendChild(tmp) // Appending to the ul element (as in the database)
+                    let forAlgList = document.createElement("ul");
+                    forAlgList.classList.add("algorithm-list")
+                    forAlgList.id = "alg" + results[1];
+                    tmp.after(forAlgList);
+
                 }
                 else {
                     alert('При добавлении в базу данных произошла ошибка'); // Informing about the error
