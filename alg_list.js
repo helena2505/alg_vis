@@ -7,7 +7,8 @@ lst.onclick = function(event) {
     * Author: Elena Karelina
     */
     event.preventDefault();
-    if(event.target.tagName === 'LI') // If the click has been on one of the containers from the list
+    let clickedArea = document.getElementById(event.target.id);
+    if(clickedArea.classList.contains("one-container")) // If the click has been on one of the containers from the list
         showAlgorithms(event); // Calling the function
 };
 
@@ -17,6 +18,7 @@ function showAlgorithms(event) {
     * Input parameter: event. Output parameter: none.
     * Author: Elena Karelina
     */
+    console.log('Function executed');
     let targetContainer = event.target.id; // Getting id of the container for which the list is required
     let contId = "alg" + event.target.id; // Forming the id of the ul element for the algorithms list
     let algList = document.getElementById(contId); // Let for algorithms list
@@ -40,17 +42,22 @@ function showAlgorithms(event) {
             */
             if (xhr.readyState == 4) { // The answer has been got
                 if(xhr.status == 200) { // The server's returned code 200 (success)
-                    let algorithms = xhr.responseText.split('\\n'); // Separate algorithms' names from each other
+                    let algorithms = JSON.parse(xhr.responseText); // Unpackaging the servr's response to get all algorithms'
+                    // names with their ids
                     let new_element;
-                    for(let i = 0; i < algorithms.length - 1; i++) { // Adding new elements (li) into the list (ul)
-                        new_element = document.createElement('LI');
-                        new_element.innerText = algorithms[i];
-                        algList.appendChild(new_element);
+                    for(let i = 0; i < algorithms.length; i++) { // Adding new elements (li) into the list (ul)
+                        let res = JSON.parse(algorithms[i]); // Unpackaging each element of the response to get  each algorithm's
+                        // id and name
+                        new_element = document.createElement('LI'); // Creating new li element
+                        new_element.innerText = res["algorithm_name"]; // Adding text - the name of the algorithm
+                        new_element.id = "alg-" + toString(res["id"]); // Setting the id according to the id in database
+                        algList.appendChild(new_element); // Adding new element to the interface list
                     }
                     new_element = document.createElement('LI'); // Adding button "Добавить алгоритм"
-                    new_element.id = "add-alg" + event.target.id;
+                    new_element.id = "add-alg-" + event.target.id;
                     new_element.innerHTML = "+ Добавить новый контейнер"
                     algList.appendChild(new_element);
+                    new_element.addEventListener('click', inputAlgorithm); // Adding event listener for adding an algorithm
                 }
             }
         };

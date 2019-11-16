@@ -153,6 +153,7 @@ require_once 'include/database.php';
     <script src="delete_container.js" type="text/javascript"></script>
     <script src="modal.js" type="module"></script>
     <script src="alg_list.js" type="text/javascript"></script>
+    <script src="alg_add.js" type="text/javascript"></script>
 </body>
 
 </html>
