@@ -52,7 +52,7 @@ function showAlgorithms(event) {
                     }
                     new_element = document.createElement('LI'); // Adding button "Добавить алгоритм"
                     new_element.id = "add-alg-" + event.target.id;
-                    new_element.innerHTML = "+ Добавить новый контейнер"
+                    new_element.innerHTML = "+ Добавить новый алгоритм"
                     algList.appendChild(new_element);
                     new_element.addEventListener('click', inputAlgorithm); // Adding event listener for adding an algorithm
                 }
