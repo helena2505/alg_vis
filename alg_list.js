@@ -42,17 +42,20 @@ function showAlgorithms(event) {
                     let algorithms = JSON.parse(xhr.responseText); // Unpackaging the servr's response to get all algorithms'
                     // names with their ids
                     let new_element;
+                    let res;
                     for(let i = 0; i < algorithms.length; i++) { // Adding new elements (li) into the list (ul)
-                        let res = JSON.parse(algorithms[i]); // Unpackaging each element of the response to get  each algorithm's
+                        res = JSON.parse(algorithms[i]); // Unpackaging each element of the response to get  each algorithm's
                         // id and name
                         new_element = document.createElement('LI'); // Creating new li element
                         new_element.innerText = res["algorithm_name"]; // Adding text - the name of the algorithm
-                        new_element.id = "alg-" + toString(res["id"]); // Setting the id according to the id in database
+                        new_element.id = "alg-" + res["id"];; // Setting the id according to the id in database
+                        new_element.classList.add("one-algorithm");
                         algList.appendChild(new_element); // Adding new element to the interface list
                     }
                     new_element = document.createElement('LI'); // Adding button "Добавить алгоритм"
                     new_element.id = "add-alg-" + event.target.id;
                     new_element.innerHTML = "+ Добавить новый алгоритм"
+                    new_element.classList.add("add-alg-button");
                     algList.appendChild(new_element);
                     new_element.addEventListener('click', inputAlgorithm); // Adding event listener for adding an algorithm
                 }

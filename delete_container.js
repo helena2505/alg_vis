@@ -1,7 +1,7 @@
 let menu = document.getElementById('my-menu'); // Context menu let
 let menuState = 0; // Let of context's menu state (visible or not, not visible by default)
 let activeClassName = "context-menu--active" // Class name for enableing context menu's visibility
-let taskItemClassName = 'menu'; // Menu's class name
+let taskItemClassName = 'one-algorithm'; // Menu's class name
 let menuPosition = 0; // Let for context menu's position
 let menuPositionX = 0; // Let for coordinate X of context menu
 let menuPositionY = 0; // Let for coordinate Y of context menu
@@ -11,7 +11,8 @@ let clickCoords; // Let for keeping the coordinates where the click occured
 let clickCoordsX; // Let for keeping the coordinate X where the click occured
 let clickCoordsY; // Let for keeping the coordinate Y where the click occured
 let deleteContainer = document.getElementById("delete-container"); // Let of context menu's button "Удалить контейнер"
-let elementForDelete = ''; // ID of deleted container
+let elementForDelete = ''; // ID of deleted elemet (algorithm or container)
+let typeForDelete = '';
 
 // Adding event listener of right click for all document's area
 document.addEventListener( "contextmenu", function(event) {
@@ -68,22 +69,24 @@ function clickInsideElement(event, className) {
     * Author: Elena Karelina
      */
     let el = event.srcElement || event.target; // Getting the element on which the click has been
-    if (el.id === 'add_a_container') { // If it was the button "Добавить контейнер", disable default listener
-        // and don't enable context menu visibility
+    if (el.id === 'add_a_container' || el.classList.contains("add-alg-button")) { // If it was the button "Добавить контейнер", disable default listener
+        // and don't enable context menu visibility (for not enabaling returning false)
         event.preventDefault();
         return false;
     }
     if (el.classList.contains(className)) { // If the click has occured on the neccessary element just return it
+        elementForDelete = el.id;
+        typeForDelete = 'alg';
         return el;
     } else { // Getting the parent element
         do {
-            if (el.tagName === 'LI') // If one of the parents' element is li remember its id for deleting
-                elementForDelete = el.id;
-            if (el.classList && el.classList.contains(className)) { // If one of the parents' element is the element of className
+            if (el.classList && el.classList.contains("one-container")) { // If one of the parents' element is the element of className
                 // remember its id for deleting
+                elementForDelete = el.id;
+                typeForDelete = 'cont';
                 return el;
             }
-        }while (el = el.parentNode); // The loop continues until the last parent element
+        } while (el = el.parentNode); // The loop continues until the last parent element
     }
     return false; // This line is to be executed only in case when none of the parents' elements belongs to the class className
 }
@@ -184,6 +187,13 @@ function positionMenu(event) {
 }
 
 deleteContainer.onclick = function(event) {
+    if(typeForDelete === 'cont')
+        deleteAContainer();
+    if(typeForDelete === 'alg')
+        deleteAlgorithm();
+}
+
+function deleteAContainer() {
     /* Event listener for the click on button "Удалить контейнер" of the context menu
     * The function deletes a container from a list
     * Input parameter: event. Output parameter: none
@@ -214,6 +224,10 @@ deleteContainer.onclick = function(event) {
             }
         }
     };
+}
+
+function deleteAlgorithm() {
+    console.log('Going to delete an algorithm!');
 }
 
 function getLiId() {

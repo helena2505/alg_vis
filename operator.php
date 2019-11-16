@@ -102,7 +102,7 @@ require_once 'include/database.php';
         <ul class="context-menu__items">
             <li class="context-menu__item">
                 <a href="#" class="context-menu__link" id="delete-container">
-                    <i class="fa fa-eye"></i> Удалить контейнер
+                    <i class="fa fa-eye"></i> Удалить
                 </a>
             </li>
             <li class="context-menu__item">

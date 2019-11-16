@@ -46,12 +46,14 @@ confButton1.onclick = function() {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
+                console.log(xhr.responseText);
                 let results = xhr.responseText.split(' ');
                 if (results[0] === "1") { // If the inserting into database was successful insert into the list
                     let new_element = document.createElement('LI');
                     let cur = document.getElementById(keepContainer);
                     new_element.innerHTML = algName;
-                    new_element.id = results[1];
+                    new_element.id = 'alg-' + toString(results[1]);
+                    new_element.classList.add("one-algorithm");
                     cur.before(new_element);
                 }
                 else {
