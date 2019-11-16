@@ -1,11 +1,11 @@
-function deleteAlgorithm() {
+function deleteAlgorithm(elementForDelete) {
     /* The function forms request for deleting an algorithm to the server database
     * The function gets the server's response and removes the container from the interface
     * if the deletion has been successful. Otherwise it informs user about error while deleting
     * Input parameters: none. Output parameters: none.
     * Author: Elena Karelina
      */
-    let clickedId = getLiId();
+    let clickedId = elementForDelete;
     let deletedAlgId = clickedId.split('-')[1]
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     xhr.open("POST", "include/del_alg.php", true); // Setting type and address

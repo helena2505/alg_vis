@@ -110,6 +110,11 @@ require_once 'include/database.php';
                     <i class="fa fa-eye"></i> Посмотреть информацию
                 </a>
             </li>
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" id="edit-info">
+                    <i class="fa fa-eye"></i> Редактировать
+                </a>
+            </li>
         </ul>
     </nav>
     <!--Dialog window for entering info about a container-->
@@ -152,7 +157,7 @@ require_once 'include/database.php';
         <div class="modal-content">
             <div class="modal-header">
                 <span class="cross" id="cross2">&times</span>
-                <h2>Добавить новый алгоритм</h2>
+                <h2 id="dialog-header">Добавить новый алгоритм</h2>
             </div>
             <div class="modal-body">
                 <div class="hint" id="alg-name">Имя алгоритма</div>
@@ -169,6 +174,28 @@ require_once 'include/database.php';
         </div>
     </div>
 
+    <!--Dialog window for editing info about an algorithm-->
+    <div class="modal" id="dialog-edit-alg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="cross" id="cross3">&times</span>
+                <h2 id="dialog-header">Редактировать информацию об алгоритме</h2>
+            </div>
+            <div class="modal-body">
+                <div class="hint" id="alg-name">Имя алгоритма</div>
+                <input class="input-str" id="str-edit-alg-name" type="text">
+                <div class="hint" id="edit-alg-info">Описание алгоритма</div>
+                <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-edit-alg-info"></textarea>
+                <div class="hint" id="edit-alg-dif">Сложность алгоритма</div>
+                <input class="input-str" id="str-edit-alg-dif" type="text">
+                <btn class="confirm" id="conf3">OK</btn>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
     <!--Scripts-->
     <script src="main.js"></script>
     <script src="ncontainer.js" type="module"></script>
@@ -177,6 +204,7 @@ require_once 'include/database.php';
     <script src="alg_list.js" type="text/javascript"></script>
     <script src="alg_add.js" type="text/javascript"></script>
     <script src="alg_delete.js" type="text/javascript"></script>
+    <script src="alg_edit.js" type="text/javascript"></script>
     <script src="delete_container.js"></script>
 
 </body>

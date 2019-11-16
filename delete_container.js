@@ -1,4 +1,4 @@
-function deleteAContainer() {
+function deleteAContainer(elementForDelete) {
     /* Event listener for the click on button "Удалить контейнер" of the context menu
     * The function deletes a container from a list
     * Input parameter: event. Output parameter: none
@@ -21,6 +21,8 @@ function deleteAContainer() {
                     // its ID has been saved in function clickInsideElement
                     let containerMenu = document.getElementById('available-containers');
                     containerMenu.removeChild(deletedContainer); // Deleting li element
+                    let listForDelete = document.getElementById('alg' + elementForDelete);
+                    listForDelete.parentNode.removeChild(listForDelete);
                     elementForDelete = ''; // Forgetting the deleted id
                 }
                 else {

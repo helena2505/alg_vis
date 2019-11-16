@@ -13,6 +13,8 @@ let clickCoordsY; // Let for keeping the coordinate Y where the click occured
 let deleteContainer = document.getElementById("delete-container"); // Let of context menu's button "Удалить контейнер"
 let elementForDelete = ''; // ID of target elemet (algorithm or container)
 let typeForDelete = ''; // Type of target element (algorithm or container)
+let showInfo = document.getElementById("show-info"); // Context menu button "Посмотреть информацию"
+let editInfo = document.getElementById("edit-info"); // Context menu button "Редактировать"
 
 // Adding event listener of right click for all document's area
 document.addEventListener( "contextmenu", function(event) {
@@ -191,18 +193,38 @@ function positionMenu(event) {
     }
 }
 
-deleteContainer.onclick = function(event) {
-    if(typeForDelete === 'cont')
-        deleteAContainer();
-    if(typeForDelete === 'alg')
-        deleteAlgorithm();
-}
-
-function getLiId() {
-    /* The function returns the id of target element
-    * (for which the context menu has been clicked)
-    * Input parameter: none.
+deleteContainer.onclick = function() {
+    /* Event listener for clicking button "Удалить" of the context menu
+    * The function calls a neccessary function of deleting according to the clicked element (algorithm or container)
+    * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina
      */
-    return elementForDelete;
+    if(typeForDelete === 'cont')
+        deleteAContainer(elementForDelete);
+    if(typeForDelete === 'alg')
+        deleteAlgorithm(elementForDelete);
+}
+
+showInfo.onclick = function() {
+    /* Event listener for clicking button "Посмотреть информацию" of the context menu
+    * The function calls a neccessary function of sowing information according to the clicked element (algorithm or container)
+    * Input parameter: none. Output parameter: none.
+    * Author: Elena Karelina
+     */
+    if(typeForDelete === 'cont')
+        containerInfo(elementForDelete);
+    if(typeForDelete === 'alg')
+        algorithmInfo(elementForDelete);
+}
+
+editInfo.onclick = function() {
+    /* Event listener for clicking button "Редактировать" of the context menu
+    * The function calls a neccessary function of editing according to the clicked element (algorithm or container)
+    * Input parameter: none. Output parameter: none.
+    * Author: Elena Karelina
+     */
+    if(typeForDelete === 'cont')
+        editContainer(elementForDelete);
+    if(typeForDelete === 'alg')
+        editAlgorithm(elementForDelete);
 }

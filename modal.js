@@ -4,7 +4,6 @@ let allCont = lst.querySelectorAll('li'); // All containers
 let contName = document.getElementById('cont-name'); // Container name
 let contDescr = document.getElementById('cont-descr'); // Container description
 let closeBtn = document.getElementsByClassName('closeBtn')[0]; // Get close button
-let showInfo = document.getElementById("show-info"); // Context menu button "Посмотреть информацию"
 
 closeBtn.addEventListener('click', closeModal); // Listen for close click
 window.addEventListener('click', outsideClick); // Listen for outside click
@@ -25,11 +24,22 @@ function outsideClick(event) {
     if (event.target == modal_1wayList){
         modal_1wayList.style.display = 'none';
     }
+    if (event.target === dialogAddAlg){
+        dialogAddAlg.style.display = 'none';
+    }
+    if (event.target === dialogEditAlg){
+        dialogEditAlg.style.display = 'none';
+    }
 }
 
-showInfo.onclick = function() {
+function containerInfo(elementForInfo) {
+    /* The function makes modal window which displays information about a container visible
+    * The function sends request to the server ang gey information about the requested container as a response
+    * Input parameter: none. Output parameter: none.
+    * Author: Elena Karelina.
+     */
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    let idForInf = getLiId(); // Getting id for the clicked container
+    let idForInf = elementForInfo; // Getting id for the clicked container
     xhr.open("POST", "include/info.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
     xhr.send('id=' + idForInf); // Sending the container's id for which information is requested

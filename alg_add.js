@@ -51,7 +51,7 @@ confButton1.onclick = function() {
                     let new_element = document.createElement('LI');
                     let cur = document.getElementById(keepContainer);
                     new_element.innerHTML = algName;
-                    new_element.id = 'alg-' + toString(results[1]);
+                    new_element.id = 'alg-' + results[1];
                     new_element.classList.add("one-algorithm");
                     cur.before(new_element);
                 }
