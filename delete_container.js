@@ -11,8 +11,8 @@ let clickCoords; // Let for keeping the coordinates where the click occured
 let clickCoordsX; // Let for keeping the coordinate X where the click occured
 let clickCoordsY; // Let for keeping the coordinate Y where the click occured
 let deleteContainer = document.getElementById("delete-container"); // Let of context menu's button "Удалить контейнер"
-let elementForDelete = ''; // ID of deleted elemet (algorithm or container)
-let typeForDelete = '';
+let elementForDelete = ''; // ID of target elemet (algorithm or container)
+let typeForDelete = ''; // Type of target element (algorithm or container)
 
 // Adding event listener of right click for all document's area
 document.addEventListener( "contextmenu", function(event) {
@@ -63,9 +63,10 @@ window.onresize = function(event) {
 };
 
 function clickInsideElement(event, className) {
-    /* The function checks that the left click has been on the list of containers
-    * Input parameters: event, class name of the parent element
-    * Returns the parent element of className if the click has been on it, otherwise returns false
+    /* The function checks that the left click has been on the list of containers or on the list of algorithms
+    * Input parameters: event, class name of any list of containers
+    * Returns the parent element of className or element of one container if the click has been on it
+    * Otherwise returns false
     * Author: Elena Karelina
      */
     let el = event.srcElement || event.target; // Getting the element on which the click has been
@@ -74,16 +75,20 @@ function clickInsideElement(event, className) {
         event.preventDefault();
         return false;
     }
-    if (el.classList.contains(className)) { // If the click has occured on the neccessary element just return it
-        elementForDelete = el.id;
-        typeForDelete = 'alg';
+    if (el.classList.contains(className)) { // If the click has occured on the element of algorithms' just return it
+        elementForDelete = el.id; // Keeping the algorithm's id for deleting
+        typeForDelete = 'alg'; // Keeping that the deleted element is an algorithm
         return el;
-    } else { // Getting the parent element
+    } else { // Looking for the parent element
         do {
-            if (el.classList && el.classList.contains("one-container")) { // If one of the parents' element is the element of className
-                // remember its id for deleting
-                elementForDelete = el.id;
-                typeForDelete = 'cont';
+            if (el.classList.contains(className)) { // If the click has occured on the element of algorithms' just return it
+                elementForDelete = el.id; // Keeping the algorithm's id for deleting
+                typeForDelete = 'alg'; // Keeping that the deleted element is an algorithm
+                return el;
+            }
+            if (el.classList && el.classList.contains("one-container")) { // If one of the parents' element is the element of the containers' list
+                elementForDelete = el.id; // Keeping the container's id for deleting
+                typeForDelete = 'cont'; // Keeping that the deleted element is a container
                 return el;
             }
         } while (el = el.parentNode); // The loop continues until the last parent element
@@ -226,10 +231,11 @@ function deleteAContainer() {
     };
 }
 
-function deleteAlgorithm() {
-    console.log('Going to delete an algorithm!');
-}
-
 function getLiId() {
+    /* The function returns the id of target element
+    * (for which the context menu has been clicked)
+    * Input parameter: none.
+    * Author: Elena Karelina
+     */
     return elementForDelete;
 }

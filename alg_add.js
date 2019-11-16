@@ -46,7 +46,6 @@ confButton1.onclick = function() {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
-                console.log(xhr.responseText);
                 let results = xhr.responseText.split(' ');
                 if (results[0] === "1") { // If the inserting into database was successful insert into the list
                     let new_element = document.createElement('LI');

@@ -176,6 +176,7 @@ require_once 'include/database.php';
     <script src="modal.js" type="text/javascript"></script>
     <script src="alg_list.js" type="text/javascript"></script>
     <script src="alg_add.js" type="text/javascript"></script>
+    <script src="alg_delete.js" type="text/javascript"></script>
 </body>
 
 </html>
