@@ -170,13 +170,15 @@ require_once 'include/database.php';
     </div>
 
     <!--Scripts-->
-    <script src="main.js" type="module"></script>
+    <script src="main.js"></script>
     <script src="ncontainer.js" type="module"></script>
-    <script src="delete_container.js" type="text/javascript"></script>
+    <script src="context_menu.js" type="text/javascript"></script>
     <script src="modal.js" type="text/javascript"></script>
     <script src="alg_list.js" type="text/javascript"></script>
     <script src="alg_add.js" type="text/javascript"></script>
     <script src="alg_delete.js" type="text/javascript"></script>
+    <script src="delete_container.js"></script>
+
 </body>
 
 </html>
