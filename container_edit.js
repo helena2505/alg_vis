@@ -7,10 +7,6 @@ let containerName4 = ''; // Let for keeping the container's name which has been 
 let containerDesrcription4 = ''; // Let for keeping the container's description which has been edited
 let containerId4 = ''; // Let for keeping the updated container's id
 
-function containerInfo(elementForInfo) {
-    console.log('Here is going to be a modal window')
-}
-
 close4.onclick = function() {
     /* Event listener for the cross of the modal window
     * The function disables visibity of the modal window and cleans input strings

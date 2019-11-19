@@ -196,7 +196,7 @@ require_once 'include/database.php';
         </div>
     </div>
 
-    <!--Dialog window for enditing info about a container-->
+    <!--Dialog window for editing info about a container-->
     <div class="modal" id="dialog-edit-container">
         <div class="modal-content">
             <div class="modal-header">

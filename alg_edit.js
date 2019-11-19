@@ -10,10 +10,6 @@ let algDifficulty3 = ''; // Let for keeping the algorithm's difficulty which has
 let algContainer3 = ''; // Let for keeping the id of the container to which the inserted algorithm refers
 let algId3 = ''; // Let for keeping the updated algorithm's id
 
-function algorithmInfo(elementForInfo) {
-    console.log('Here is going to be a modal window')
-}
-
 close3.onclick = function() {
     /* Event listener for the cross of the modal window
     * The function disables visibity of the modal window and cleans input strings
