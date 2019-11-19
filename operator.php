@@ -102,7 +102,7 @@ require_once 'include/database.php';
         <ul class="context-menu__items">
             <li class="context-menu__item">
                 <a href="#" class="context-menu__link" id="delete-container">
-                    <i class="fa fa-eye"></i> Удалить контейнер
+                    <i class="fa fa-eye"></i> Удалить
                 </a>
             </li>
             <li class="context-menu__item">
@@ -110,13 +110,18 @@ require_once 'include/database.php';
                     <i class="fa fa-eye"></i> Посмотреть информацию
                 </a>
             </li>
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" id="edit-info">
+                    <i class="fa fa-eye"></i> Редактировать
+                </a>
+            </li>
         </ul>
     </nav>
-    <!--Dialog window for entering info about container-->
+    <!--Dialog window for entering info about a container-->
     <div class="modal" id="modal-window">
         <div class="modal-content">
             <div class="modal-header">
-                <span id="cross1">&times</span>
+                <span class="cross" id="cross1">&times</span>
                 <h2>Добавить структуру данных</h2>
             </div>
             <div class="modal-body">
@@ -135,7 +140,7 @@ require_once 'include/database.php';
     <div id="list1Modal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <span class="closeBtn">&times;</span>
+                    <span class="closeBtn" id="cross0">&times;</span>
                     <h2 id="cont-name"></h2>
                 </div>
                 <div class="modal-body">
@@ -147,12 +152,82 @@ require_once 'include/database.php';
             </div>
     </div>
 
+    <!--Dialog window for entering info about an algorithm-->
+    <div class="modal" id="dialog-add-alg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="cross" id="cross2">&times</span>
+                <h2 id="dialog-header">Добавить новый алгоритм</h2>
+            </div>
+            <div class="modal-body">
+                <div class="hint" id="alg-name">Имя алгоритма</div>
+                <input class="input-str" id="str-inp-alg-name" type="text">
+                <div class="hint" id="alg-info">Описание алгоритма</div>
+                <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-inp-alg-info"></textarea>
+                <div class="hint" id="alg-dif">Сложность алгоритма</div>
+                <input class="input-str" id="str-inp-alg-dif" type="text">
+                <btn class="confirm" id="conf1">OK</btn>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
+    <!--Dialog window for editing info about an algorithm-->
+    <div class="modal" id="dialog-edit-alg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="cross" id="cross3">&times</span>
+                <h2 id="dialog-header">Редактировать информацию об алгоритме</h2>
+            </div>
+            <div class="modal-body">
+                <div class="hint" id="alg-name">Имя алгоритма</div>
+                <input class="input-str" id="str-edit-alg-name" type="text">
+                <div class="hint" id="edit-alg-info">Описание алгоритма</div>
+                <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-edit-alg-info"></textarea>
+                <div class="hint" id="edit-alg-dif">Сложность алгоритма</div>
+                <input class="input-str" id="str-edit-alg-dif" type="text">
+                <btn class="confirm" id="conf3">OK</btn>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
+    <!--Dialog window for enditing info about a container-->
+    <div class="modal" id="dialog-edit-container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="cross" id="cross4">&times</span>
+                <h2>Редактировать информацию о контейнере</h2>
+            </div>
+            <div class="modal-body">
+                <div class="hint" id="struct-name">Название контейнера</div>
+                <input class="input-str" id="str-edit-container-name" type="text">
+                <div class="hint" id="struct-info">Описание</div>
+                <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-edit-container-info"></textarea>
+                <btn class="confirm" id="conf4">OK</btn>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
     <!--Scripts-->
-    <script src="main.js" type="module"></script>
+    <script src="main.js"></script>
     <script src="ncontainer.js" type="module"></script>
-    <script src="delete_container.js" type="text/javascript"></script>
-    <script src="modal.js" type="module"></script>
+    <script src="context_menu.js" type="text/javascript"></script>
+    <script src="modal.js" type="text/javascript"></script>
     <script src="alg_list.js" type="text/javascript"></script>
+    <script src="alg_add.js" type="text/javascript"></script>
+    <script src="alg_delete.js" type="text/javascript"></script>
+    <script src="alg_edit.js" type="text/javascript"></script>
+    <script src="container_edit.js" type="text/javascript"></script>
+    <script src="delete_container.js"></script>
+
 </body>
 
 </html>

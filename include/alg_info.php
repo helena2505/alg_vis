@@ -5,7 +5,7 @@ $json1 = "";
 $json2 = "";
 $arr = array();
 $counter = 0;
-$request = "SELECT id, algorithm_name FROM algorithms WHERE container = '".$got_id."';";
+$request = "SELECT algorithm_name, description, difficulty FROM algorithms WHERE algorithms.id = '".$got_id."';";
 $result = mysqli_query($link, $request);
 $inf = mysqli_fetch_all($result, MYSQLI_ASSOC);
 foreach ($inf as $algorithm):
