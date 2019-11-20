@@ -10,14 +10,6 @@ let algDifficulty3 = ''; // Let for keeping the algorithm's difficulty which has
 let algContainer3 = ''; // Let for keeping the id of the container to which the inserted algorithm refers
 let algId3 = ''; // Let for keeping the updated algorithm's id
 
-function algorithmInfo(elementForInfo) {
-    console.log('Here is going to be a modal window')
-}
-
-function editContainer(elementForInfo) {
-    console.log('Here is going to be modal window for editing');
-}
-
 close3.onclick = function() {
     /* Event listener for the cross of the modal window
     * The function disables visibity of the modal window and cleans input strings
@@ -52,7 +44,7 @@ function editAlgorithm(currentId) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
-                let algorithmInfo = JSON.parse(xhr.responseText); // Unpackaging the servr's response to get all algorithms'
+                let algorithmInfo = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms'
                 algorithmInfo = JSON.parse(algorithmInfo[0]);
                 inputName3.value = algorithmInfo["algorithm_name"];
                 inputDescription3.value = algorithmInfo["description"];

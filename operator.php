@@ -196,6 +196,26 @@ require_once 'include/database.php';
         </div>
     </div>
 
+    <!--Dialog window for editing info about a container-->
+    <div class="modal" id="dialog-edit-container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="cross" id="cross4">&times</span>
+                <h2>Редактировать информацию о контейнере</h2>
+            </div>
+            <div class="modal-body">
+                <div class="hint" id="struct-name">Название контейнера</div>
+                <input class="input-str" id="str-edit-container-name" type="text">
+                <div class="hint" id="struct-info">Описание</div>
+                <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-edit-container-info"></textarea>
+                <btn class="confirm" id="conf4">OK</btn>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
     <!--Scripts-->
     <script src="main.js"></script>
     <script src="ncontainer.js" type="module"></script>
@@ -205,6 +225,7 @@ require_once 'include/database.php';
     <script src="alg_add.js" type="text/javascript"></script>
     <script src="alg_delete.js" type="text/javascript"></script>
     <script src="alg_edit.js" type="text/javascript"></script>
+    <script src="container_edit.js" type="text/javascript"></script>
     <script src="delete_container.js"></script>
 
 </body>
