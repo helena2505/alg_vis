@@ -29,13 +29,13 @@
     cursor: pointer;
 }
 
-#cross1 {
+.cross {
     color: #fff;
     float: right;
     font-size: 30px;
 }
 
-#cross1:hover, #cross1:focus {
+.cross:hover, .cross:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
