@@ -15,10 +15,7 @@ close2.onclick = function() {
     * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina
     */
-    inputName1.value = '';
-    inputDescription1.value = '';
-    inputDifficulty.value = '';
-    dialogAddAlg.style.display = 'none';
+    cleanDialogAdd();
 }
 
 confButton1.onclick = function() {
@@ -30,49 +27,65 @@ confButton1.onclick = function() {
     */
     let keepContainer = 'add-alg-'+ algContainer;
     algName = inputName1.value;
-    algDesrcription = inputDescription1.value;
-    algDifficulty = inputDifficulty.value;
-    let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    xhr.open("POST", "include/add_alg.php", true); // Setting destination and type
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
-    xhr.send('name=' + encodeURIComponent(algName) + '&descr=' + encodeURIComponent(algDesrcription)
-    + '&diff=' + encodeURIComponent(algDifficulty) + '&cont=' + encodeURIComponent(algContainer)); // Sending
-    // the container's name and description
-    xhr.onreadystatechange = function() { // Waiting for the server's answer
-        /* Event listener for getting response from server
-        * Inserts the container's name into the list if confirmation of inserting into database was received from server
-        * Input parameter: none. Output parameter: none.
-        * Author: Elena Karelina
-        */
-        if (xhr.readyState == 4) { // The answer has been got
-            if(xhr.status == 200) { // The server's returned code 200 (success)
-                let results = xhr.responseText.split(' ');
-                if (results[0] === "1") { // If the inserting into database was successful insert into the list
-                    let new_element = document.createElement('LI');
-                    let cur = document.getElementById(keepContainer);
-                    new_element.innerHTML = algName;
-                    new_element.id = 'alg-' + results[1];
-                    new_element.classList.add("one-algorithm");
-                    cur.before(new_element);
-                }
-                else {
-                    alert('При добавлении в базу данных произошла ошибка'); // Informing about the error
+    if(algName === "")
+        alert('Необходимо ввести имя контейнера');
+    else {
+        algDesrcription = inputDescription1.value;
+        algDifficulty = inputDifficulty.value;
+        let xhr = new XMLHttpRequest(); // Creating new HTTP request
+        xhr.open("POST", "include/add_alg.php", true); // Setting destination and type
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
+        xhr.send('name=' + encodeURIComponent(algName) + '&descr=' + encodeURIComponent(algDesrcription)
+            + '&diff=' + encodeURIComponent(algDifficulty) + '&cont=' + encodeURIComponent(algContainer)); // Sending
+        // the container's name and description
+        xhr.onreadystatechange = function () { // Waiting for the server's answer
+            /* Event listener for getting response from server
+            * Inserts the container's name into the list if confirmation of inserting into database was received from server
+            * Input parameter: none. Output parameter: none.
+            * Author: Elena Karelina
+            */
+            if (xhr.readyState == 4) { // The answer has been got
+                if (xhr.status == 200) { // The server's returned code 200 (success)
+                    let results = xhr.responseText.split(' ');
+                    if (results[0] === "1") { // If the inserting into database was successful insert into the list
+                        let new_element = document.createElement('LI');
+                        let cur = document.getElementById(keepContainer);
+                        new_element.innerHTML = algName;
+                        new_element.id = 'alg-' + results[1];
+                        new_element.classList.add("one-algorithm");
+                        cur.before(new_element);
+                    } else {
+                        alert('При добавлении в базу данных произошла ошибка'); // Informing about the error
+                    }
                 }
             }
-        }
-    };
-    inputName1.value = '';
-    inputDescription1.value = '';
-    inputDifficulty.value = '';
-    dialogAddAlg.style.display = 'none';
+        };
+        inputName1.value = '';
+        inputDescription1.value = '';
+        inputDifficulty.value = '';
+        dialogAddAlg.style.display = 'none';
+    }
 }
 
 function inputAlgorithm(event) {
     /* Event listener for clicking on the button "Добавить контейнер"
-    * The function makes the dialog window visible
+    * The function makes the dialog window visible and keeps the target container's id
     * Input parameter: event. Output parameter: none.
     * Author: Elena Karelina
     */
     dialogAddAlg.style.display = 'block';
     algContainer = event.target.id.split('-')[2];
+}
+
+function cleanDialogAdd() {
+    /* The function makes the dialog window for adding an algorithm invisible.
+    * The function resets all values of the text strings.
+    * Input parameter: none. Output parameter: none.
+    * Author: Elena Karelina.
+    */
+    dialogAddAlg.style.display = 'none';
+    inputName1.value = '';
+    inputDescription1.value = '';
+    inputDifficulty.value = '';
+    dialogAddAlg.style.display = 'none';
 }
