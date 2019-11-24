@@ -21,7 +21,7 @@ require_once 'include/database.php';
     <!--Operator mode-->
     <div class="operator">
         <div id="header">
-            <h1>Режим оператора</h1>
+            <div id="add-scene" class="plus-scene">+Добавить сцену</div>
         </div>
         <!--Drawing window-->
         <div id="drawing">
@@ -243,8 +243,11 @@ require_once 'include/database.php';
     <script src="alg_add.js" type="text/javascript"></script>
     <script src="alg_delete.js" type="text/javascript"></script>
     <script src="alg_edit.js" type="text/javascript"></script>
+    <script src="alg_select.js" type="text/javascript"></script>
     <script src="container_edit.js" type="text/javascript"></script>
     <script src="delete_container.js"></script>
+
+    <script src="scene_add.js" type="text/javascript"></script>
 
 </body>
 
