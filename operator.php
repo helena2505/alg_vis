@@ -91,7 +91,7 @@ require_once 'include/database.php';
         <!--Footer-->
         <div id="footer">
             <div class="container">
-                <button class="btn btn2">Сбросить</button>
+                <button class="btn btn2" id="no-alg">Сбросить</button>
                 <button class="btn btn4" id="op_button"> <a href="index.php" class="btn-ref">Выйти из режима
                         оператора</a></button>
             </div>
@@ -248,6 +248,7 @@ require_once 'include/database.php';
     <script src="delete_container.js"></script>
 
     <script src="scene_add.js" type="text/javascript"></script>
+    <script src="scene_select.js" type="text/javascript"></script>
 
 </body>
 
