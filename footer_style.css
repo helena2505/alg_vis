@@ -112,7 +112,7 @@
     float: right;
   }
 
-  /*.btn-ref {
-      color: orchid;
-      text-decoration: none;
-  }*/
+  .small-scene {
+      height: 100%;
+      width: 100%;
+  }

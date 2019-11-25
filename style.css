@@ -116,3 +116,12 @@ body {
     text-align: center;
     width: 10%;
 }
+
+.one-scene {
+    background-color: plum;
+    border: thick solid wheat;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 90%;
+    width: 10%;
+}

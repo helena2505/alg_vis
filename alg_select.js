@@ -22,6 +22,34 @@ function selectAlg(event) {
     if (check.length === 2) { // Checkking that the click has been on an algorithm but not on the buttton
         // 'Добавить алгоритм'
         currentAlgId = check[1]; // Getting the algorithm's id which it has in the database
+        cleanScenes();
+        let xhr1 = new XMLHttpRequest(); // Creating new HTTP request
+        xhr1.open("POST", "include/scene_list.php", true); // Setting destination and type
+        xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
+        xhr1.send('id=' + encodeURIComponent(currentAlgId));
+        xhr1.onreadystatechange = function () { // Waiting for the server's answer
+            /* Event listener for getting response from server
+            * Informs the user if an error has occured at updating information
+            * Input parameter: none. Output parameter: none.
+            * Author: Elena Karelina
+            */
+            if (xhr1.readyState == 4) { // The answer has been got
+                if (xhr1.status == 200) {
+                    let fileName = JSON.parse(xhr1.responseText);
+                    for(let i = 0; i < fileName.length; i++) {
+                        let scenePict = document.createElement('div');
+                        let sceneInfo = JSON.parse(fileName[i]);
+                        let sceneImg = new Image();
+                        scenePict.id = 'scene-' + sceneInfo["s_id"];
+                        scenePict.classList.add("one-scene");
+                        sceneImg.src = 'data:image/jpg;base64,' + sceneInfo["s_picture"];
+                        sceneImg.classList.add('small-scene');
+                        addSceneButton.before(scenePict);
+                        scenePict.appendChild(sceneImg);
+                    }
+                }
+            }
+        };
         addSceneButton.style.display = 'block'; // Enabling visibility fo the button 'Добавить сцену'
     }
 }
@@ -34,4 +62,19 @@ addSceneButton.onclick = function() {
      */
     graphEditor.classList.add("primitives-active"); // Enabling the graph editor's visibility
     graphIndicator = 's';
+}
+
+function cleanScenes () {
+    /* The function removes all child nodes from the
+    * panel which displays images of the scenes
+    * Input parameter: none. Output parameter: none.
+    * Author: Elena Karelina
+    */
+    let sceneImageDisplay = document.getElementById("header"); // The element which keeps all scenes
+    let allScenes = sceneImageDisplay.querySelectorAll('div'); // Selecting all child divs
+    for(let i = 0; i < allScenes.length; i++) { // Removing each div
+        let curDiv = allScenes[i];
+        if(curDiv.id != 'add-scene')
+            sceneImageDisplay.removeChild(curDiv);
+    }
 }
