@@ -28,7 +28,7 @@ confButton1.onclick = function() {
     let keepContainer = 'add-alg-'+ algContainer;
     algName = inputName1.value;
     if(algName === "")
-        alert('Необходимо ввести имя контейнера');
+        alert('Необходимо ввести имя алгоритма');
     else {
         algDesrcription = inputDescription1.value;
         algDifficulty = inputDifficulty.value;
