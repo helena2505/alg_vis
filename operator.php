@@ -115,6 +115,11 @@ require_once 'include/database.php';
                     <i class="fa fa-eye"></i> Редактировать
                 </a>
             </li>
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" id="show-scene">
+                    <i class="fa fa-eye"></i> Показать сцену
+                </a>
+            </li>
         </ul>
     </nav>
     <!--Dialog window for entering info about a container-->
@@ -228,6 +233,19 @@ require_once 'include/database.php';
                 <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-edit-container-info"></textarea>
                 <btn class="confirm" id="conf4">OK</btn>
             </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
+    <!--Dialog window for showing a scene-->
+    <div class="modal" id="dialog-show-scene">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="cross" id="cross4">&times</span>
+            </div>
+            <div class="modal-body" id="show-scene"></div>
             <div class="modal-footer">
                 <h3> </h3>
             </div>
