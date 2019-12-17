@@ -20,7 +20,7 @@ require_once 'include/database.php';
 <body>
     <!--Operator mode-->
     <div class="operator">
-        <div id="header">
+        <div id="header" class="header">
             <div id="add-scene" class="plus-scene">+Добавить сцену</div>
         </div>
         <!--Drawing window-->
@@ -115,9 +115,19 @@ require_once 'include/database.php';
                     <i class="fa fa-eye"></i> Редактировать
                 </a>
             </li>
+        </ul>
+    </nav>
+        <!--Context menu for a scene-->
+        <nav class="context-menu" id="scene-menu">
+        <ul class="context-menu__items">
             <li class="context-menu__item">
                 <a href="#" class="context-menu__link" id="show-scene">
                     <i class="fa fa-eye"></i> Показать сцену
+                </a>
+            </li>
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" id="delete-scene">
+                    <i class="fa fa-eye"></i> Удалить сцену
                 </a>
             </li>
         </ul>
@@ -240,10 +250,10 @@ require_once 'include/database.php';
     </div>
 
     <!--Dialog window for showing a scene-->
-    <div class="modal" id="dialog-show-scene">
+    <div class="modal" id="modal-show-scene">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="cross" id="cross4">&times</span>
+                <span class="cross" id="cross6">&times</span>
             </div>
             <div class="modal-body" id="show-scene"></div>
             <div class="modal-footer">
@@ -265,6 +275,7 @@ require_once 'include/database.php';
     <script src="container_edit.js" type="text/javascript"></script>
     <script src="delete_container.js"></script>
 
+    <script src="scene_show.js"></script>
     <script src="scene_add.js" type="text/javascript"></script>
     <script src="scene_select.js" type="text/javascript"></script>
 

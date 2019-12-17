@@ -1,4 +1,4 @@
-let addButton = document.getElementById("add_a_container"); // Button for adding a container (showing graph primirieves menu)
+let addButton = document.getElementById("add_a_container"); // Button for adding a container (showing graph primitives menu)
 let finishButton = document.getElementById("qbutton"); // Button "Готово" on the graph editor
 let graphEditor = document.getElementById("graph-primitives"); // Graphical primitives menu
 let allPictures = graphEditor.querySelectorAll('img'); // Selecting all images in the menu
@@ -89,17 +89,6 @@ close.onclick = function() {
     modalWindow.style.display = "none";
 }
 
-function outsideClick(e) {
-    /* Function has no input parameters
-    * Functions closes modal on outside click
-    * Function doesn't return anything
-    * Author: Shorygina Tatyana
-    */
-    if (e.target == modalWindow){
-        modalWindow.style.display = 'none';
-    }
-}
-
 function addContainer() {
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     xhr.open("POST", "include/test.php", true); // Setting destination and type
@@ -126,7 +115,6 @@ function addContainer() {
                     forAlgList.id = "alg" + results[1];
                     forAlgList.addEventListener('click', selectAlg);
                     tmp.after(forAlgList);
-
                 }
                 else {
                     alert('При добавлении в базу данных произошла ошибка'); // Informing about the error
