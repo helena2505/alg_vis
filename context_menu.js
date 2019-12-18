@@ -30,8 +30,8 @@ document.addEventListener( "contextmenu", function(event) {
     if (clickInsideElement(event, taskItemClassName)) { // Checking that the right click has been on the containers list
         event.preventDefault(); // Disabling the default listener
         toggleMenuOn(); // Enabling context menu visibility
-    }
-    else if (clickInsideElement(event, taskItemClassName2)) { // Checking that the right click has been on the scenes list
+    } else
+    if (clickInsideElement(event, taskItemClassName2)) { // Checking that the right click has been on the scenes list
         event.preventDefault(); // Disabling the default listener
         toggleMenuOn2(); // Enabling context menu visibility
     }
@@ -79,14 +79,13 @@ function clickInsideElement(event, className) {
     * Otherwise returns false
     * Author: Elena Karelina
      */
-    console.log(className);
     let el = event.srcElement || event.target; // Getting the element on which the click has been
     if (el.id === 'add_a_container' || el.classList.contains("add-alg-button") || el.id === 'plus-scene') { // If it was the button "Добавить контейнер" or "Добавить алгоритм" or "Добавить сцену", disable default listener
         // and don't enable context menu visibility (for not enabaling returning false)
         event.preventDefault();
         return false;
     }
-    if (el.id.indexOf("scene-") > -1) {
+    if (el.classList.contains("small-scene")) {
         elementForDelete = el.id;
         typeForDelete = 'scene';
         return el;
@@ -109,7 +108,7 @@ function clickInsideElement(event, className) {
             }
         } while (el = el.parentNode); // The loop continues until the last parent element
     }
-    }
+}
     
     return false; // This line is to be executed only in case when none of the parents' elements belongs to the class className
 }
@@ -122,16 +121,17 @@ document.addEventListener( "contextmenu", function(event) {
     * Input parameters: event, class name of the parent element
     * Authors: Elena Karelina, Tatyana Shorygina
      */
-    if (clickInsideElement(event, taskItemClassName)) { // Checking that the right click has happened on the containers' list
+    console.log(clickInsideElement(event, taskItemClassName).classList);
+    if (clickInsideElement(event, taskItemClassName).classList.contains('one-algorithm')) { // Checking that the right click has happened on the containers' list
         event.preventDefault(); // Disabling default listener
         toggleMenuOn(); // Enabling visibility of context menu
         positionMenu(event); // Calling the function for positioning menu
     } else { // If the right click hasn't been on containers list
     toggleMenuOff(); // Disabling visibility of context menu
     }
-    if (clickInsideElement(event, taskItemClassName2)) { // Checking that the right click has happened on the scenes' list
+    if (clickInsideElement(event, taskItemClassName2).classList.contains('small-scene') || clickInsideElement(event, taskItemClassName2).classList.contains('one-scene')) { // Checking that the right click has happened on the scenes' list
         event.preventDefault(); // Disabling default listener
-        toggleMenuOn(); // Enabling visibility of context menu
+        toggleMenuOn2(); // Enabling visibility of context menu
         positionMenu(event); // Calling the function for positioning menu
     } else { // If the right click hasn't been on containers list
         toggleMenuOff(); // Disabling visibility of context menu
@@ -157,6 +157,7 @@ function toggleMenuOn() {
     * Output parameters: none
     * Authors: Elena Karelina
      */
+    console.log('Hello, I AM toggle menu');
     if (menuState !== 1) {
         menuState = 1;
         menu.classList.add(activeClassName);
@@ -169,6 +170,7 @@ function toggleMenuOn2() {
     * Output parameters: none
     * Authors: Tatyana Shorygina
      */
+    console.log('Hello, I AM toggle menu 2!!');
     if (menuState !== 1) {
         menuState = 1;
         sceneMenu.classList.add(activeClassName);
