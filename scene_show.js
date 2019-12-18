@@ -4,9 +4,9 @@ function showScene(id) {
     * the scene's visualisation.
     * Input parameter: id of the algorithm for which is required to add a scene.
     * Output parameter: none.
-    * Author: Elena Karelina.
+    * Author: Tatyana Shorygina
     */
-    let requestedId = event.target.id.split('-')[1]; // Forming the target scene's id
+    let requestedId = id.split('-')[1]; // Forming the target scene's id
     console.log(requestedId);
     let modal = document.getElementById("modal-show-scene"); // Modal
     modal.style.display = 'block';
@@ -19,7 +19,7 @@ function showScene(id) {
         /* Event listener for getting response from server
         * Informs the user if an error has occured while adding information
         * Input parameter: none. Output parameter: none.
-        * Author: Elena Karelina
+        * Author: Tatyana Shorgygina
         */
         if (xhr.readyState == 4) { // The answer has been got
             if (xhr.status == 200) {

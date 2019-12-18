@@ -121,12 +121,12 @@ require_once 'include/database.php';
         <nav class="context-menu" id="scene-menu">
         <ul class="context-menu__items">
             <li class="context-menu__item">
-                <a href="#" class="context-menu__link" id="show-scene">
+                <a href="#" class="context-menu__link" id="show-scene-button">
                     <i class="fa fa-eye"></i> Показать сцену
                 </a>
             </li>
             <li class="context-menu__item">
-                <a href="#" class="context-menu__link" id="delete-scene">
+                <a href="#" class="context-menu__link" id="delete-scene-button">
                     <i class="fa fa-eye"></i> Удалить сцену
                 </a>
             </li>
@@ -254,8 +254,10 @@ require_once 'include/database.php';
         <div class="modal-content">
             <div class="modal-header">
                 <span class="cross" id="cross6">&times</span>
+                <h2>Просмотр сцены</h2>
             </div>
-            <div class="modal-body" id="show-scene"></div>
+            <div class="show-scene-wrap">
+            <div class="modal-body" id="show-scene"></div></div>
             <div class="modal-footer">
                 <h3> </h3>
             </div>

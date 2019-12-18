@@ -60,6 +60,23 @@
     padding: 20px;
 }
 
+#show-scene {
+    height: 75%;
+    width: 120%;
+    overflow: hidden;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.show-scene-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: white;
+}
+
 /* Modal footer */
 .modal-footer {
     background: rgb(212, 154, 212);

@@ -16,22 +16,23 @@ let elementForDelete = ''; // ID of target elemet (algorithm or container)
 let typeForDelete = ''; // Type of target element (algorithm or container)
 let showInfo = document.getElementById("show-info"); // Context menu button "Посмотреть информацию"
 let editInfo = document.getElementById("edit-info"); // Context menu button "Редактировать"
-let showSceneButton = document.querySelectorAll('*[id^="scenevis"]'); // Context menu button "Показать сцену"
 let sceneMenu = document.getElementById('scene-menu'); // Context menu
-let deleteSceneButton = document.getElementById("scene-delete"); // Let of context menu's button "Удалить сцену"
+let showSceneButton = document.getElementById('show-scene-button'); // Context menu button "Показать сцену"
+let deleteSceneButton = document.getElementById("scene-delete-button"); // Let of context menu's button "Удалить сцену"
+//let sceneID;
 
 // Adding event listener of right click for all document's area
-document.addEventListener( "contextmenu", function(event) {
+document.addEventListener("contextmenu", function(event) {
     /* Event listener of right click
     * The function disables default listener if the right click has been on containers' list
     * Input parameter: event
     * Author: Elena Karelina, Tatyana Shorygina
      */
-    if (clickInsideElement(event, taskItemClassName)) { // Checking that the right click has been on the containers list
+    if (clickInsideElement(event, taskItemClassName).classList.contains('one-algorithm')) { // Checking that the right click has been on the containers list
         event.preventDefault(); // Disabling the default listener
         toggleMenuOn(); // Enabling context menu visibility
     } else
-    if (clickInsideElement(event, taskItemClassName2)) { // Checking that the right click has been on the scenes list
+    if (clickInsideElement(event, taskItemClassName2).classList.contains('small-scene') || clickInsideElement(event, taskItemClassName2).classList.contains('one-scene')) { // Checking that the right click has been on the scenes list
         event.preventDefault(); // Disabling the default listener
         toggleMenuOn2(); // Enabling context menu visibility
     }
@@ -121,7 +122,6 @@ document.addEventListener( "contextmenu", function(event) {
     * Input parameters: event, class name of the parent element
     * Authors: Elena Karelina, Tatyana Shorygina
      */
-    console.log(clickInsideElement(event, taskItemClassName).classList);
     if (clickInsideElement(event, taskItemClassName).classList.contains('one-algorithm')) { // Checking that the right click has happened on the containers' list
         event.preventDefault(); // Disabling default listener
         toggleMenuOn(); // Enabling visibility of context menu
@@ -278,4 +278,10 @@ editInfo.onclick = function() {
         editAlgorithm(elementForDelete);
     if(typeForDelete === 'scene')
         editAlgorithm(elementForDelete);
+}
+
+showSceneButton.onclick = function() {
+    //
+    console.log(elementForDelete);
+    showScene(elementForDelete);
 }
