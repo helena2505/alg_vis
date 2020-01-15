@@ -20,7 +20,7 @@ require_once 'include/database.php';
 <body>
     <!--Operator mode-->
     <div class="operator">
-        <div id="header">
+        <div id="header" class="header">
             <div id="add-scene" class="plus-scene">+Добавить сцену</div>
         </div>
         <!--Drawing window-->
@@ -113,6 +113,21 @@ require_once 'include/database.php';
             <li class="context-menu__item">
                 <a href="#" class="context-menu__link" id="edit-info">
                     <i class="fa fa-eye"></i> Редактировать
+                </a>
+            </li>
+        </ul>
+    </nav>
+        <!--Context menu for a scene-->
+        <nav class="context-menu" id="scene-menu">
+        <ul class="context-menu__items">
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" id="show-scene-button">
+                    <i class="fa fa-eye"></i> Показать сцену
+                </a>
+            </li>
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" id="delete-scene-button">
+                    <i class="fa fa-eye"></i> Удалить сцену
                 </a>
             </li>
         </ul>
@@ -234,6 +249,21 @@ require_once 'include/database.php';
         </div>
     </div>
 
+    <!--Dialog window for showing a scene-->
+    <div class="modal" id="modal-show-scene">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="cross" id="cross6">&times</span>
+                <h2>Просмотр сцены</h2>
+            </div>
+            <div class="show-scene-wrap">
+            <div class="modal-body" id="show-scene"></div></div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
     <!--Scripts-->
     <script src="main.js"></script>
     <script src="ncontainer.js" type="module"></script>
@@ -249,6 +279,8 @@ require_once 'include/database.php';
 
     <script src="scene_add.js" type="text/javascript"></script>
     <script src="scene_select.js" type="text/javascript"></script>
+    <script src="scene_show.js"></script>
+    <!--script src="scene_delete.js" type="text/javascript"></script-->
 
 </body>
 
