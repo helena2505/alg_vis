@@ -1,7 +1,6 @@
 let addButton = document.getElementById("add_a_container"); // Button for adding a container (showing graph primitives menu)
 let finishButton = document.getElementById("qbutton"); // Button "Готово" on the graph editor
-let graphEditor = document.getElementById("graph-primitives"); // Graphical primitives menu
-let allPictures = graphEditor.querySelectorAll('img'); // Selecting all images in the menu
+let graphEditor = document.getElementById("palette-zone"); // Graphical primitives menu
 let modalWindow = document.getElementById("modal-window"); // Modal window
 let confButton = document.getElementById("conf"); // Button OK of the modal window
 let inputName = document.getElementById("str-inp-name"); // String input for inputting a container's name
@@ -12,21 +11,6 @@ let baseList = document.getElementById("available-containers"); // List of the c
 let close = document.getElementById("cross1"); // The modal window's cross
 
 window.addEventListener('click', outsideClick); // Listen for outside click
-
-// Adding to every picture event listener for starting drag
-for(let i = 0; i < allPictures.length; i++) {
-    let curImage = allPictures[i];
-    curImage.addEventListener('dragstart', transferId);
-}
-
-function transferId(event) {
-    /* Event listener for drag start
-    * Records the dragged element to event
-    * Input parameter: event. Output parameter: none.
-    * Author: Elena Karelina
-    */
-    event.dataTransfer.setData('key', event.target.id);
-}
 
 addButton.onclick = function(event) {
     /* Event listener for clicking button "Добавить контейнер"
