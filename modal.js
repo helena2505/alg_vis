@@ -33,17 +33,18 @@ close5.onclick = function() {
 
 function outsideClick(event) {
     /* Function has no input parameters
-    * Functions closes modal on outside click
+    * Function closes modal on outside click
     * Function doesn't return anything
-    * Author: Shorygina Tatyana */
+    * Author: Shorygina Tatyana
+    */
     if (event.target == modal_1wayList){
         modal_1wayList.style.display = 'none';
     }
     if (event.target === dialogAddAlg){
-        dialogAddAlg.style.display = 'none';
+        cleanDialogAdd();
     }
     if (event.target === dialogEditAlg){
-        dialogEditAlg.style.display = 'none';
+        cleandialogEditAlg();
     }
     if (event.target === algInfoModal){
         algInfoModal.style.display = 'none';
@@ -55,7 +56,7 @@ function containerInfo(elementForInfo) {
     * The function sends request to the server ang gey information about the requested container as a response
     * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina.
-     */
+    */
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     let idForInf = elementForInfo; // Getting id for the clicked container
     xhr.open("POST", "include/info.php", true); // Setting destination and type
@@ -96,7 +97,7 @@ function algorithmInfo(currentId) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
-                let algorithmInfo = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms'
+                let algorithmInfo = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms
                 algorithmInfo = JSON.parse(algorithmInfo[0]);
                 algNameInfo.innerHTML = algorithmInfo["algorithm_name"];
                 algDescr.innerHTML = algorithmInfo["description"];

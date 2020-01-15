@@ -34,18 +34,19 @@ dropLoc.ondrop = function(event) {
     * Input parameter: event. Output parameter: none.
     */
     event.preventDefault();
+    event.stopPropagation();
     let dropItem = event.dataTransfer.getData('key'); // Getting information about the dragged picture
     let droppedElement = document.getElementById(dropItem);
     let newElement = document.createElement('img'); // Creating new picture on the drop zone
+    dropLoc.appendChild(newElement); // Appending to a parent element (canvas)
     // Setting size
-    newElement.style.height = "70px";
-    newElement.style.width = "100px";
+    newElement.style.height = "10%";
+    newElement.style.width = "10%";
     newElement.src = droppedElement.src; // Setting the image's source file
     // Setting coordinates
-    newElement.style.left = event.pageX - newElement.offsetWidth/2 + 'px';
-    newElement.style.top = event.pageY - newElement.offsetHeight/2 + 'px';
-    newElement.style.position = 'absolute';
+    /*newElement.style.left = event.pageX + 'px';
+    newElement.style.top = event.pageY + 'px';
+    newElement.style.position = 'absolute';*/
     // Setting id for the picture
     newElement.classList.add('drag-drop');
-    dropLoc.appendChild(newElement); // Appending to a parent element (canvas)
 }

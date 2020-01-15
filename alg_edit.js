@@ -16,10 +16,7 @@ close3.onclick = function() {
     * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina
     */
-    inputName3.value = '';
-    inputDescription3.value = '';
-    inputDifficulty3.value = '';
-    dialogEditAlg.style.display = 'none';
+    cleandialogEditAlg();
 }
 
 function editAlgorithm(currentId) {
@@ -63,29 +60,42 @@ confButton3.onclick = function () {
     * Author: Elena Karelina
      */
     algName3 = inputName3.value; // Getting the values which have been input
-    algDesrcription3 = inputDescription3.value;
-    algDifficulty3 = inputDifficulty3.value;
-    let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    xhr.open("POST", "include/edit_alg.php", true); // Setting destination and type
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
-    xhr.send('id=' + encodeURIComponent(algId3)+ '&name=' + encodeURIComponent(algName3) + '&descr=' + encodeURIComponent(algDesrcription3)
-        + '&diff=' + encodeURIComponent(algDifficulty3)); // Sending
-    // the algorithm's id and changed fields
-    xhr.onreadystatechange = function() { // Waiting for the server's answer
-        /* Event listener for getting response from server
-        * Informs the user if an error has occured at updating information
-        * Input parameter: none. Output parameter: none.
-        * Author: Elena Karelina
-        */
-        if (xhr.readyState == 4) { // The answer has been got
-            if(xhr.status == 200) { // The server's returned code 200 (success)
-                let result = xhr.responseText;
-                if (result != "1") { // If the inserting into database was not successful
-                    alert('При изменении информации в базе данных произошла ошибка'); // Informing the user about it
+    if (algName3 === "")
+        alert("Имя алгоритма не может быть пустым");
+    else {
+        algDesrcription3 = inputDescription3.value;
+        algDifficulty3 = inputDifficulty3.value;
+        let xhr = new XMLHttpRequest(); // Creating new HTTP request
+        xhr.open("POST", "include/edit_alg.php", true); // Setting destination and type
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
+        xhr.send('id=' + encodeURIComponent(algId3) + '&name=' + encodeURIComponent(algName3) + '&descr=' + encodeURIComponent(algDesrcription3)
+            + '&diff=' + encodeURIComponent(algDifficulty3)); // Sending
+        // the algorithm's id and changed fields
+        xhr.onreadystatechange = function () { // Waiting for the server's answer
+            /* Event listener for getting response from server
+            * Informs the user if an error has occured at updating information
+            * Input parameter: none. Output parameter: none.
+            * Author: Elena Karelina
+            */
+            if (xhr.readyState == 4) { // The answer has been got
+                if (xhr.status == 200) { // The server's returned code 200 (success)
+                    let result = xhr.responseText;
+                    if (result != "1") { // If the inserting into database was not successful
+                        alert('При изменении информации в базе данных произошла ошибка'); // Informing the user about it
+                    }
                 }
             }
-        }
-    };
+        };
+        cleandialogEditAlg();
+    }
+}
+
+function cleandialogEditAlg() {
+    /* The function makes the dialog window for editing an algorithm invisible.
+    * The function resets all values of the text strings.
+    * Input parameter: none. Output parameter: none.
+    * Author: Elena Karelina.
+    */
     // Cleaning input strings
     inputName3.value = '';
     inputDescription3.value = '';
