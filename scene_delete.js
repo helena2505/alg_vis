@@ -1,18 +1,15 @@
 function deleteScene(id) {
-    /* The function sends a request to the server whith the info about the scene
-    * which is required to be added. The info is: the algorithm's id and HTML code of
-    * the scene's visualisation.
-    * Input parameter: id of the algorithm for which is required to add a scene.
+    /* This function deletes a scene.
+    * Input parameter: scene id
     * Output parameter: none.
     * Author: Tatyana Shorygina
     */
-    let requestedId = id.split('-')[1]; // Forming the target scene's id
-    console.log(requestedId);
-    let htmlCode = modal.outerHTML;
+    let clickedId = id.split('-')[1]; // Forming the target scene's id
+    console.log(clickedId);
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    xhr.open("POST", "include/scene_select.php", true); // Setting destination and type
+    xhr.open("POST", "include/scene_delete.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
-    xhr.send('id=' + encodeURIComponent(requestedId) + '&html=' + encodeURIComponent(htmlCode));
+    xhr.send('id=' + encodeURIComponent(clickedId));
     xhr.onreadystatechange = function () { // Waiting for the server's answer
         /* Event listener for getting response from server
         * Informs the user if an error has occured while adding information
@@ -20,10 +17,16 @@ function deleteScene(id) {
         * Author: Tatyana Shorygina
         */
         if (xhr.readyState == 4) { // The answer has been got
-            if (xhr.status == 200) {
-                let content = xhr.responseText; // Getting the text of the server's response
-                let canvas = document.getElementById("show-scene"); // canvas
-                canvas.innerHTML = content; // Inserting the HTML code into the canvas
+            if(xhr.status == 200) { // The returned server's answer is 200 (OK)
+                if(xhr.responseText === "1") { // If the deleting was succesful delete from the interface
+                    let deletedScene = document.getElementById(id); // Remember the element which is neccessary to delete
+                    let borderOfScene = deletedScene.parentNode; // Border of scene element
+                    let headerWithScenes = borderOfScene.parentNode; // Header element
+                    headerWithScenes.removeChild(borderOfScene); // Recursively delete border with scene image from header
+                }
+                else {
+                    alert('При удалении из базы данных произошла ошибка');
+                }
             }
         }
     };

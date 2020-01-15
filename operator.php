@@ -90,7 +90,7 @@ require_once 'include/database.php';
                 </a>
             </li>
             <li class="context-menu__item">
-                <a href="#" class="context-menu__link" id="delete-scene-button">
+                <a href="#" class="context-menu__link" id="scene-delete-button">
                     <i class="fa fa-eye"></i> Удалить сцену
                 </a>
             </li>
@@ -250,7 +250,7 @@ require_once 'include/database.php';
     <script src="scene_add.js" type="text/javascript"></script>
     <script src="scene_select.js" type="text/javascript"></script>
     <script src="scene_show.js"></script>
-    <!--script src="scene_delete.js" type="text/javascript"></script-->
+    <script src="scene_delete.js" type="text/javascript"></script>
 
 </body>
 

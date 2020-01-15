@@ -18,25 +18,8 @@ let showInfo = document.getElementById("show-info"); // Context menu button "П�
 let editInfo = document.getElementById("edit-info"); // Context menu button "Редактировать"
 let sceneMenu = document.getElementById('scene-menu'); // Context menu
 let showSceneButton = document.getElementById('show-scene-button'); // Context menu button "Показать сцену"
-let deleteSceneButton = document.getElementById("scene-delete-button"); // Let of context menu's button "Удалить сцену"
+let deleteSceneButton = document.getElementById("scene-delete-button"); // Context menu's button "Удалить сцену"
 //let sceneID;
-
-// Adding event listener of right click for all document's area
-document.addEventListener("contextmenu", function(event) {
-    /* Event listener of right click
-    * The function disables default listener if the right click has been on containers' list
-    * Input parameter: event
-    * Author: Elena Karelina, Tatyana Shorygina
-     */
-    if (clickInsideElement(event, taskItemClassName).classList.contains('one-algorithm')) { // Checking that the right click has been on the containers list
-        event.preventDefault(); // Disabling the default listener
-        toggleMenuOn(); // Enabling context menu visibility
-    } else
-    if (clickInsideElement(event, taskItemClassName2).classList.contains('small-scene') || clickInsideElement(event, taskItemClassName2).classList.contains('one-scene')) { // Checking that the right click has been on the scenes list
-        event.preventDefault(); // Disabling the default listener
-        toggleMenuOn2(); // Enabling context menu visibility
-    }
-});
 
 // Adding event listener of left click for all document's area
 document.addEventListener( "click", function(event) {
@@ -79,16 +62,18 @@ function clickInsideElement(event, className) {
     * Returns the parent element of className or element of one container if the click has been on it
     * Otherwise returns false
     * Author: Elena Karelina
-     */
+    */
     let el = event.srcElement || event.target; // Getting the element on which the click has been
     if (el.id === 'add_a_container' || el.classList.contains("add-alg-button") || el.id === 'plus-scene') { // If it was the button "Добавить контейнер" or "Добавить алгоритм" or "Добавить сцену", disable default listener
-        // and don't enable context menu visibility (for not enabaling returning false)
+        // and don't enable context menu visibility (for not enabling returning false)
         event.preventDefault();
         return false;
     }
     if (el.classList.contains("small-scene")) {
         elementForDelete = el.id;
         typeForDelete = 'scene';
+        //console.log(el);
+        //console.log(el.parentNode);
         return el;
     } else {
         if (el.classList.contains(className)) { // If the click has occured on the element of algorithms' just return it
@@ -97,6 +82,7 @@ function clickInsideElement(event, className) {
         return el;
     } else { // Looking for the parent element
         do {
+            console.log(el);
             if (el.classList.contains(className)) { // If the click has occured on the element of algorithms' just return it
                 elementForDelete = el.id; // Keeping the algorithm's id for deleting
                 typeForDelete = 'alg'; // Keeping that the deleted element is an algorithm
@@ -115,7 +101,7 @@ function clickInsideElement(event, className) {
 }
 
 // Adding event listener for right click
-document.addEventListener( "contextmenu", function(event) {
+document.addEventListener("contextmenu", function(event) {
     /* Event listener of right click
     * The function shows the context menu in place where the right click has happened if it has happened on the containers' list
     * Otherwise the function hides the context menu
@@ -133,6 +119,7 @@ document.addEventListener( "contextmenu", function(event) {
         event.preventDefault(); // Disabling default listener
         toggleMenuOn2(); // Enabling visibility of context menu
         positionMenu(event); // Calling the function for positioning menu
+        console.log("Hey, I'm a small scene!!");
     } else { // If the right click hasn't been on containers list
         toggleMenuOff(); // Disabling visibility of context menu
     }
@@ -281,7 +268,21 @@ editInfo.onclick = function() {
 }
 
 showSceneButton.onclick = function() {
-    //
+    /* Event listener for clicking button "Показать сцену" of the context menu
+    * The function calls a neccessary function of showing a scene
+    * Input parameter: none. Output parameter: none.
+    * Authors: Tatyana Shorygina
+     */
     console.log(elementForDelete);
     showScene(elementForDelete);
+}
+
+deleteSceneButton.onclick = function() {
+    /* Event listener for clicking button "Удалить сцену" of the context menu
+    * The function calls a neccessary function of deleting a scene
+    * Input parameter: none. Output parameter: none.
+    * Authors: Tatyana Shorygina
+     */
+    console.log(elementForDelete);
+    deleteScene(elementForDelete);
 }
