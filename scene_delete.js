@@ -19,13 +19,10 @@ function deleteScene(id) {
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The returned server's answer is 200 (OK)
                 if(xhr.responseText === "1") { // If the deleting was succesful delete from the interface
-                    let deletedScene = document.getElementById(clickedId); // Remember the element which is neccessary to delete
-                    // its ID has been saved in function clickInsideElement
-                    /*let smallScenesMenu = deletedScene.parentNode;
-                    console.log(smallScenesMenu);
-                    smallScenesMenu.removeChild(deletedScene); // Deleting*/
-                    //let h = getElementById("header");
-                    location.reload(true);
+                    let deletedScene = document.getElementById(id); // Remember the element which is neccessary to delete
+                    let borderOfScene = deletedScene.parentNode; // Border of scene element
+                    let headerWithScenes = borderOfScene.parentNode; // Header element
+                    headerWithScenes.removeChild(borderOfScene); // Recursively delete border with scene image from header
                 }
                 else {
                     alert('При удалении из базы данных произошла ошибка');

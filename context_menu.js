@@ -62,7 +62,7 @@ function clickInsideElement(event, className) {
     * Returns the parent element of className or element of one container if the click has been on it
     * Otherwise returns false
     * Author: Elena Karelina
-     */
+    */
     let el = event.srcElement || event.target; // Getting the element on which the click has been
     if (el.id === 'add_a_container' || el.classList.contains("add-alg-button") || el.id === 'plus-scene') { // If it was the button "Добавить контейнер" or "Добавить алгоритм" or "Добавить сцену", disable default listener
         // and don't enable context menu visibility (for not enabling returning false)
@@ -72,6 +72,8 @@ function clickInsideElement(event, className) {
     if (el.classList.contains("small-scene")) {
         elementForDelete = el.id;
         typeForDelete = 'scene';
+        //console.log(el);
+        //console.log(el.parentNode);
         return el;
     } else {
         if (el.classList.contains(className)) { // If the click has occured on the element of algorithms' just return it
