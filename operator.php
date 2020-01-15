@@ -151,7 +151,7 @@ require_once 'include/database.php';
 
     <!--Dialog window for entering info about an algorithm-->
     <div class="modal" id="dialog-add-alg">
-        <div class="modal-content">
+        <div class="modal-content" id="dialog-alg-add-content">
             <div class="modal-header">
                 <span class="cross" id="cross2">&times;</span>
                 <h2 id="dialog-header">Добавить новый алгоритм</h2>

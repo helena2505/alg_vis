@@ -1,7 +1,7 @@
 /* Footer style */
 #footer {
     background-color: pink;
-    height: 10%;
+    height: 8%;
     width: 100%;
     float: left;
     padding: 0px;
@@ -110,9 +110,21 @@
 /* Button to exit operator mode */
   #op_button {
     float: right;
+    margin-top: 0px;
   }
 
-  .small-scene {
-      height: 100%;
-      width: 100%;
-  }
+/* Button to exit operator mode */
+#op_button {
+  float: right;
+  margin-top: 0px;
+}
+
+/* Button to exit operator mode */
+#no-alg {
+  margin-top: 0px;
+}
+
+.small-scene {
+  height: 100%;
+  width: 100%;
+}
