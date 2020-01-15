@@ -26,50 +26,14 @@ require_once 'include/database.php';
         <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw">
-                <div class="primitives" id="graph-primitives">
-                    <!--Primitives editor-->
-                    <ul class="editor">
-                        <button class="btn btn4" id="qbutton">Готово</button>
-                        <li>
-                            <img id="rectangle" src="pictures1/rect.svg" width="80" height="50" alt="draw rectangle">
-                        </li>
-                        <li>
-                            <img id="circule" src="pictures1/circ.svg" width="100" height="70" alt="draw circle">
-                        </li>
-                        <li>
-                            <img id="right_arrow" src="pictures1/right_arrow.svg" width="100" height="70"
-                                alt="draw right arrow">
-                        </li>
-                        <li>
-                            <img id="left_arrow" src="pictures1/left_arrow.svg" width="100" height="70"
-                                alt="draw left arrow">
-                        </li>
-                        <li>
-                            <img id="left_down_arrow" src="pictures1/left_down_arrow.svg" width="100" height="70"
-                                alt="draw left down arrow">
-                        </li>
-                        <li>
-                            <img id="right_down_arrow" src="pictures1/right_down_arrow.svg" width="100" height="70"
-                                alt="draw right down arrow">
-                        </li>
-                        <li>
-                            <img id="stack_queue_without_arrow" src="pictures1/stack_queue_without_arrow.svg"
-                                width="100" height="70" alt="draw stack/queue without arrow">
-                        </li>
-                        <li>
-                            <img id="tree_node" src="pictures1/tree_node.svg" width="100" height="70"
-                                alt="draw tree_node">
-                        </li>
-                        <li>
-                            <img id="rectangle" src="pictures1/rectangle.svg" width="100" height="70"
-                                alt="draw variable">
-                        </li>
-                        <li>
-                            <img id="array" src="pictures1/try.svg" width="100" height="70" alt="draw array element">
-                        </li>
+                <div id="palette-zone" class="primitives">
+                    <button class="btn btn4" id="qbutton">Готово</button>
+                    <button class="btn btn4" id="qbutton1">Удалить элемент</button>
+                    <button class="btn btn4" id="qbutton2">Undo</button>
+                    <button class="btn btn4" id="qbutton3">Redo</button>
                 </div>
                 <!--Zone where it's allowed to drop objects-->
-                <div id="outer-dropzone" class="dropzone"></div>
+                <div id="drawing-field" class="dropzone"></div>
             </div>
             <!--Structures menu-->
             <div id="structures-col">
@@ -265,6 +229,13 @@ require_once 'include/database.php';
     </div>
 
     <!--Scripts-->
+    <!--Including mxGraph-->
+    <script type="text/javascript">
+        mxBasePath = 'mxgraph-4.0.6/javascript/src';
+    </script>
+    <script type="text/javascript" src="mxgraph-4.0.6/javascript/src/js/mxClient.js"></script>
+
+    <!--App's scripts-->
     <script src="main.js"></script>
     <script src="ncontainer.js" type="module"></script>
     <script src="context_menu.js" type="text/javascript"></script>
@@ -276,7 +247,6 @@ require_once 'include/database.php';
     <script src="alg_select.js" type="text/javascript"></script>
     <script src="container_edit.js" type="text/javascript"></script>
     <script src="delete_container.js"></script>
-
     <script src="scene_add.js" type="text/javascript"></script>
     <script src="scene_select.js" type="text/javascript"></script>
     <script src="scene_show.js"></script>
