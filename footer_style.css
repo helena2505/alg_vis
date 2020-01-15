@@ -5,7 +5,7 @@
     width: 100%;
     float: left;
     padding: 0px;
-    overflow: auto;
+    overflow: hidden;
     border-radius: 5px;
     clear: both;
     color: white;
@@ -112,7 +112,7 @@
     float: right;
   }
 
-  /*.btn-ref {
-      color: orchid;
-      text-decoration: none;
-  }*/
+  .small-scene {
+      height: 100%;
+      width: 100%;
+  }
