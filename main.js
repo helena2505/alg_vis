@@ -145,6 +145,12 @@ if (!mxClient.isBrowserSupported())  {
         let xmlCode = mxUtils.getXml(result);
         return xmlCode;
     }
+
+    function loadXml(xmlString) {
+        let doc = mxUtils.parseXml(xmlString);
+        let codec = new mxCodec(doc);
+        codec.decode(doc.documentElement, graph.getModel());
+    }
 }
 
 function addToolbarItem(graph, toolbar, prototype, image)  {

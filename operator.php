@@ -249,6 +249,7 @@ require_once 'include/database.php';
     <script src="delete_container.js"></script>
     <script src="scene_add.js" type="text/javascript"></script>
     <script src="scene_select.js" type="text/javascript"></script>
+    <script src="scene_edit.js" type="text/javascript"></script>
     <script src="scene_show.js"></script>
     <!--script src="scene_delete.js" type="text/javascript"></script-->
 

@@ -35,9 +35,14 @@ finishButton.onclick = function(event) {
         // If the state of graph indicator is equal to adding a container
         addContainer(); // Call the function for adding a container
     } else {
-        if (graphIndicator == 's')
-        // If the state of graph indicator is equal to adding a scene
+        if (graphIndicator == 's') {
+            // If the state of graph indicator is equal to adding a scene
             addScene(currentAlgId); // Call the function for adding a container
+        } else {
+            if (graphIndicator == 'e') {
+                editScene(requestedId);
+            }
+        }
     }
     graphIndicator = '';
 }
