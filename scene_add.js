@@ -24,18 +24,22 @@ function addScene(id) {
                 if(parseInt(xhr.responseText) === 3) {
                     alert('Ошибка на сервере при рендере изображения');
                 } else {
-                    let scenePict = document.createElement('div');
-                    let sceneImg = new Image();
-                    let fileName = xhr.responseText;
-                    let sceneNum = fileName.split('_')[3];
-                    scenePict.id = 'scene-' + sceneNum;
-                    scenePict.classList.add("one-scene"); // Setting class for the frame
-                    scenePict.addEventListener('click', selectScene);
-                    sceneImg.src = fileName;
-                    sceneImg.id = 'scenevis-' + sceneNum;
-                    sceneImg.classList.add('small-scene'); // Setting class for the image
-                    addSceneButton.before(scenePict); // Inserting the frame into the user's interface
-                    scenePict.appendChild(sceneImg); // Appending the image to the frame
+                    if(parseInt(xhr.responseText) === 4) {
+                        alert('Ошибка при добавлении в базу данных');
+                    } else {
+                        let scenePict = document.createElement('div');
+                        let sceneImg = new Image();
+                        let fileName = xhr.responseText;
+                        let sceneNum = fileName.split('_')[3];
+                        scenePict.id = 'scene-' + sceneNum;
+                        scenePict.classList.add("one-scene"); // Setting class for the frame
+                        scenePict.addEventListener('click', selectScene);
+                        sceneImg.src = fileName;
+                        sceneImg.id = 'scenevis-' + sceneNum;
+                        sceneImg.classList.add('small-scene'); // Setting class for the image
+                        addSceneButton.before(scenePict); // Inserting the frame into the user's interface
+                        scenePict.appendChild(sceneImg); // Appending the image to the frame
+                    }
                 }
             }
         }

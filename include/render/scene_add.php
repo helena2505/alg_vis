@@ -14,6 +14,9 @@ else {
     $file_name = "alg_".$alg_id."_scene_";
     $request = "SELECT insert_scene(".$alg_id.", '".$xml."', '".$file_name."');";
     $result = mysqli_query($link, $request);
+    if(gettype($result) == "boolean") {
+        exit(4);
+    }
     $inf = mysqli_fetch_all($result, MYSQLI_NUM);
     $file_name = "../images/".$inf[0][0];
     rename($svg_file, $file_name);
