@@ -23,12 +23,10 @@ function addScene(id) {
             if (xhr.status == 200) {
                 if(parseInt(xhr.responseText) === 3) {
                     alert('Ошибка на сервере при рендере изображения');
-                }
-                else {
+                } else {
                     let scenePict = document.createElement('div');
                     let sceneImg = new Image();
                     let fileName = xhr.responseText;
-                    console.log(fileName);
                     let sceneNum = fileName.split('_')[3];
                     scenePict.id = 'scene-' + sceneNum;
                     scenePict.classList.add("one-scene"); // Setting class for the frame
