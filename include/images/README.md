@@ -1,2 +1,1 @@
-# alg_vis
-Проект "Разработка системы визуализации алгоритмов и структур данных", МИЭМ
+This is a directory for storing files of scenes' visualisation in the Server
