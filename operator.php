@@ -236,7 +236,7 @@ require_once 'include/database.php';
     <script type="text/javascript" src="mxgraph-4.0.6/javascript/src/js/mxClient.js"></script>
 
     <!--App's scripts-->
-    <script src="main.js"></script>
+    <script src="main.js" type="text/javascript"></script>
     <script src="ncontainer.js" type="module"></script>
     <script src="context_menu.js" type="text/javascript"></script>
     <script src="modal.js" type="text/javascript"></script>

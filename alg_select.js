@@ -2,7 +2,7 @@ let menu1 = document.getElementById('available-containers'); // Containers' menu
 let algTree = menu1.querySelectorAll('.algorithm-list'); // Getting all lists of algorithms
 let currentAlgId = ''; // Let for keeping the clicked algorithm id
 let addSceneButton = document.getElementById('add-scene'); // Button for adding a scene
-let graphEditor = document.getElementById("graph-primitives"); // Graphical primitives menu
+let graphEditor = document.getElementById("palette-zone"); // Graphical primitives menu
 let graphIndicator = ''; // Let for keeping the state of the graph editor: if it has been enabled for adding a container or a scene
 let noAlgButton = document.getElementById('no-alg');
 
@@ -47,13 +47,7 @@ function selectAlg(event) {
                         scenePict.id = 'scene-' + sceneInfo["s_id"]; // Setting an id for the frame
                         scenePict.classList.add("one-scene"); // Setting class for the frame
                         scenePict.addEventListener('click', selectScene); // Setting event listener for working with the scene
-                        //scenePict.addEventListener('click', oncontextmenu=showScene); // Setting event listener for working with the scene
-                        /*scenePict.addEventListener('contextmenu', function(ev) {
-                            ev.preventDefault();
-                            alert('success!');
-                            return false;
-                        }, false);*/
-                        sceneImg.src = 'data:image/jpg;base64,' + sceneInfo["s_picture"]; // Setting the pictures content gor from the server
+                        sceneImg.src = sceneInfo["s_picture"]; // Setting the pictures content gor from the server
                         sceneImg.id = 'scenevis-' + sceneInfo["s_id"]; // Setting id for the image
                         sceneImg.classList.add('small-scene'); // Setting class for the image
                         addSceneButton.before(scenePict); // Inserting the frame into the user's interface

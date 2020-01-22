@@ -138,6 +138,13 @@ if (!mxClient.isBrowserSupported())  {
             graph.removeCells();
         }
     }
+
+    function getXml() {
+        let encoder = new mxCodec();
+        let result = encoder.encode(graph.getModel());
+        let xmlCode = mxUtils.getXml(result);
+        return xmlCode;
+    }
 }
 
 function addToolbarItem(graph, toolbar, prototype, image)  {
