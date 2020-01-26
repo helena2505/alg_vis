@@ -122,8 +122,8 @@ body {
 }
 
 .one-scene {
-    background-color: plum;
-    border: thick solid wheat;
+    background-color: white;
+    border: thick solid orchid;
     border-radius: 5px;
     cursor: pointer;
     height: 90%;

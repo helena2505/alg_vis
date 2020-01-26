@@ -5,12 +5,11 @@ $json1 = "";
 $json2 = "";
 $counter = 0;
 $arr = array();
-$request = "SELECT s_id, s_picture FROM scenes WHERE scenes.s_algorithm=".$id.";";
+$request = "SELECT s_id, s_picture FROM scenes WHERE scenes.s_algorithm=".$id." ORDER BY s_order;";
 $result = mysqli_query($link, $request);
 $file_name = mysqli_fetch_all($result, MYSQLI_ASSOC);
 foreach ($file_name as $scene):
-    $image = file_get_contents($scene["s_picture"]);
-    $scene["s_picture"] = base64_encode($image);
+    $scene["s_picture"] = "include/images/".$scene["s_picture"];
     $json1 = json_encode($scene);
     $arr[$counter] = $json1;
     $counter += 1;
