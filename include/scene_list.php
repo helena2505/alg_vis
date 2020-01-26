@@ -15,4 +15,8 @@ foreach ($file_name as $scene):
     $counter += 1;
 endforeach;
 $json2 = json_encode($arr);
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); //Дата в прошлом
+header("Cache-Control: no-store, no-cache, must-revalidate"); // HTTP/1.1
+header("Pragma: no-cache"); // HTTP/1.1
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . "GMT");
 echo $json2;
