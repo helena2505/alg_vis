@@ -7,7 +7,6 @@ function showScene(id) {
     * Author: Tatyana Shorygina
     */
     let requestedId = id.split('-')[1]; // Forming the target scene's id
-    console.log(requestedId);
     let modal = document.getElementById("modal-show-scene"); // Modal
     modal.style.display = 'block';
     let htmlCode = modal.outerHTML;

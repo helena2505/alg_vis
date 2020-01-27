@@ -221,7 +221,7 @@ require_once 'include/database.php';
                 <h2>Просмотр сцены</h2>
             </div>
             <div class="show-scene-wrap">
-            <div class="modal-body" id="show-scene"></div></div>
+            <p class="modal-body" id="show-scene"></p></div>
             <div class="modal-footer">
                 <h3> </h3>
             </div>
