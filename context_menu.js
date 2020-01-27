@@ -19,7 +19,6 @@ let editInfo = document.getElementById("edit-info"); // Context menu button "Р�
 let sceneMenu = document.getElementById('scene-menu'); // Context menu
 let showSceneButton = document.getElementById('show-scene-button'); // Context menu button "Показать сцену"
 let deleteSceneButton = document.getElementById("scene-delete-button"); // Context menu's button "Удалить сцену"
-//let sceneID;
 
 // Adding event listener of left click for all document's area
 document.addEventListener( "click", function(event) {
@@ -67,37 +66,24 @@ function clickInsideElement(event, className) {
     if (el.id === 'add_a_container' || el.classList.contains("add-alg-button") || el.id === 'plus-scene') { // If it was the button "Добавить контейнер" or "Добавить алгоритм" or "Добавить сцену", disable default listener
         // and don't enable context menu visibility (for not enabling returning false)
         event.preventDefault();
-        return false;
+        return 0;
     }
-    if (el.classList.contains("small-scene")) {
+    if (el.classList.contains("small-scene") || el.classList.contains("one-scene")) {
         elementForDelete = el.id;
         typeForDelete = 'scene';
-        //console.log(el);
-        //console.log(el.parentNode);
-        return el;
-    } else {
-        if (el.classList.contains(className)) { // If the click has occured on the element of algorithms' just return it
-        elementForDelete = el.id; // Keeping the algorithm's id for deleting
-        typeForDelete = 'alg'; // Keeping that the deleted element is an algorithm
-        return el;
-    } else { // Looking for the parent element
-        do {
-            console.log(el);
-            if (el.classList.contains(className)) { // If the click has occured on the element of algorithms' just return it
-                elementForDelete = el.id; // Keeping the algorithm's id for deleting
-                typeForDelete = 'alg'; // Keeping that the deleted element is an algorithm
-                return el;
-            }
-            if (el.classList && el.classList.contains("one-container")) { // If one of the parents' element is the element of the containers' list
-                elementForDelete = el.id; // Keeping the container's id for deleting
-                typeForDelete = 'cont'; // Keeping that the deleted element is a container
-                return el;
-            }
-        } while (el = el.parentNode); // The loop continues until the last parent element
+        return 3;
     }
-}
-    
-    return false; // This line is to be executed only in case when none of the parents' elements belongs to the class className
+    if (el.classList.contains("one-algorithm") || el.classList.contains("algorithm-list-vis")) {
+        elementForDelete = el.id;
+        typeForDelete = 'alg';
+        return 2;
+    }
+    if (el.classList.contains("one-container")) {
+        elementForDelete = el.id;
+        typeForDelete = 'cont';
+        return 1;
+    }
+    return 0; // This line is to be executed only in case when none of the parents' elements belongs to the class className
 }
 
 // Adding event listener for right click
@@ -108,21 +94,25 @@ document.addEventListener("contextmenu", function(event) {
     * Input parameters: event, class name of the parent element
     * Authors: Elena Karelina, Tatyana Shorygina
      */
-    if (clickInsideElement(event, taskItemClassName).classList.contains('one-algorithm')) { // Checking that the right click has happened on the containers' list
+    let q = clickInsideElement(event, taskItemClassName);
+    console.log(q);
+    if (q == 1 || q == 2 ) { // Checking that the right click has happened on the containers' list
         event.preventDefault(); // Disabling default listener
+        console.log('here');
         toggleMenuOn(); // Enabling visibility of context menu
         positionMenu(event); // Calling the function for positioning menu
     } else { // If the right click hasn't been on containers list
-    toggleMenuOff(); // Disabling visibility of context menu
+        toggleMenuOff(); // Disabling visibility of context menu
     }
-    if (clickInsideElement(event, taskItemClassName2).classList.contains('small-scene') || clickInsideElement(event, taskItemClassName2).classList.contains('one-scene')) { // Checking that the right click has happened on the scenes' list
+    if (clickInsideElement(event, taskItemClassName2) === 3) { // Checking that the right click has happened on the scenes' list
         event.preventDefault(); // Disabling default listener
         toggleMenuOn2(); // Enabling visibility of context menu
         positionMenu(event); // Calling the function for positioning menu
         console.log("Hey, I'm a small scene!!");
-    } else { // If the right click hasn't been on containers list
+        return 0;
+    } /*else { // If the right click hasn't been on containers list
         toggleMenuOff(); // Disabling visibility of context menu
-    }
+    }*/
 });
 
 function toggleMenuOff() {
@@ -144,7 +134,6 @@ function toggleMenuOn() {
     * Output parameters: none
     * Authors: Elena Karelina
      */
-    console.log('Hello, I AM toggle menu');
     if (menuState !== 1) {
         menuState = 1;
         menu.classList.add(activeClassName);
@@ -157,7 +146,6 @@ function toggleMenuOn2() {
     * Output parameters: none
     * Authors: Tatyana Shorygina
      */
-    console.log('Hello, I AM toggle menu 2!!');
     if (menuState !== 1) {
         menuState = 1;
         sceneMenu.classList.add(activeClassName);
