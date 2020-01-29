@@ -5,7 +5,6 @@ function deleteScene(id) {
     * Author: Tatyana Shorygina
     */
     let clickedId = id.split('-')[1]; // Forming the target scene's id
-    console.log(clickedId);
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     xhr.open("POST", "include/scene_delete.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding

@@ -20,5 +20,9 @@ else {
     $file_name = "../images/".$inf[0][0];
     rename($svg_file, $file_name);
     unlink($xml_file);
-    echo $inf[0][0];
+    header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); //Дата в прошлом
+    header("Cache-Control: no-store, no-cache, must-revalidate"); // HTTP/1.1
+    header("Pragma: no-cache"); // HTTP/1.1
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . "GMT");
+    echo "include/images/".$inf[0][0];
 }

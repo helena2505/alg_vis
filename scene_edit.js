@@ -19,7 +19,8 @@ function editScene(sceneId) {
                         alert('Ошибка при добавлении в базу данных');
                     } else {
                         let editedPicture = document.getElementById('scenevis-' + sceneId);
-                        editedPicture.src = xht.responseText;
+                        editedPicture.src = xhr.responseText;
+                        console.log(xhr.responseText);
                     }
                 }
             }
