@@ -95,10 +95,8 @@ document.addEventListener("contextmenu", function(event) {
     * Authors: Elena Karelina, Tatyana Shorygina
      */
     let q = clickInsideElement(event, taskItemClassName);
-    console.log(q);
     if (q == 1 || q == 2 ) { // Checking that the right click has happened on the containers' list
         event.preventDefault(); // Disabling default listener
-        console.log('here');
         toggleMenuOn(); // Enabling visibility of context menu
         positionMenu(event); // Calling the function for positioning menu
     } else { // If the right click hasn't been on containers list
@@ -108,7 +106,6 @@ document.addEventListener("contextmenu", function(event) {
         event.preventDefault(); // Disabling default listener
         toggleMenuOn2(); // Enabling visibility of context menu
         positionMenu(event); // Calling the function for positioning menu
-        console.log("Hey, I'm a small scene!!");
         return 0;
     } /*else { // If the right click hasn't been on containers list
         toggleMenuOff(); // Disabling visibility of context menu
@@ -259,9 +256,8 @@ showSceneButton.onclick = function() {
     /* Event listener for clicking button "Показать сцену" of the context menu
     * The function calls a neccessary function of showing a scene
     * Input parameter: none. Output parameter: none.
-    * Authors: Tatyana Shorygina
+    * Author: Tatyana Shorygina
      */
-    console.log(elementForDelete);
     showScene(elementForDelete);
 }
 
@@ -271,6 +267,5 @@ deleteSceneButton.onclick = function() {
     * Input parameter: none. Output parameter: none.
     * Authors: Tatyana Shorygina
      */
-    console.log(elementForDelete);
     deleteScene(elementForDelete);
 }
