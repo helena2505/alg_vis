@@ -9,11 +9,10 @@ function showScene(id) {
     let requestedId = id.split('-')[1]; // Forming the target scene's id
     let modal = document.getElementById("modal-show-scene"); // Modal
     modal.style.display = 'block';
-    let htmlCode = modal.outerHTML;
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     xhr.open("POST", "include/scene_show.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
-    xhr.send('id=' + encodeURIComponent(requestedId) + '&html=' + encodeURIComponent(htmlCode));
+    xhr.send('id=' + encodeURIComponent(requestedId));
     xhr.onreadystatechange = function () { // Waiting for the server's answer
         /* Event listener for getting response from server
         * Informs the user if an error has occured while adding information

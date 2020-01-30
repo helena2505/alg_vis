@@ -11,7 +11,7 @@ if($status != 0) {
 }
 else {
     $alg_id = $_POST["id"];
-    $file_name = "alg_".$alg_id."_scene_";
+    $file_name = "scene_";
     $request = "SELECT insert_scene(".$alg_id.", '".$xml."', '".$file_name."');";
     $result = mysqli_query($link, $request);
     if(gettype($result) == "boolean") {
