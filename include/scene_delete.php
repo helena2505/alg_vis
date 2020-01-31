@@ -4,8 +4,7 @@ $got_id = $_POST["id"];
 $req = "SELECT delete_scene(".$got_id.");";
 $result = mysqli_query($link, $req);
 if(gettype($result) == "boolean") {
-    echo($result);
-    echo("DB crashed");
+    echo("4");
     exit(4);
 }
 else {
