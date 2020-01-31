@@ -30,7 +30,8 @@ function addScene(id) {
                         let scenePict = document.createElement('div');
                         let sceneImg = new Image();
                         let fileName = xhr.responseText;
-                        let sceneNum = fileName.split('_')[3];
+                        let sceneNum = fileName.split('_')[1];
+                        sceneNum = sceneNum.split('.')[0];
                         scenePict.id = 'scene-' + sceneNum;
                         scenePict.classList.add("one-scene"); // Setting class for the frame
                         scenePict.addEventListener('click', selectScene);

@@ -20,7 +20,6 @@ function editScene(sceneId) {
                     } else {
                         let editedPicture = document.getElementById('scenevis-' + sceneId);
                         editedPicture.src = xhr.responseText;
-                        console.log(xhr.responseText);
                     }
                 }
             }
