@@ -56,7 +56,7 @@
     <div id="footer">
         <div class="container">
             <button class="btn btn2">Сбросить</button>
-            <button class="btn btn4" id="op_button"> <a href="operator.php" class="btn-ref">Войти в режим оператора</a></button>
+            <button class="btn btn4" id="op_button"> <a href="operator.php" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
         </div>
     </div>
 </div>

@@ -8,6 +8,7 @@
     position: relative;
     overflow: hidden;
     color: white;
+    outline: none;
 }
 
 /* Button to open modal on hover */
@@ -38,9 +39,14 @@
 /* Modal content */
 .modal-content {
     background-color: #f4f4f4;
-    margin: 10% auto;
-    width: 56%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0, 0.17); 
+    /*margin: 10% auto;*/
+    width: 56% auto;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0, 0.17);
+    position: absolute;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Modal header */
