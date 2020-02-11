@@ -109,7 +109,7 @@ function algorithmInfo(currentId) {
     * The function sends request to the server ang gey information about the requested container as a response
     * Input parameter: none. Output parameter: none
     * Author: Tatyana Shorygina
-     */
+    */
     algId3 = currentId.split('-')[1]; // Getting id for the clicked algorithm
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     xhr.open("POST", "include/alg_info.php", true); // Setting destination and type
@@ -133,3 +133,16 @@ function algorithmInfo(currentId) {
         }
     };
 }
+
+function noScroll() {
+    /* The function prevents window and modals from scrolling
+    * Input parameter: none. Output parameter: none
+    * Author: Tatyana Shorygina
+    */
+    window.scrollTo(0, 0);
+    showSceneModal.scrollTo(0, 0);
+  }
+  
+// add listeners to disable scroll
+window.addEventListener('scroll', noScroll);
+showSceneModal.addEventListener('scroll', noScroll);
