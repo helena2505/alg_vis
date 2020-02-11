@@ -114,22 +114,25 @@
   height: 0%;
 }
 
+/* Button to reset scene in operator mode*/
+#no-alg {
+  margin-top: 0px;
+  outline: none;
+  float: center;
+}
+
+/* Button to reset scene in student mode*/
+#no-alg2 {
+  margin-top: 0px;
+  outline: none;
+  float: center;
+}
+
 /* Button to exit operator mode */
 #op_button {
   float: right;
   margin-top: 0px;
-}
-
-/* Button to exit operator mode */
-#op_button {
-float: right;
-margin-top: 0px;
-outline: none;
-}
-
-/* Button to exit operator mode */
-#no-alg {
-margin-top: 0px;
+  outline: none;
 }
 
 .small-scene {
