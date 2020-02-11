@@ -15,6 +15,7 @@ require_once 'include/database.php';
     <link rel="stylesheet" href="context_menu.css" />
     <link rel="stylesheet" href="modal_add.css" />
     <link rel="stylesheet" href="modal_style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>

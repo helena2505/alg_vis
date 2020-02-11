@@ -1,9 +1,15 @@
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap') format('truetype');
+}
+
 /* Body */
 body {
-    font: 10pt Arial, Helvetica, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     background: rgb(138, 102, 138);
     color: whitesmoke;
-    font-family: sans-serif;
     padding: 0;
     margin: 0;
 }
