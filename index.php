@@ -17,7 +17,7 @@
 <!--Student mode-->
 <div class="operator">
     <div id="header">
-        <h1>Режим обучаемого</h1>
+        <h1 id="student-mode">Режим обучаемого</h1>
     </div>
     <!--Drawing window-->
     <div id="drawing">

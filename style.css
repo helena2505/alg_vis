@@ -23,7 +23,6 @@ body {
 /* Header */
 #header {
     background-color: pink;
-    border-radius: 5px;
     color: white;
     display: flex;
     height: 15%;
@@ -31,12 +30,15 @@ body {
     text-align: center;
 }
 
+#student-mode {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 /* Drawing window */
 #drawing {
     height: 75%;
     width: 100%;
     overflow: hidden;
-    border-radius: 5px;
     display: flex;
     justify-content: space-between;
 }
@@ -45,7 +47,6 @@ body {
 .dropzone {
     background-color: white;
     border: 4px black;
-    border-radius: 5px;
     display: flex;
     float: left;
     justify-content: space-between;
@@ -60,7 +61,6 @@ body {
 /* Drawing window class */
 .menu-draw {
     background-color: white;
-    border-radius: 5px;
     display: flex;
     float: left;
     justify-content: space-between;
@@ -75,7 +75,6 @@ body {
 /* Primitives edit menu */
 .primitives {
     background-color: plum;
-    border-radius: 5px;
     float: left;
     height: 100%;
     left: 0;
