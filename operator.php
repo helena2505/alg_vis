@@ -42,7 +42,7 @@ require_once 'include/database.php';
                 <?php foreach ($containers as $container):
                         $id = strval($container["id"]);
                         ?>
-                        <li class="one-container" id=<?=$id?>>&#9773; <?=$container["container_name"]?></li>
+                        <li class="one-container" id=<?=$id?>>&#8226; <?=$container["container_name"]?></li>
                         <ul class="algorithm-list" id=<?="alg".$id?>></ul>
                     <?php endforeach; ?>
                 </ul>
