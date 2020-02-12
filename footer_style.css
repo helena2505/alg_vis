@@ -7,7 +7,7 @@
 /* Footer style */
 #footer {
   font-family: 'Source Sans Pro', sans-serif;
-  background-color: pink;
+  background-color: lavender;
   height: 9%;
   width: 100%;
   float: left;
@@ -138,4 +138,10 @@
 .small-scene {
 height: 100%;
 width: 100%;
+}
+
+#footer-top-border {
+  height: 2%;
+  clear: both;
+  background-color: lavender;
 }

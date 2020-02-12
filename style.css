@@ -8,7 +8,7 @@
 /* Body */
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    background: white;
+    background: rgb(228, 3, 3);
     color: whitesmoke;
     padding: 0;
     margin: 0;
@@ -23,8 +23,7 @@ body {
 
 /* Header */
 #header {
-    background: rgb(164,163,163);
-    background: linear-gradient(180deg, rgba(164,163,163,1) 0%, rgba(255,255,255,1) 100%);
+    background-color: lavender;
     color: white;
     display: flex;
     height: 15%;
@@ -43,12 +42,13 @@ body {
     overflow: hidden;
     display: flex;
     justify-content: space-between;
+    background-color: lavender;
+    float: left;
 }
 
 /* Zone where it's allowed to drop objects */
 .dropzone {
     background-color: white;
-    border: 4px black;
     display: flex;
     float: left;
     justify-content: space-between;
@@ -57,7 +57,9 @@ body {
     overflow: hidden;
     padding: 0px;
     position: relative;
-    width: 80%;
+    width: 85%;
+    -webkit-box-shadow: 0px 0px 5px rgba(255,255,255,0.9);
+    box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
 }
 
 /* Drawing window class */
@@ -76,7 +78,7 @@ body {
 
 /* Primitives edit menu */
 .primitives {
-    background-color: lightskyblue;
+    background-color: whitesmoke;
     float: left;
     height: 100%;
     left: 0;
@@ -135,4 +137,11 @@ body {
     cursor: pointer;
     height: 90%;
     width: 10%;
+}
+
+.one-container {
+    text-align: center;
+    padding: 3%;
+    /*background-color: rgb(205, 231, 86);*/
+    background-color: lavender;
 }

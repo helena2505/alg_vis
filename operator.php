@@ -42,7 +42,7 @@ require_once 'include/database.php';
                 <?php foreach ($containers as $container):
                         $id = strval($container["id"]);
                         ?>
-                        <li class="one-container" id=<?=$id?>>&#8226; <?=$container["container_name"]?></li>
+                        <li class="one-container" id=<?=$id?>><?=$container["container_name"]?></li>
                         <ul class="algorithm-list" id=<?="alg".$id?>></ul>
                     <?php endforeach; ?>
                 </ul>
@@ -53,6 +53,8 @@ require_once 'include/database.php';
                 </ul>
             </div>
         </div>
+        <!--Footer border-->
+        <div id="footer-top-border"> </div>
         <!--Footer-->
         <div id="footer">
             <div class="container">
