@@ -1,6 +1,11 @@
 <?php
 require_once('database.php');
 $got_id = $_POST["id"];
-$req = "DELETE FROM containers WHERE containers.id=".$got_id.";";
-$result = mysqli_query($link, $req);
-echo $result;
+$STH = $DB->prepare("DELETE FROM containers WHERE id = :id;");
+$STH->bindParam(":id", $got_id);
+if($STH->execute()) {
+    echo "1";
+}
+else {
+    echo "0";
+}

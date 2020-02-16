@@ -13,14 +13,14 @@ if($status != 0) {
 }
 else {
     $scene_id = $_POST["id"];
-    $request = "SELECT update_scene(".$scene_id.", '".$xml."');";
-    $result = mysqli_query($link, $request);
-    if(gettype($result) == "boolean") {
+    $STH = $DB->prepare("SELECT update_scene(:id, :xml);");
+    $STH->setFetchMode(PDO::FETCH_NUM);
+    if(! $STH->execute(array ("id" => $scene_id, "xml" => $xml))) {
         unlink($xml_file);
         unlink($svg_file);
         exit(4);
     }
-    $inf = mysqli_fetch_all($result, MYSQLI_NUM);
+    $inf = $STH->fetchAll();
     $file_name = "../images/".$inf[0][0];
     rename($svg_file, $file_name);
     unlink($xml_file);

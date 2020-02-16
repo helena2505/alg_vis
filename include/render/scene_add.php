@@ -9,19 +9,21 @@ exec("java -classpath bin;backend/mxgraph-all.jar com.mxgraph.examples.Xml2Svg "
 if($status != 0) {
     unlink($xml_file);
     unlink($svg_file);
+    echo "3";
     exit(3);
 }
 else {
     $alg_id = $_POST["id"];
     $file_name = "scene_";
-    $request = "SELECT insert_scene(".$alg_id.", '".$xml."', '".$file_name."');";
-    $result = mysqli_query($link, $request);
-    if(gettype($result) == "boolean") {
+    $STH = $DB->prepare("SELECT insert_scene(:id, :xml, :file_name);");
+    $STH->setFetchMode(PDO::FETCH_NUM);
+    if(!$STH->execute(array("id" => $alg_id, "xml" => $xml, "file_name" => $file_name))) {
         unlink($xml_file);
         unlink($svg_file);
+        echo "4";
         exit(4);
     }
-    $inf = mysqli_fetch_all($result, MYSQLI_NUM);
+    $inf = $STH->fetchAll();
     $file_name = "../images/".$inf[0][0];
     rename($svg_file, $file_name);
     $file_name = "include/images/".$inf[0][0];

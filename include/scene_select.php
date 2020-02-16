@@ -2,7 +2,10 @@
 require_once('database.php');
 $id = $_POST["id"];
 $str = "";
-$request = "SELECT xml_code FROM scenes WHERE s_id=".$id.";";
-$result = mysqli_query($link, $request);
-$xml_code = mysqli_fetch_all($result, MYSQLI_NUM);
+$STH = $DB->prepare("SELECT xml_code FROM scenes WHERE s_id = :id;");
+$STH->setFetchMode(PDO::FETCH_NUM);
+if(!$STH->execute(array ("id" => $id))) {
+    exit(1);
+}
+$xml_code = $STH->fetchAll();
 echo $xml_code[0][0];
