@@ -19,7 +19,7 @@ function deleteAlgorithm(elementForDelete) {
         */
         if (xhr.readyState == 4) { // The answer has been recieved
             if(xhr.status == 200) { // The returned server's answer is 200 (OK)
-                if(xhr.responseText === "1") { // If the deleting was succesful delete from the interface
+                if(xhr.responseText == "1") { // If the deleting was succesful delete from the interface
                     let deletedAlgorithm = document.getElementById(clickedId); // Remember the element which is neccessary to delete
                     // its ID has been saved in function clickInsideElement
                     let algorithmMenu = deletedAlgorithm.parentNode;

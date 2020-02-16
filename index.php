@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-    require_once('include/database.php');
+    require_once 'include/container_list.php';
 ?>
 <html lang="en">
 <head>

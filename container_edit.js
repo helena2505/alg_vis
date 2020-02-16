@@ -25,9 +25,8 @@ function editContainer(currentId) {
     * The function informs user about the errors during editing information in the database
     * Input parameter: none. Output parameter: none.
     * Author: Tatyana Shorygina
-     */
+    */
     inputParameter = currentId;
-    console.log(currentId);
     containerId4 = currentId;
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     xhr.open("POST", "include/container_info.php", true); // Setting destination and type
@@ -42,7 +41,6 @@ function editContainer(currentId) {
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
                 let containerInfo = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all containers'
-                containerInfo = JSON.parse(containerInfo[0]);
                 inputName4.value = containerInfo["container_name"];
                 inputDescription4.value = containerInfo["description"];
                 dialogEditContainer.style.display = 'block';
@@ -59,10 +57,7 @@ confButton4.onclick = function () {
     * Author: Tatyana Shorygina
      */
     containerName4 = inputName4.value; // Getting the values which have been input
-    console.log(containerName4);
     containerDesrcription4 = inputDescription4.value;
-    console.log(containerDesrcription4);
-    console.log(containerId4);
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     xhr.open("POST", "include/edit_container.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
