@@ -246,6 +246,7 @@ require_once 'include/container_list.php';
     <script src="alg_edit.js" type="text/javascript"></script>
     <script src="alg_select.js" type="text/javascript"></script>
     <script src="container_edit.js" type="text/javascript"></script>
+    <script src="clear_canvas.js"></script>
     <script src="delete_container.js"></script>
     <script src="scene_add.js" type="text/javascript"></script>
     <script src="scene_select.js" type="text/javascript"></script>

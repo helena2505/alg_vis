@@ -151,6 +151,11 @@ if (!mxClient.isBrowserSupported())  {
         let codec = new mxCodec(doc);
         codec.decode(doc.documentElement, graph.getModel());
     }
+
+    function deleteAll() {
+        graph.getModel().clear();
+        tbContainer.style.display = 'none';
+    }
 }
 
 function addToolbarItem(graph, toolbar, prototype, image)  {
