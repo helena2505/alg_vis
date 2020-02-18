@@ -73,7 +73,7 @@ function outsideClick(event) {
         algInfoModal.style.display = 'none';
     }
     if (event.target === showSceneModal){
-        showScene.style.display = 'none';
+        showSceneModal.style.display = 'none';
     }
 }
 
@@ -134,16 +134,3 @@ function algorithmInfo(currentId) {
         }
     };
 }
-
-function noScroll() {
-    /* The function prevents window and modals from scrolling
-    * Input parameter: none. Output parameter: none
-    * Author: Tatyana Shorygina
-    */
-    window.scrollTo(0, 0);
-    showSceneModal.scrollTo(0, 0);
-  }
-  
-// add listeners to disable scroll
-window.addEventListener('scroll', noScroll);
-showSceneModal.addEventListener('scroll', noScroll);

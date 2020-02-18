@@ -15,6 +15,7 @@ require_once 'include/container_list.php';
     <link rel="stylesheet" href="context_menu.css" />
     <link rel="stylesheet" href="modal_add.css" />
     <link rel="stylesheet" href="modal_style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -41,14 +42,11 @@ require_once 'include/container_list.php';
                 <?php foreach ($containers as $container):
                         $id = strval($container["id"]);
                         ?>
-                        <li class="one-container" id=<?=$id?>>&#9773; <?=$container["container_name"]?></li>
+                        <li class="one-container" id=<?=$id?>><?=$container["container_name"]?></li>
                         <ul class="algorithm-list" id=<?="alg".$id?>></ul>
                     <?php endforeach; ?>
                 </ul>
-                <ul class="menu">
-                    <li>
-                        <div id="add_a_container" class="one-container">+ Создать новый контейнер</div>
-                    </li>
+                <div id="add-a-container-div"><div id="add_a_container" class="one-container">+</div></div>
                 </ul>
             </div>
         </div>
@@ -56,7 +54,7 @@ require_once 'include/container_list.php';
         <div id="footer">
             <div class="container">
                 <button class="btn btn2" id="no-alg">Сбросить</button>
-                <button class="btn btn4" id="op_button"> <a href="index.php" class="btn-ref" unselectable="on">Выйти из режима
+                <button class="btn btn2" id="op_button"> <a href="index.php" class="btn-ref" unselectable="on">Выйти из режима
                         оператора</a></button>
             </div>
         </div>

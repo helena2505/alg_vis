@@ -1,12 +1,18 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  src: url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap') format('truetype');
+}
 /* Footer style */
 #footer {
-  background-color: pink;
-  height: 8%;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: lavender;
+  height: 9%;
   width: 100%;
   float: left;
   padding: 0px;
   overflow: hidden;
-  border-radius: 5px;
   clear: both;
   color: white;
 }
@@ -20,10 +26,10 @@
 
 /* Button style */
 .btn{
-  border: 1px solid pink;
+  border: 1px solid rgb(130, 130, 165);
+  background-color: white;
   background: none;
   cursor: pointer;
-  font-family: "montserrat";
   font-size: 20px;
   margin: 10px;
   transition: 0.8s;
@@ -31,6 +37,8 @@
   position: relative;
   overflow: hidden;
   outline: none;
+  z-index: 4;
+  color: rgb(54, 54, 54);
 }
 
 /* Buttons 4 types (depends on animation) */
@@ -41,23 +49,23 @@
 .btn4,
 .btn5 {
       outline:none;
-      color: orchid;
       transition: color 0.2s linear;
       text-decoration: none;
+      color: rgb(54, 54, 54);
 }
 
 /* Buttons 1, 2, 5 on hover */
 .btn1:hover,
 .btn5:hover,
 .btn2:hover{
-  color: #fff;
+  color: rgb(75, 75, 75);
 }
 
 /* Buttons 3, 4 on hover */
 .btn3:hover,
 .btn4:hover,
 .btn-ref:hover {
-  color: #fff;
+  color: rgb(75, 75, 75);
 }
 
 /* Button before */
@@ -67,7 +75,7 @@
   left: 0;
   width: 100%;
   height: 0%;
-  background: pink;
+  background: rgb(245, 245, 255);
   z-index: -1;
   transition: 0.8s;
 }
@@ -86,6 +94,7 @@
 .btn-ref::before {
   bottom: 0;
   border-radius: 50% 50% 0 0;
+  color: rgb(54, 54, 54);
 }
 
 /* Buttons 3, 4, ref before */
@@ -109,25 +118,34 @@
   height: 0%;
 }
 
+/* Button to reset scene in operator mode*/
+#no-alg {
+  margin-top: 0px;
+  outline: none;
+  float: center;
+}
+
+/* Button to reset scene in student mode*/
+#no-alg2 {
+  margin-top: 0px;
+  outline: none;
+  float: center;
+}
+
 /* Button to exit operator mode */
 #op_button {
   float: right;
   margin-top: 0px;
-}
-
-/* Button to exit operator mode */
-#op_button {
-float: right;
-margin-top: 0px;
-outline: none;
-}
-
-/* Button to exit operator mode */
-#no-alg {
-margin-top: 0px;
+  outline: none;
 }
 
 .small-scene {
 height: 100%;
 width: 100%;
+}
+
+#footer-top-border {
+  height: 2%;
+  clear: both;
+  background-color: lavender;
 }

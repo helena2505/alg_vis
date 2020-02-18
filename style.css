@@ -1,11 +1,19 @@
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap') format('truetype');
+}
+
 /* Body */
 body {
-    font: 10pt Arial, Helvetica, sans-serif;
-    background: rgb(138, 102, 138);
+    font-family: 'Source Sans Pro', sans-serif;
+    background: white;
     color: whitesmoke;
-    font-family: sans-serif;
     padding: 0;
     margin: 0;
+    overflow: hidden; /* Hide scrollbars */
+    font-size: large;
 }
 
 /* Operator mode */
@@ -16,8 +24,7 @@ body {
 
 /* Header */
 #header {
-    background-color: pink;
-    border-radius: 5px;
+    background-color: lavender;
     color: white;
     display: flex;
     height: 15%;
@@ -25,21 +32,24 @@ body {
     text-align: center;
 }
 
+#student-mode {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 /* Drawing window */
 #drawing {
     height: 75%;
     width: 100%;
     overflow: hidden;
-    border-radius: 5px;
     display: flex;
     justify-content: space-between;
+    background-color: lavender;
+    float: left;
 }
 
 /* Zone where it's allowed to drop objects */
 .dropzone {
     background-color: white;
-    border: 4px black;
-    border-radius: 5px;
     display: flex;
     float: left;
     justify-content: space-between;
@@ -48,13 +58,14 @@ body {
     overflow: hidden;
     padding: 0px;
     position: relative;
-    width: 80%;
+    width: 85%;
+    -webkit-box-shadow: 0px 0px 5px rgba(255,255,255,0.9);
+    box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
 }
 
 /* Drawing window class */
 .menu-draw {
     background-color: white;
-    border-radius: 5px;
     display: flex;
     float: left;
     justify-content: space-between;
@@ -68,8 +79,7 @@ body {
 
 /* Primitives edit menu */
 .primitives {
-    background-color: plum;
-    border-radius: 5px;
+    background-color: whitesmoke;
     float: left;
     height: 100%;
     left: 0;
@@ -123,8 +133,7 @@ body {
 
 .one-scene {
     background-color: white;
-    border: thick solid orchid;
-    border-radius: 5px;
+    border: thick solid rgb(245, 245, 255);
     cursor: pointer;
     height: 90%;
     width: 10%;
