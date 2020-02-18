@@ -48,18 +48,16 @@ require_once 'include/database.php';
                 </ul>
                 <ul class="menu">
                     <li>
-                        <div id="add_a_container" class="one-container">+ Создать новый контейнер</div>
+                        <div id="add_a_container" class="one-container">+</div>
                     </li>
                 </ul>
             </div>
         </div>
-        <!--Footer border-->
-        <div id="footer-top-border"> </div>
         <!--Footer-->
         <div id="footer">
             <div class="container">
                 <button class="btn btn2" id="no-alg">Сбросить</button>
-                <button class="btn btn4" id="op_button"> <a href="index.php" class="btn-ref" unselectable="on">Выйти из режима
+                <button class="btn btn2" id="op_button"> <a href="index.php" class="btn-ref" unselectable="on">Выйти из режима
                         оператора</a></button>
             </div>
         </div>

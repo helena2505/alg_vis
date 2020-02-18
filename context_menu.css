@@ -2,7 +2,7 @@
 .context-menu {
     display: none;
     background-color: white;
-    border: solid 1px plum;
+    border: solid 1px lavender;
     box-shadow: 1px 1px 2px #cfcfcf;
     font-family: "montserrat";
     font-size: 14px;
@@ -30,7 +30,7 @@
 /* Context menu items linked to DB actions */
 .context-menu__link {
     display: block;
-    color: darkorchid;
+    color: rgb(54, 54, 54);
     padding: 4px 12px;
     text-decoration: none;
     animation-name: context_menu_open;
