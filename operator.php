@@ -46,10 +46,7 @@ require_once 'include/database.php';
                         <ul class="algorithm-list" id=<?="alg".$id?>></ul>
                     <?php endforeach; ?>
                 </ul>
-                <ul class="menu">
-                    <li>
-                        <div id="add_a_container" class="one-container">+</div>
-                    </li>
+                <div id="add-a-container-div"><div id="add_a_container" class="one-container">+</div></div>
                 </ul>
             </div>
         </div>

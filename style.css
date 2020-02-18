@@ -13,6 +13,7 @@ body {
     padding: 0;
     margin: 0;
     overflow: hidden; /* Hide scrollbars */
+    font-size: large;
 }
 
 /* Operator mode */
@@ -137,15 +138,4 @@ body {
     cursor: pointer;
     height: 90%;
     width: 10%;
-}
-
-.one-container {
-    text-align: center;
-    padding: 3%;
-    background-color: lavender;
-}
-
-/* Add a new container button */
-#add_a_container {
-    background-color: rgb(184, 184, 212);;
 }

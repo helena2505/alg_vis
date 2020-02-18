@@ -50,3 +50,33 @@
     cursor: pointer;
     transform: scale(1.03);
 }
+
+
+.one-container {
+    text-align: center;
+    padding: 3%;
+    background-color: lavender;
+}
+
+/* Add a new container button */
+#add_a_container {
+    background-color: lavender;
+    display: inline-block;
+    text-align: center;
+    width: 12%;
+    font-size: larger;
+    border-radius: 50%;
+}
+
+#add-a-container-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-a-container-div:hover {
+    cursor: pointer;
+    color: white;
+    transform: scale(1.03);
+    overflow-x: hidden;
+}
