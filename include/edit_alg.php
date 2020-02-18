@@ -4,6 +4,14 @@ $got_id = $_POST["id"];
 $got_name = $_POST["name"];
 $got_descr = $_POST["descr"];
 $got_diff = $_POST["diff"];
-$request = "UPDATE algorithms SET algorithm_name = '".$got_name."', description = '".$got_descr."', difficulty='".$got_diff."' WHERE id=".$got_id.";";
-$result = mysqli_query($link, $request);
-echo $result;
+$STH = $DB->prepare("UPDATE algorithms SET algorithm_name = :name, description = :description, difficulty = :difficulty WHERE id = :id;");
+$STH->bindParam(":id", $got_id);
+$STH->bindParam(":name", $got_name);
+$STH->bindParam(":description", $got_descr);
+$STH->bindParam(":difficulty", $got_diff);
+if($STH->execute()) {
+    echo "1";
+}
+else {
+    echo "0";
+}

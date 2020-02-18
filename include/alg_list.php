@@ -5,7 +5,19 @@ $json1 = "";
 $json2 = "";
 $arr = array();
 $counter = 0;
-$request = "SELECT id, algorithm_name FROM algorithms WHERE container = '".$got_id."';";
+$STH = $DB->prepare("SELECT id, algorithm_name FROM algorithms WHERE container = :id;");
+$STH->setFetchMode(PDO::FETCH_ASSOC);
+$STH->bindParam(":id", $got_id);
+if($STH->execute()) {
+    while($algorithm = $STH->fetch()) {
+        $json1 = json_encode($algorithm);
+        $arr[$counter] = $json1;
+        $counter += 1;
+    }
+    $json2 = json_encode($arr);
+    echo $json2;
+}
+/*$request = "SELECT id, algorithm_name FROM algorithms WHERE container = '".$got_id."';";
 $result = mysqli_query($link, $request);
 $inf = mysqli_fetch_all($result, MYSQLI_ASSOC);
 foreach ($inf as $algorithm):
@@ -14,4 +26,4 @@ foreach ($inf as $algorithm):
     $counter += 1;
 endforeach;
 $json2 = json_encode($arr);
-echo $json2;
+echo $json2;*/

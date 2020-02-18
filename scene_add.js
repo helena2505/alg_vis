@@ -21,6 +21,7 @@ function addScene(id) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if (xhr.status == 200) {
+                console.log(xhr.responseText);
                 if(parseInt(xhr.responseText) === 3) {
                     alert('Ошибка на сервере при рендере изображения');
                 } else {
