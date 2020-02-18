@@ -77,6 +77,5 @@
 #add-a-container-div:hover {
     cursor: pointer;
     color: white;
-    transform: scale(1.03);
-    overflow-x: hidden;
+    /*transform: scale(1.03);*/
 }
