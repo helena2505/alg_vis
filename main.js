@@ -154,7 +154,8 @@ if (!mxClient.isBrowserSupported())  {
 
     function deleteAll() {
         graph.getModel().clear();
-        tbContainer.style.display = 'none';
+        tbContainer.classList.remove('primitives-active');
+        //tbContainer.style.display = 'none';
     }
 }
 
