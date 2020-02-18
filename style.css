@@ -134,7 +134,6 @@ body {
 .one-scene {
     background-color: white;
     border: thick solid rgb(245, 245, 255);
-    border-radius: 5px;
     cursor: pointer;
     height: 90%;
     width: 10%;
