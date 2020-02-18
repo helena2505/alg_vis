@@ -4,7 +4,7 @@ $xml = $_POST["xml"];
 $xml_file = "tmp".getmypid().".xml";
 $svg_file = "tmp".getmypid().".svg";
 file_put_contents($xml_file, $_POST["xml"]);
-exec("java -classpath bin;backend/mxgraph-all.jar com.mxgraph.examples.Xml2Svg ".$xml_file." ".$svg_file,
+exec("java -Dfile.encoding=UTF-8 -classpath bin".PATH_SEPARATOR."backend/mxgraph-all.jar com.mxgraph.examples.Xml2Svg ".$xml_file." ".$svg_file,
     $message, $status);
 if($status != 0) {
     unlink($xml_file);
