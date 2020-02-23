@@ -27,14 +27,15 @@ require_once 'include/container_list.php';
         <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw">
-                <div id="palette-zone" class="primitives">
+                <iframe src="mxgraph-4.0.6/javascript/examples/grapheditor/www/index.html" class="editor" id="draw"></iframe>
+                <!--div id="palette-zone" class="primitives">
                     <button class="btn btn4" id="qbutton">Готово</button>
                     <button class="btn btn4" id="qbutton1">Удалить элемент</button>
                     <button class="btn btn4" id="qbutton2">Undo</button>
                     <button class="btn btn4" id="qbutton3">Redo</button>
-                </div>
+                </div-->
                 <!--Zone where it's allowed to drop objects-->
-                <div id="drawing-field" class="dropzone"></div>
+                <!--div id="drawing-field" class="dropzone"></div-->
             </div>
             <!--Structures menu-->
             <div id="structures-col">
@@ -228,10 +229,10 @@ require_once 'include/container_list.php';
 
     <!--Scripts-->
     <!--Including mxGraph-->
-    <script type="text/javascript">
+    <!--script type="text/javascript">
         mxBasePath = 'mxgraph-4.0.6/javascript/src';
     </script>
-    <script type="text/javascript" src="mxgraph-4.0.6/javascript/src/js/mxClient.js"></script>
+    <script type="text/javascript" src="mxgraph-4.0.6/javascript/src/js/mxClient.js"></script-->
 
     <!--App's scripts-->
     <script src="main.js" type="text/javascript"></script>
