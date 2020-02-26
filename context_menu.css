@@ -30,7 +30,7 @@
 /* Context menu items linked to DB actions */
 .context-menu__link {
     display: block;
-    color: rgb(54, 54, 54);
+    color: #333;
     padding: 4px 12px;
     text-decoration: none;
     animation-name: context_menu_open;
