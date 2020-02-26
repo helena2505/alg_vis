@@ -32,6 +32,9 @@ body {
     height: 15%;
     padding: 4px;
     text-align: center;
+    /* Add horizontal scroll */
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 #student-mode {
