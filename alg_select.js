@@ -68,9 +68,24 @@ addSceneButton.onclick = function() {
     * and sets the indicator for adding a scene
     * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina
-     */
-    graphEditor.classList.add("primitives-active"); // Enabling the graph editor's visibility
-    graphIndicator = 's';
+    */
+    let frame = document.createElement('div');
+    frame.classList.add('one-scene');
+    addSceneButton.before(frame);
+    let sceneImage = document.createElement('img');
+    frame.appendChild(sceneImage);
+    sceneImage.classList.add('small-scene');
+    sceneImage.id = 'cur-scene';
+    sceneImage.src = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxcHgiIGhlaWdodD0iMXB4IiB2aWV3Qm94PSItMC41IC0wLjUgMSAxIiBjb250ZW50PSImbHQ7bXhmaWxlIGhvc3Q9JnF1b3Q7d3d3LmRyYXcuaW8mcXVvdDsgbW9kaWZpZWQ9JnF1b3Q7MjAyMC0wMi0yOVQwODozNzowMi4yMjRaJnF1b3Q7IGFnZW50PSZxdW90O01vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84MC4wLjM5ODcuMTIyIFNhZmFyaS81MzcuMzYmcXVvdDsgZXRhZz0mcXVvdDs4UnJ5dnJmd2pDZTJxMHZfd01UNiZxdW90OyB2ZXJzaW9uPSZxdW90OzEyLjcuOSZxdW90OyB0eXBlPSZxdW90O2RldmljZSZxdW90OyZndDsmbHQ7ZGlhZ3JhbSBpZD0mcXVvdDs1WmxOQmJHSXh6LWJjaEtlYTQtQyZxdW90OyBuYW1lPSZxdW90O1BhZ2UtMSZxdW90OyZndDtkWkhCRHNJZ0RJYWZodnNHeWRUem5Icnh0SU5uTXVvZ1lldkNNSnMrdlN5QWsweFBsSzkvS1g5TFdObk5aOE1IZVVVQm10Qk16SVFkQ2FVNXpRN3VXTWpUazRMdVBHaU5Fa0cwZ2xxOUlNQXMwSWNTTUNaQ2k2aXRHbExZWU45RFl4UEdqY0VwbGQxUnAxMEgzc0lHMUEzWFczcFR3a3BQOTlIRndpK2dXaGs3NTBVdzNQRW9EazVHeVFWT1g0aFZoSlVHMGZxb20wdlF5L0RpWEh6ZDZVLzI4ekVEdmYxUjRJTDFiWGRKTnNTcU53PT0mbHQ7L2RpYWdyYW0mZ3Q7Jmx0Oy9teGZpbGUmZ3Q7IiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpOyI+PGRlZnMvPjxnLz48L3N2Zz4=";
+    DiagramEditor.editElement(sceneImage);
+    sceneImage.addEventListener('click', myFunction);
+}
+
+function myFunction(event) {
+    console.log(event.target.id);
+    let sceneImage = document.getElementById(event.target.id);
+    DiagramEditor.editElement(sceneImage);
+    console.log(sceneImage.src);
 }
 
 function cleanScenes () {

@@ -1,19 +1,21 @@
-@font-face {
+/*@font-face {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
     src: url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap') format('truetype');
-}
+}*/
 
 /* Body */
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    /*font-family: 'Source Sans Pro', sans-serif;*/
     background: white;
     color: whitesmoke;
     padding: 0;
     margin: 0;
     overflow: hidden; /* Hide scrollbars */
-    font-size: large;
+    /*font-size: large;*/
+	font-family: Arial;
+	font-size: large;
 }
 
 /* Operator mode */
@@ -30,6 +32,9 @@ body {
     height: 15%;
     padding: 4px;
     text-align: center;
+    /* Add horizontal scroll */
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 #student-mode {

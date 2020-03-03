@@ -22,20 +22,15 @@ require_once 'include/container_list.php';
     <!--Operator mode-->
     <div class="operator">
         <div id="header" class="header">
+            <!--div id="new-test" class="one-scene">
+                <img onclick="DiagramEditor.editElement(this);" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxMjFweCIgaGVpZ2h0PSI2MXB4IiB2aWV3Qm94PSItMC41IC0wLjUgMTIxIDYxIiBjb250ZW50PSImbHQ7bXhmaWxlIGV0YWc9JnF1b3Q7S0pGVkY2aTMxSHhFYlYzRldPR1omcXVvdDsgYWdlbnQ9JnF1b3Q7TW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzgwLjAuMzk4Ny4xMjIgU2FmYXJpLzUzNy4zNiZxdW90OyBtb2RpZmllZD0mcXVvdDsyMDIwLTAyLTI4VDE3OjUyOjAyLjk1OFomcXVvdDsgaG9zdD0mcXVvdDt3d3cuZHJhdy5pbyZxdW90OyB2ZXJzaW9uPSZxdW90OzEyLjcuOSZxdW90OyB0eXBlPSZxdW90O2RldmljZSZxdW90OyZndDsmbHQ7ZGlhZ3JhbSBpZD0mcXVvdDtyVXV4dm1hbWROWjF6ckxYT2xfNiZxdW90OyBuYW1lPSZxdW90O1BhZ2UtMSZxdW90OyZndDtuWk5kYjRNZ0ZJWi9qWmRORUxaMnZWeHQ3YkxFcGx1WExPa2RFUW9rS0liaTFQNzZZVDFXWFMrV3pSdmxPUjl3WGw0REVtWDExdEpDSm9aeEhXREU2b0NzQTR4RGpKYisxWkttSTNPODZJQ3dpa0hTQUE3cXdnRWlvS1ZpL0R4SmRNWm9wNG9wVEUyZTg5Uk5HTFhXVk5PMGs5SFRYUXNxK0IwNHBGVGYwMC9Gbk96bzB5TWErQXRYUXZZN2h3Z2lHZTJUQVp3bFphWWFJYklKU0dTTmNkMVhWa2RjdCtMMXV1ekMvZm9Cay9kWmZrU3B3TStibzFDenJsbjhsNUxiQ0pibjd0K3RhN25OUkh4UlJWS3lqL3h0LzdvckV5aEJYMVNYb0JmTTZwcGVRR3ZLblBHMlNSaVFWU1dWNDRlQ3BtMjA4cGJ4VExwTVEvaWt0STZNTnZaYVN4Q0tZNjhuV1FsTG1mS25IOFZPMThmSDRBamNPbDcvdUxOZkJnNXZ0K0R0eTAzR25XMThIWFRCQzVnT25MdUVaVFhZSU96dlZvNHNNQWRHd1huaTFubFExMytBd1AxeThNRTFOdnFieU9ZYiZsdDsvZGlhZ3JhbSZndDsmbHQ7L214ZmlsZSZndDsiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSIgaWQ9Im14LWdyYWRpZW50LTAwZmYwMC0xLWZmZmZmZi0xLXMtMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwRkYwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNjAiIHJ4PSI5IiByeT0iOSIgZmlsbD0idXJsKCNteC1ncmFkaWVudC0wMGZmMDAtMS1mZmZmZmYtMS1zLTApIiBzdHJva2U9IiMwMDAwMDAiIHBvaW50ZXItZXZlbnRzPSJhbGwiLz48L2c+PC9zdmc+" width="100%" height="100%">
+            </div-->
             <div id="add-scene" class="plus-scene">+Добавить сцену</div>
         </div>
         <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw">
-                <iframe src="mxgraph-4.0.6/javascript/examples/grapheditor/www/index.html" class="editor" id="draw"></iframe>
-                <!--div id="palette-zone" class="primitives">
-                    <button class="btn btn4" id="qbutton">Готово</button>
-                    <button class="btn btn4" id="qbutton1">Удалить элемент</button>
-                    <button class="btn btn4" id="qbutton2">Undo</button>
-                    <button class="btn btn4" id="qbutton3">Redo</button>
-                </div-->
-                <!--Zone where it's allowed to drop objects-->
-                <!--div id="drawing-field" class="dropzone"></div-->
+                <!--iframe src="mxgraph-4.0.6/javascript/examples/grapheditor/www/index.html" class="editor" id="draw"></iframe-->
             </div>
             <!--Structures menu-->
             <div id="structures-col">
@@ -227,15 +222,9 @@ require_once 'include/container_list.php';
         </div>
     </div>
 
-    <!--Scripts-->
-    <!--Including mxGraph-->
-    <!--script type="text/javascript">
-        mxBasePath = 'mxgraph-4.0.6/javascript/src';
-    </script>
-    <script type="text/javascript" src="mxgraph-4.0.6/javascript/src/js/mxClient.js"></script-->
-
     <!--App's scripts-->
     <script src="main.js" type="text/javascript"></script>
+    <script src="drawio-integration/diagram-editor.js"></script>
     <script src="ncontainer.js" type="module"></script>
     <script src="context_menu.js" type="text/javascript"></script>
     <script src="modal.js" type="text/javascript"></script>

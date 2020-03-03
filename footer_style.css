@@ -37,8 +37,7 @@
   position: relative;
   overflow: hidden;
   outline: none;
-  z-index: 4;
-  color: rgb(54, 54, 54);
+  color: #333;
 }
 
 /* Buttons 4 types (depends on animation) */
@@ -51,7 +50,7 @@
       outline:none;
       transition: color 0.2s linear;
       text-decoration: none;
-      color: rgb(54, 54, 54);
+      color: #333;
 }
 
 /* Buttons 1, 2, 5 on hover */
@@ -94,7 +93,7 @@
 .btn-ref::before {
   bottom: 0;
   border-radius: 50% 50% 0 0;
-  color: rgb(54, 54, 54);
+  color: #333;
 }
 
 /* Buttons 3, 4, ref before */
