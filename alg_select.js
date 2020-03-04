@@ -48,7 +48,7 @@ function selectAlg(event) {
                         scenePict.id = 'scene-' + sceneInfo["s_id"]; // Setting an id for the frame
                         scenePict.classList.add("one-scene"); // Setting class for the frame
                         scenePict.addEventListener('click', selectScene); // Setting event listener for working with the scene
-                        sceneImg.src = sceneInfo["s_picture"]; // Setting the pictures content gor from the server
+                        sceneImg.src = sceneInfo["xml_code"]; // Setting the pictures content gor from the server
                         sceneImg.id = 'scenevis-' + sceneInfo["s_id"]; // Setting id for the image
                         sceneImg.classList.add('small-scene'); // Setting class for the image
                         addSceneButton.before(scenePict); // Inserting the frame into the user's interface
