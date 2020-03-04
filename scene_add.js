@@ -8,7 +8,8 @@ function addScene(id) {
     * Output parameter: none.
     * Author: Elena Karelina.
     */
-    let xmlCode = getXml();
+    let tmp = document.getElementById('cur-scene');
+    let xmlCode = tmp.src;
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     xhr.open("POST", "include/render/scene_add.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
