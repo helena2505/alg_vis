@@ -37,6 +37,7 @@
   position: relative;
   overflow: hidden;
   outline: none;
+  z-index: 4;
   color: #333;
 }
 
