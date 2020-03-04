@@ -73,6 +73,7 @@ addSceneButton.onclick = function() {
     indicateClick = 0;
     let frame = document.createElement('div');
     frame.classList.add('one-scene');
+    frame.id = 'cur-frame';
     addSceneButton.before(frame);
     let sceneImage = document.createElement('img');
     frame.appendChild(sceneImage);
