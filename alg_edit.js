@@ -42,7 +42,6 @@ function editAlgorithm(currentId) {
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
                 let algorithmInfo = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms'
-                algorithmInfo = JSON.parse(algorithmInfo[0]);
                 inputName3.value = algorithmInfo["algorithm_name"];
                 inputDescription3.value = algorithmInfo["description"];
                 inputDifficulty3.value = algorithmInfo["difficulty"];

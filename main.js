@@ -1,8 +1,8 @@
-if (!mxClient.isBrowserSupported())  {
+/*if (!mxClient.isBrowserSupported())  {
     // Displays an error message if the browser is
     // not supported.
     mxUtils.error('Browser is not supported!', 200, false);
-} else {
+}*/ /*else {
     mxVertexHandler.prototype.rotationEnabled = true;
 
     let tbContainer = document.getElementById('palette-zone');
@@ -151,6 +151,11 @@ if (!mxClient.isBrowserSupported())  {
         let codec = new mxCodec(doc);
         codec.decode(doc.documentElement, graph.getModel());
     }
+
+    function deleteAll() {
+        graph.getModel().clear();
+        tbContainer.classList.remove('primitives-active');
+    }
 }
 
 function addToolbarItem(graph, toolbar, prototype, image)  {
@@ -204,4 +209,4 @@ function addToolbarItem(graph, toolbar, prototype, image)  {
     mxUtils.makeDraggable(img, graph, funct, dragElt, null, null, graph.autoscroll, true);
 
     return img;
-}
+}*/

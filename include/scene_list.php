@@ -5,9 +5,13 @@ $json1 = "";
 $json2 = "";
 $counter = 0;
 $arr = array();
-$request = "SELECT s_id, s_picture FROM scenes WHERE scenes.s_algorithm=".$id." ORDER BY s_order;";
-$result = mysqli_query($link, $request);
-$file_name = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$STH = $DB->prepare("SELECT s_id, s_picture FROM scenes WHERE scenes.s_algorithm = :id ORDER BY s_order;");
+$STH->setFetchMode(PDO::FETCH_ASSOC);
+if(! $STH->execute(array("id" => $id))) {
+    echo "0";
+    exit(1);
+}
+$file_name = $STH->fetchAll();
 foreach ($file_name as $scene):
     $scene["s_picture"] = "include/images/".$scene["s_picture"];
     $json1 = json_encode($scene);

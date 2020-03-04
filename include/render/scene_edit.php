@@ -4,7 +4,7 @@ $xml = $_POST["xml"];
 $svg_file = "tmp".getmypid().".svg";
 $xml_file = "tmp".getmypid().".xml";
 file_put_contents($xml_file, $_POST["xml"]);
-exec("java -classpath bin;backend/mxgraph-all.jar com.mxgraph.examples.Xml2Svg ".$xml_file." ".$svg_file,
+exec("java -Dfile.encoding=UTF-8 -classpath bin".PATH_SEPARATOR."backend/mxgraph-all.jar com.mxgraph.examples.Xml2Svg ".$xml_file." ".$svg_file,
     $message, $status);
 if($status != 0) {
     unlink($xml_file);
@@ -13,14 +13,14 @@ if($status != 0) {
 }
 else {
     $scene_id = $_POST["id"];
-    $request = "SELECT update_scene(".$scene_id.", '".$xml."');";
-    $result = mysqli_query($link, $request);
-    if(gettype($result) == "boolean") {
+    $STH = $DB->prepare("SELECT update_scene(:id, :xml);");
+    $STH->setFetchMode(PDO::FETCH_NUM);
+    if(! $STH->execute(array ("id" => $scene_id, "xml" => $xml))) {
         unlink($xml_file);
         unlink($svg_file);
         exit(4);
     }
-    $inf = mysqli_fetch_all($result, MYSQLI_NUM);
+    $inf = $STH->fetchAll();
     $file_name = "../images/".$inf[0][0];
     rename($svg_file, $file_name);
     unlink($xml_file);

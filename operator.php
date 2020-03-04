@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require_once 'include/database.php';
+require_once 'include/container_list.php';
 ?>
 <html lang="en">
 
@@ -15,6 +15,7 @@ require_once 'include/database.php';
     <link rel="stylesheet" href="context_menu.css" />
     <link rel="stylesheet" href="modal_add.css" />
     <link rel="stylesheet" href="modal_style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -26,14 +27,15 @@ require_once 'include/database.php';
         <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw">
-                <div id="palette-zone" class="primitives">
+                <iframe src="mxgraph-4.0.6/javascript/examples/grapheditor/www/index.html" class="editor" id="draw"></iframe>
+                <!--div id="palette-zone" class="primitives">
                     <button class="btn btn4" id="qbutton">Готово</button>
                     <button class="btn btn4" id="qbutton1">Удалить элемент</button>
                     <button class="btn btn4" id="qbutton2">Undo</button>
                     <button class="btn btn4" id="qbutton3">Redo</button>
-                </div>
+                </div-->
                 <!--Zone where it's allowed to drop objects-->
-                <div id="drawing-field" class="dropzone"></div>
+                <!--div id="drawing-field" class="dropzone"></div-->
             </div>
             <!--Structures menu-->
             <div id="structures-col">
@@ -41,14 +43,11 @@ require_once 'include/database.php';
                 <?php foreach ($containers as $container):
                         $id = strval($container["id"]);
                         ?>
-                        <li class="one-container" id=<?=$id?>>&#9773; <?=$container["container_name"]?></li>
+                        <li class="one-container" id=<?=$id?>><?=$container["container_name"]?></li>
                         <ul class="algorithm-list" id=<?="alg".$id?>></ul>
                     <?php endforeach; ?>
                 </ul>
-                <ul class="menu">
-                    <li>
-                        <div id="add_a_container" class="one-container">+ Создать новый контейнер</div>
-                    </li>
+                <div id="add-a-container-div"><div id="add_a_container" class="one-container">+</div></div>
                 </ul>
             </div>
         </div>
@@ -56,7 +55,7 @@ require_once 'include/database.php';
         <div id="footer">
             <div class="container">
                 <button class="btn btn2" id="no-alg">Сбросить</button>
-                <button class="btn btn4" id="op_button"> <a href="index.php" class="btn-ref">Выйти из режима
+                <button class="btn btn2" id="op_button"> <a href="index.php" class="btn-ref" unselectable="on">Выйти из режима
                         оператора</a></button>
             </div>
         </div>
@@ -230,10 +229,10 @@ require_once 'include/database.php';
 
     <!--Scripts-->
     <!--Including mxGraph-->
-    <script type="text/javascript">
+    <!--script type="text/javascript">
         mxBasePath = 'mxgraph-4.0.6/javascript/src';
     </script>
-    <script type="text/javascript" src="mxgraph-4.0.6/javascript/src/js/mxClient.js"></script>
+    <script type="text/javascript" src="mxgraph-4.0.6/javascript/src/js/mxClient.js"></script-->
 
     <!--App's scripts-->
     <script src="main.js" type="text/javascript"></script>
@@ -246,12 +245,14 @@ require_once 'include/database.php';
     <script src="alg_edit.js" type="text/javascript"></script>
     <script src="alg_select.js" type="text/javascript"></script>
     <script src="container_edit.js" type="text/javascript"></script>
+    <script src="clear_canvas.js"></script>
     <script src="delete_container.js"></script>
     <script src="scene_add.js" type="text/javascript"></script>
     <script src="scene_select.js" type="text/javascript"></script>
     <script src="scene_edit.js" type="text/javascript"></script>
     <script src="scene_show.js"></script>
     <script src="scene_delete.js" type="text/javascript"></script>
+    <script src="scene_swap.js" type="text/javascript"></script>
 
 </body>
 

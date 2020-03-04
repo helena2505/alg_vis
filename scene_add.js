@@ -21,6 +21,7 @@ function addScene(id) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if (xhr.status == 200) {
+                console.log(xhr.responseText);
                 if(parseInt(xhr.responseText) === 3) {
                     alert('Ошибка на сервере при рендере изображения');
                 } else {
@@ -40,6 +41,9 @@ function addScene(id) {
                         sceneImg.classList.add('small-scene'); // Setting class for the image
                         addSceneButton.before(scenePict); // Inserting the frame into the user's interface
                         scenePict.appendChild(sceneImg); // Appending the image to the frame
+                        scenePict.addEventListener('drop', drop); // Adding event listeners for swapping scenes
+                        scenePict.addEventListener('dragover', allowDrop);
+                        sceneImg.addEventListener('dragstart', drag);
                     }
                 }
             }

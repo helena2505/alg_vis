@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-    require_once('include/database.php');
+    require_once 'include/container_list.php';
 ?>
 <html lang="en">
 <head>
@@ -17,7 +17,7 @@
 <!--Student mode-->
 <div class="operator">
     <div id="header">
-        <h1>Режим обучаемого</h1>
+        <h1 id="student-mode">Режим обучаемого</h1>
     </div>
     <!--Drawing window-->
     <div id="drawing">
@@ -55,8 +55,8 @@
     <!--Footer-->
     <div id="footer">
         <div class="container">
-            <button class="btn btn2">Сбросить</button>
-            <button class="btn btn4" id="op_button"> <a href="operator.php" class="btn-ref">Войти в режим оператора</a></button>
+            <button class="btn btn2" id="no-alg2">Сбросить</button>
+            <button class="btn btn4" id="op_button"> <a href="operator.php" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
         </div>
     </div>
 </div>

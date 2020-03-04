@@ -1,16 +1,22 @@
 <?php
-$link = mysqli_connect('localhost', 'root', '', 'project');
+$host = "localhost";
+$dbname = "project";
+$user = "root";
+$pass = "";
 
-if(mysqli_connect_errno()) {
-    echo 'Ошибка при подключении к базе данных ('.mysqli_connect_errno().'): '.mysqli_connect_error();
-    exit();
+try {
+    $DB = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+    $DB->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+} catch(PDOException $e) {
+    echo $e->getMessage();
 }
-
-function get_containers($db) {
-    $req = "SELECT * FROM containers";
-    $result = mysqli_query($db, $req);
-    $containers = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    return $containers;
-}
-
-$containers = get_containers($link);
+$STH = $DB->prepare("SET NAMES UTF8");
+$STH->execute();
+$STH = $DB->prepare("SET CHARACTER SET UTF8");
+$STH->execute();
+$STH = $DB->prepare("SET character_set_client = UTF8");
+$STH->execute();
+$STH = $DB->prepare("SET character_set_connection = UTF8");
+$STH->execute();
+$STH = $DB->prepare("SET character_set_results = UTF8");
+$STH->execute();

@@ -73,7 +73,7 @@ function outsideClick(event) {
         algInfoModal.style.display = 'none';
     }
     if (event.target === showSceneModal){
-        showScene.style.display = 'none';
+        showSceneModal.style.display = 'none';
     }
 }
 
@@ -85,7 +85,7 @@ function containerInfo(elementForInfo) {
     */
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     let idForInf = elementForInfo; // Getting id for the clicked container
-    xhr.open("POST", "include/info.php", true); // Setting destination and type
+    xhr.open("POST", "include/container_info.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
     xhr.send('id=' + idForInf); // Sending the container's id for which information is requested
     xhr.onreadystatechange = function() { // Waiting for the server's answer
@@ -96,9 +96,10 @@ function containerInfo(elementForInfo) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
+                let info = JSON.parse(xhr.responseText);
                 modal_1wayList.style.display = 'block'; // Enabling visibility of modal window
-                contName.innerHTML = document.getElementById(idForInf).textContent.split(' ').slice(1);
-                contDescr.innerHTML = xhr.responseText; // Inserting information received into modal window
+                contName.innerHTML = info["container_name"]; // Inserting information received into modal window
+                contDescr.innerHTML = info["description"]; // Inserting information received into modal window
             }
         }
     };
@@ -109,7 +110,7 @@ function algorithmInfo(currentId) {
     * The function sends request to the server ang gey information about the requested container as a response
     * Input parameter: none. Output parameter: none
     * Author: Tatyana Shorygina
-     */
+    */
     algId3 = currentId.split('-')[1]; // Getting id for the clicked algorithm
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     xhr.open("POST", "include/alg_info.php", true); // Setting destination and type
@@ -124,7 +125,7 @@ function algorithmInfo(currentId) {
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
                 let algorithmInfo = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms
-                algorithmInfo = JSON.parse(algorithmInfo[0]);
+                //algorithmInfo = JSON.parse(algorithmInfo[0]);
                 algNameInfo.innerHTML = algorithmInfo["algorithm_name"];
                 algDescr.innerHTML = algorithmInfo["description"];
                 algDifficultyInfo.innerHTML = algorithmInfo["difficulty"];
