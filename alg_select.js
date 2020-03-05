@@ -86,8 +86,6 @@ addSceneButton.onclick = function() {
 };
 
 function onFinishEdit() {
-    //let tmp = document.getElementById('cur-scene');
-    //let xmlCode = tmp.src;
     if(indicateClick === 0) {
         addScene(currentAlgId);
     } else {

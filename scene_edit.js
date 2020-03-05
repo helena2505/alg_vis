@@ -1,5 +1,6 @@
 function editScene(sceneId) {
-    let xmlCode = getXml();
+    let editedPicture = document.getElementById('scenevis-' + sceneId);
+    let xmlCode = editedPicture.src;
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "include/render/scene_edit.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
@@ -12,17 +13,14 @@ function editScene(sceneId) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if (xhr.status == 200) {
-                if(parseInt(xhr.responseText) === 3) {
-                    alert('Ошибка на сервере при рендере изображения');
+                if (xhr.responseText == "0") {
+                    alert('Ошибка при добавлении в базу данных');
                 } else {
-                    if (parseInt(xhr.responseText) === 4) {
-                        alert('Ошибка при добавлении в базу данных');
-                    } else {
-                        let editedPicture = document.getElementById('scenevis-' + sceneId);
-                        editedPicture.src = xhr.responseText;
-                    }
+                    //let editedPicture = document.getElementById('scenevis-' + sceneId);
+                    //editedPicture.src = xhr.responseText;
+                    console.log(xhr.responseText);
                 }
             }
         }
-    }
+    };
 }
