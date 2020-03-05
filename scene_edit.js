@@ -1,4 +1,9 @@
 function editScene(sceneId) {
+    /* The function sends a request to update the scene visualisation
+    * Input parameter: the id of the scene which is necessary to update
+    * Output parameter: none
+    * Author: Elena Karelina
+     */
     let editedPicture = document.getElementById('scenevis-' + sceneId);
     let xmlCode = editedPicture.src;
     let xhr = new XMLHttpRequest();
