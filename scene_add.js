@@ -30,7 +30,6 @@ function addScene(id) {
                     alert('Ошибка при добавлении в базу данных');
                 } else {
                     scenePict.id = 'scene-' + xhr.responseText;
-                    scenePict.addEventListener('click', selectScene);
                     sceneImg.id = 'scenevis-' + xhr.responseText;
                     scenePict.addEventListener('drop', drop); // Adding event listeners for swapping scenes
                     scenePict.addEventListener('dragover', allowDrop);

@@ -17,7 +17,6 @@ function deleteScene(id) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The returned server's answer is 200 (OK)
-                console.log(xhr.responseText);
                 if(xhr.responseText === "1") { // If the deleting was succesful delete from the interface
                     let deletedScene = document.getElementById(id); // Remember the element which is neccessary to delete
                     let borderOfScene = deletedScene.parentNode; // Border of scene element
