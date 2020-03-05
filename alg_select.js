@@ -2,11 +2,11 @@ let menu1 = document.getElementById('available-containers'); // Containers' menu
 let algTree = menu1.querySelectorAll('.algorithm-list'); // Getting all lists of algorithms
 let currentAlgId = ''; // Let for keeping the clicked algorithm id
 let addSceneButton = document.getElementById('add-scene'); // Button for adding a scene
-//let graphEditor = document.getElementById("palette-zone"); // Graphical primitives menu
 let graphIndicator = ''; // Let for keeping the state of the graph editor: if it has been enabled for adding a container or a scene
 let noAlgButton = document.getElementById('no-alg');
 let indicateClick = 2;
 let editedSceneId = 0;
+let previousPicture = '';
 
 // Adding event listeners for clicking on each algorithm
 for(let i = 0; i < algTree.length; i++) {
@@ -22,7 +22,7 @@ function selectAlg(event) {
      */
     let eventTarget = event.target.id;
     let check = eventTarget.split('-') // Splitting the clicked element id
-    if (check.length === 2) { // Checkking that the click has been on an algorithm but not on the buttton
+    if (check.length === 2) { // Checking that the click has been on an algorithm but not on the button
         // 'Добавить алгоритм'
         currentAlgId = check[1]; // Getting the algorithm's id which it has in the database
         cleanScenes();
@@ -96,6 +96,7 @@ function onFinishEdit() {
 function editSceneByEditor(event) {
     indicateClick = 1;
     let sceneImage = document.getElementById(event.target.id);
+    previousPicture = sceneImage.src;
     editedSceneId = event.target.id.split('-')[1];
     DiagramEditor.editElement(sceneImage);
 }

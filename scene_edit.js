@@ -15,10 +15,8 @@ function editScene(sceneId) {
             if (xhr.status == 200) {
                 if (xhr.responseText == "0") {
                     alert('Ошибка при добавлении в базу данных');
-                } else {
-                    //let editedPicture = document.getElementById('scenevis-' + sceneId);
-                    //editedPicture.src = xhr.responseText;
-                    console.log(xhr.responseText);
+                    let editedPicture = document.getElementById('scenevis-' + sceneId);
+                    editedPicture.src = previousPicture;
                 }
             }
         }
