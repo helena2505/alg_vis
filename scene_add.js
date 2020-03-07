@@ -1,4 +1,4 @@
-let canvas1 = document.getElementById("drawing-field"); // Getting the canvas element
+//let canvas1 = document.getElementById("drawing-field"); // Getting the canvas element
 
 function addScene(id) {
     /* The function sends a request to the server with the info about the scene
