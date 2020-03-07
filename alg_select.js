@@ -2,9 +2,11 @@ let menu1 = document.getElementById('available-containers'); // Containers' menu
 let algTree = menu1.querySelectorAll('.algorithm-list'); // Getting all lists of algorithms
 let currentAlgId = ''; // Let for keeping the clicked algorithm id
 let addSceneButton = document.getElementById('add-scene'); // Button for adding a scene
-let graphEditor = document.getElementById("palette-zone"); // Graphical primitives menu
 let graphIndicator = ''; // Let for keeping the state of the graph editor: if it has been enabled for adding a container or a scene
 let noAlgButton = document.getElementById('no-alg');
+let indicateClick = 2; // Let for indicating adding or editing
+let editedSceneId = 0;
+let previousPicture = '';
 
 // Adding event listeners for clicking on each algorithm
 for(let i = 0; i < algTree.length; i++) {
@@ -19,8 +21,8 @@ function selectAlg(event) {
     * Author: Elena Karelina
      */
     let eventTarget = event.target.id;
-    let check = eventTarget.split('-') // Splitting the clicked element id
-    if (check.length === 2) { // Checkking that the click has been on an algorithm but not on the buttton
+    let check = eventTarget.split('-'); // Splitting the clicked element id
+    if (check.length === 2) { // Checking that the click has been on an algorithm but not on the button
         // 'Добавить алгоритм'
         currentAlgId = check[1]; // Getting the algorithm's id which it has in the database
         cleanScenes();
@@ -46,8 +48,8 @@ function selectAlg(event) {
                         let sceneImg = new Image(); // Creating an interface image for a scene's visualisation
                         scenePict.id = 'scene-' + sceneInfo["s_id"]; // Setting an id for the frame
                         scenePict.classList.add("one-scene"); // Setting class for the frame
-                        scenePict.addEventListener('click', selectScene); // Setting event listener for working with the scene
-                        sceneImg.src = sceneInfo["s_picture"]; // Setting the pictures content gor from the server
+                        scenePict.addEventListener('click', editSceneByEditor); // Setting event listener for working with the scene
+                        sceneImg.src = sceneInfo["xml_code"]; // Setting the pictures content gor from the server
                         sceneImg.id = 'scenevis-' + sceneInfo["s_id"]; // Setting id for the image
                         sceneImg.classList.add('small-scene'); // Setting class for the image
                         addSceneButton.before(scenePict); // Inserting the frame into the user's interface
@@ -69,31 +71,52 @@ addSceneButton.onclick = function() {
     * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina
     */
+    indicateClick = 0;
+    let header = document.getElementById('header');
+    let allPictures = header.querySelectorAll('img');
     let frame = document.createElement('div');
     frame.classList.add('one-scene');
+    frame.id = 'cur-frame';
     addSceneButton.before(frame);
     let sceneImage = document.createElement('img');
     frame.appendChild(sceneImage);
     sceneImage.classList.add('small-scene');
     sceneImage.id = 'cur-scene';
-    sceneImage.src = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxcHgiIGhlaWdodD0iMXB4IiB2aWV3Qm94PSItMC41IC0wLjUgMSAxIiBjb250ZW50PSImbHQ7bXhmaWxlIGhvc3Q9JnF1b3Q7d3d3LmRyYXcuaW8mcXVvdDsgbW9kaWZpZWQ9JnF1b3Q7MjAyMC0wMi0yOVQwODozNzowMi4yMjRaJnF1b3Q7IGFnZW50PSZxdW90O01vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84MC4wLjM5ODcuMTIyIFNhZmFyaS81MzcuMzYmcXVvdDsgZXRhZz0mcXVvdDs4UnJ5dnJmd2pDZTJxMHZfd01UNiZxdW90OyB2ZXJzaW9uPSZxdW90OzEyLjcuOSZxdW90OyB0eXBlPSZxdW90O2RldmljZSZxdW90OyZndDsmbHQ7ZGlhZ3JhbSBpZD0mcXVvdDs1WmxOQmJHSXh6LWJjaEtlYTQtQyZxdW90OyBuYW1lPSZxdW90O1BhZ2UtMSZxdW90OyZndDtkWkhCRHNJZ0RJYWZodnNHeWRUem5Icnh0SU5uTXVvZ1lldkNNSnMrdlN5QWsweFBsSzkvS1g5TFdObk5aOE1IZVVVQm10Qk16SVFkQ2FVNXpRN3VXTWpUazRMdVBHaU5Fa0cwZ2xxOUlNQXMwSWNTTUNaQ2k2aXRHbExZWU45RFl4UEdqY0VwbGQxUnAxMEgzc0lHMUEzWFczcFR3a3BQOTlIRndpK2dXaGs3NTBVdzNQRW9EazVHeVFWT1g0aFZoSlVHMGZxb20wdlF5L0RpWEh6ZDZVLzI4ekVEdmYxUjRJTDFiWGRKTnNTcU53PT0mbHQ7L2RpYWdyYW0mZ3Q7Jmx0Oy9teGZpbGUmZ3Q7IiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpOyI+PGRlZnMvPjxnLz48L3N2Zz4=";
-    let observe = new Proxy(sceneImage, {get: function(){
-        console.log('Request to add')
-        }});
+    let numberOfScenes = allPictures.length;
+    if(numberOfScenes === 0) {
+        sceneImage.src = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxcHgiIGhlaWdodD0iMXB4IiB2aWV3Qm94PSItMC41IC0wLjUgMSAxIiBjb250ZW50PSImbHQ7bXhmaWxlIGhvc3Q9JnF1b3Q7d3d3LmRyYXcuaW8mcXVvdDsgbW9kaWZpZWQ9JnF1b3Q7MjAyMC0wMi0yOVQwODozNzowMi4yMjRaJnF1b3Q7IGFnZW50PSZxdW90O01vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84MC4wLjM5ODcuMTIyIFNhZmFyaS81MzcuMzYmcXVvdDsgZXRhZz0mcXVvdDs4UnJ5dnJmd2pDZTJxMHZfd01UNiZxdW90OyB2ZXJzaW9uPSZxdW90OzEyLjcuOSZxdW90OyB0eXBlPSZxdW90O2RldmljZSZxdW90OyZndDsmbHQ7ZGlhZ3JhbSBpZD0mcXVvdDs1WmxOQmJHSXh6LWJjaEtlYTQtQyZxdW90OyBuYW1lPSZxdW90O1BhZ2UtMSZxdW90OyZndDtkWkhCRHNJZ0RJYWZodnNHeWRUem5Icnh0SU5uTXVvZ1lldkNNSnMrdlN5QWsweFBsSzkvS1g5TFdObk5aOE1IZVVVQm10Qk16SVFkQ2FVNXpRN3VXTWpUazRMdVBHaU5Fa0cwZ2xxOUlNQXMwSWNTTUNaQ2k2aXRHbExZWU45RFl4UEdqY0VwbGQxUnAxMEgzc0lHMUEzWFczcFR3a3BQOTlIRndpK2dXaGs3NTBVdzNQRW9EazVHeVFWT1g0aFZoSlVHMGZxb20wdlF5L0RpWEh6ZDZVLzI4ekVEdmYxUjRJTDFiWGRKTnNTcU53PT0mbHQ7L2RpYWdyYW0mZ3Q7Jmx0Oy9teGZpbGUmZ3Q7IiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpOyI+PGRlZnMvPjxnLz48L3N2Zz4=";
+    } else {
+        sceneImage.src = allPictures[numberOfScenes - 1].src;
+    }
     DiagramEditor.editElement(sceneImage);
     sceneImage.addEventListener('click', editSceneByEditor);
-}
+};
 
-function requestToAdd() {
-    console.log('Request to add');
-    let tmp = document.getElementById('cur-scene');
-    let xmlCode = tmp.src;
-    console.log(xmlCode);
+function onFinishEdit() {
+    /* The function is executed when the user finishes work with graph editor
+    * The function calls adding or editing a scene depend on the event which called the editor
+    * Input parameter: none. Output parameter: none
+    * Author: Elena Karelina
+    */
+    if(indicateClick === 0) { // If add button nas been clicked
+        addScene(currentAlgId); // Call function to add a scene
+    } else {
+        editScene(editedSceneId); // Call function to edit a scene
+    }
 }
 
 function editSceneByEditor(event) {
+    /* The event listener for clicking on a scene to be edited
+    * The function calls the graph editor to edit a scene
+    * and passes the picture which is request to be edited
+    * Input parameter: event. Output parameter: none
+    * Author: Elena Karelina
+    */
+    indicateClick = 1; // Marking that editing has been requested
     let sceneImage = document.getElementById(event.target.id);
-    DiagramEditor.editElement(sceneImage);
+    previousPicture = sceneImage.src;
+    editedSceneId = event.target.id.split('-')[1];
+    DiagramEditor.editElement(sceneImage); // Calling the editor
 }
 
 function cleanScenes () {
@@ -113,7 +136,7 @@ function cleanScenes () {
 }
 
 noAlgButton.onclick = function() {
-    /* The function relises exit from wroking with an algorithm mode
+    /* The function realises exit from working with an algorithm mode
     * and resets the current algorithm's id.
     * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina.

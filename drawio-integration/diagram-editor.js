@@ -209,6 +209,7 @@ DiagramEditor.prototype.stopEditing = function()
 		this.setActive(false);
 		this.frame = null;
 	}
+	onFinishEdit();
 };
 
 /**

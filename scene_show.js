@@ -21,12 +21,14 @@ function showScene(id) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if (xhr.status == 200) {
-                let sceneImg = document.createElement('img');
-                let canvas = document.getElementById("show-scene");
-                canvas.innerHTML = '';
-                sceneImg.id = 'cur-scene';
-                sceneImg.src = xhr.responseText;
-                canvas.appendChild(sceneImg);
+                if(xhr.responseText != "0") {
+                    let sceneImg = document.createElement('img');
+                    let canvas = document.getElementById("show-scene");
+                    canvas.innerHTML = '';
+                    sceneImg.id = 'cur-scene';
+                    sceneImg.src = xhr.responseText;
+                    canvas.appendChild(sceneImg);
+                }
             }
         }
     };
