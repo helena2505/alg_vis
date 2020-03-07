@@ -2,9 +2,7 @@ let addButton = document.getElementById("add_a_container"); // Button for adding
 let modalWindow = document.getElementById("modal-window"); // Modal window
 let confButton = document.getElementById("conf"); // Button OK of the modal window
 let inputName = document.getElementById("str-inp-name"); // String input for inputting a container's name
-let containerName = ''; // Let for keeping the container's name which has been input
 let inputDescription = document.getElementById("str-inp-info"); // String input for inputting the container's descriprion
-let containerDescription = ''; // Let for keeping the container's description which has been input
 let baseList = document.getElementById("available-containers"); // List of the containers
 let close = document.getElementById("cross1"); // The modal window's cross
 
@@ -27,15 +25,15 @@ confButton.onclick = function() {
     * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina
    */
-    containerName = inputName.value; // Keeping the input name of container
+    let containerName = inputName.value; // Keeping the input name of container
     if (containerName === "") // Checking if the input name is not empty
         alert("Не введено имя контейнера"); // Informing the user about the empty string
     else { // Otherwise enable the graph editor
-        containerDescription = inputDescription.value;
+        let containerDescription = inputDescription.value;
         modalWindow.style.display = 'none'; // Disable visibility of the modal window
         inputName.value = '';
         inputDescription.value = '';
-        addContainer();
+        addContainer(containerName, containerDescription);
     }
 };
 
@@ -50,7 +48,12 @@ close.onclick = function() {
     modalWindow.style.display = 'none';
 };
 
-function addContainer() {
+function addContainer(containerName, containerDescription) {
+    /* The function send request to the server for adding a new container
+    * The function waits for the server's answer and informs the user about the result of adding
+    * Input parameters: container's name, container's description. Output parameter: none
+    * Author: Elena Karelina
+    */
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
     xhr.open("POST", "include/test.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
