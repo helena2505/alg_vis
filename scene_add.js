@@ -1,5 +1,3 @@
-//let canvas1 = document.getElementById("drawing-field"); // Getting the canvas element
-
 function addScene(id) {
     /* The function sends a request to the server with the info about the scene
     * which is required to be added. The info is: the algorithm's id and HTML code of

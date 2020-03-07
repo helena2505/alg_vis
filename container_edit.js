@@ -16,7 +16,7 @@ close4.onclick = function() {
     inputName4.value = '';
     inputDescription4.value = '';
     dialogEditContainer.style.display = 'none';
-}
+};
 
 function editContainer(currentId) {
     /* The function makes the dialog window for editng a container visible
@@ -82,4 +82,4 @@ confButton4.onclick = function () {
     inputName4.value = '';
     inputDescription4.value = '';
     dialogEditContainer.style.display = 'none'; // Disabling visibility of the modal window
-}
+};

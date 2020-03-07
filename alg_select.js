@@ -2,7 +2,6 @@ let menu1 = document.getElementById('available-containers'); // Containers' menu
 let algTree = menu1.querySelectorAll('.algorithm-list'); // Getting all lists of algorithms
 let currentAlgId = ''; // Let for keeping the clicked algorithm id
 let addSceneButton = document.getElementById('add-scene'); // Button for adding a scene
-let graphIndicator = ''; // Let for keeping the state of the graph editor: if it has been enabled for adding a container or a scene
 let noAlgButton = document.getElementById('no-alg');
 let indicateClick = 2; // Let for indicating adding or editing
 let editedSceneId = 0;

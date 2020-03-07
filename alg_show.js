@@ -29,7 +29,7 @@ close7.onclick = function() {
     * Author: Shorygina Tatyana
     */
    algShowModal.style.display = 'none';
-}
+};
 
 function outsideClick(event) {
     /* Function has no input parameters

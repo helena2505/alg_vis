@@ -3,9 +3,9 @@ let menuState = 0; // Let of context's menu state (visible or not, not visible b
 let activeClassName = "context-menu--active" // Class name for enableing context menu's visibility
 let taskItemClassName = 'one-algorithm'; // Menu's class name
 let taskItemClassName2 = 'one-scene'; // Menu's class name
-let menuPosition = 0; // Let for context menu's position
-let menuPositionX = 0; // Let for coordinate X of context menu
-let menuPositionY = 0; // Let for coordinate Y of context menu
+//let menuPosition = 0; // Let for context menu's position
+//let menuPositionX = 0; // Let for coordinate X of context menu
+//let menuPositionY = 0; // Let for coordinate Y of context menu
 let windowWidth = 0; // Let for keeping the window's width
 let windowHeight = 0; // Let for keeping the window's height
 let clickCoords; // Let for keeping the coordinates where the click occured

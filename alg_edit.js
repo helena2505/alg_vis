@@ -7,7 +7,7 @@ let inputDifficulty3 = document.getElementById("str-edit-alg-dif"); // String in
 let algName3 = ''; // Let for keeping the algorithm's name which has been edited
 let algDesrcription3 = ''; // Let for keeping the algorithm's description which has been edited
 let algDifficulty3 = ''; // Let for keeping the algorithm's difficulty which has been edited
-let algContainer3 = ''; // Let for keeping the id of the container to which the inserted algorithm refers
+//let algContainer3 = ''; // Let for keeping the id of the container to which the inserted algorithm refers
 let algId3 = ''; // Let for keeping the updated algorithm's id
 
 close3.onclick = function() {
@@ -17,7 +17,7 @@ close3.onclick = function() {
     * Author: Elena Karelina
     */
     cleandialogEditAlg();
-}
+};
 
 function editAlgorithm(currentId) {
     /* The function makes the dialog window for editng an algorithm visible

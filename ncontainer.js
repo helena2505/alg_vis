@@ -1,5 +1,4 @@
 let addButton = document.getElementById("add_a_container"); // Button for adding a container (showing graph primitives menu)
-let graphEditor = document.getElementById("palette-zone"); // Graphical primitives menu
 let modalWindow = document.getElementById("modal-window"); // Modal window
 let confButton = document.getElementById("conf"); // Button OK of the modal window
 let inputName = document.getElementById("str-inp-name"); // String input for inputting a container's name
