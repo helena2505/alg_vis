@@ -7,7 +7,7 @@ function editScene(sceneId) {
     let editedPicture = document.getElementById('scenevis-' + sceneId);
     let xmlCode = editedPicture.src;
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "include/render/scene_edit.php", true);
+    xhr.open("POST", "include/scene_edit.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
     xhr.send('id=' + encodeURIComponent(sceneId) + '&xml=' + encodeURIComponent(xmlCode));
     xhr.onreadystatechange = function () { // Waiting for the server's answer

@@ -1,5 +1,5 @@
 <?php
-require_once('../database.php');
+require_once('database.php');
 $xml = $_POST["xml"];
 $scene_id = $_POST["id"];
 $STH = $DB->prepare("UPDATE scenes SET xml_code = :xml WHERE s_id = :id;");

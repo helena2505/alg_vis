@@ -1,5 +1,5 @@
 <?php
-require_once('../database.php');
+require_once('database.php');
 $xml = $_POST["xml"];
 $alg_id = $_POST["id"];
 $STH = $DB->prepare("SELECT insert_scene(:id, :xml);");
