@@ -5,7 +5,7 @@ function deleteAContainer(elementForDelete) {
     * Author: Elena Karelina
      */
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    xhr.open("POST", "include/delete_cont.php", true); // Setting type and address
+    xhr.open("POST", "include/container_delete.php", true); // Setting type and address
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
     xhr.send('id=' + encodeURIComponent(elementForDelete));
     xhr.onreadystatechange = function() { // Waiting for the server's response

@@ -7,7 +7,7 @@ let inputDifficulty3 = document.getElementById("str-edit-alg-dif"); // String in
 let algName3 = ''; // Let for keeping the algorithm's name which has been edited
 let algDesrcription3 = ''; // Let for keeping the algorithm's description which has been edited
 let algDifficulty3 = ''; // Let for keeping the algorithm's difficulty which has been edited
-let algContainer3 = ''; // Let for keeping the id of the container to which the inserted algorithm refers
+//let algContainer3 = ''; // Let for keeping the id of the container to which the inserted algorithm refers
 let algId3 = ''; // Let for keeping the updated algorithm's id
 
 close3.onclick = function() {
@@ -17,7 +17,7 @@ close3.onclick = function() {
     * Author: Elena Karelina
     */
     cleandialogEditAlg();
-}
+};
 
 function editAlgorithm(currentId) {
     /* The function makes the dialog window for editng an algorithm visible
@@ -65,7 +65,7 @@ confButton3.onclick = function () {
         algDesrcription3 = inputDescription3.value;
         algDifficulty3 = inputDifficulty3.value;
         let xhr = new XMLHttpRequest(); // Creating new HTTP request
-        xhr.open("POST", "include/edit_alg.php", true); // Setting destination and type
+        xhr.open("POST", "include/alg_edit.php", true); // Setting destination and type
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
         xhr.send('id=' + encodeURIComponent(algId3) + '&name=' + encodeURIComponent(algName3) + '&descr=' + encodeURIComponent(algDesrcription3)
             + '&diff=' + encodeURIComponent(algDifficulty3)); // Sending

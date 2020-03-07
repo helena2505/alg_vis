@@ -16,7 +16,7 @@ close4.onclick = function() {
     inputName4.value = '';
     inputDescription4.value = '';
     dialogEditContainer.style.display = 'none';
-}
+};
 
 function editContainer(currentId) {
     /* The function makes the dialog window for editng a container visible
@@ -59,7 +59,7 @@ confButton4.onclick = function () {
     containerName4 = inputName4.value; // Getting the values which have been input
     containerDesrcription4 = inputDescription4.value;
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    xhr.open("POST", "include/edit_container.php", true); // Setting destination and type
+    xhr.open("POST", "include/container_edit.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
     xhr.send('id=' + encodeURIComponent(containerId4)+ '&name=' + encodeURIComponent(containerName4) + '&descr=' + encodeURIComponent(containerDesrcription4)); // Sending
     // the container's id and changed fields
@@ -82,4 +82,4 @@ confButton4.onclick = function () {
     inputName4.value = '';
     inputDescription4.value = '';
     dialogEditContainer.style.display = 'none'; // Disabling visibility of the modal window
-}
+};

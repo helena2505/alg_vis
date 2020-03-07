@@ -8,7 +8,7 @@ function deleteAlgorithm(elementForDelete) {
     let clickedId = elementForDelete;
     let deletedAlgId = clickedId.split('-')[1]
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    xhr.open("POST", "include/del_alg.php", true); // Setting type and address
+    xhr.open("POST", "include/alg_delete.php", true); // Setting type and address
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
     xhr.send('id=' + encodeURIComponent(deletedAlgId));
     xhr.onreadystatechange = function() { // Waiting for the server's response

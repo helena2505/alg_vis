@@ -2,11 +2,10 @@ let menu1 = document.getElementById('available-containers'); // Containers' menu
 let algTree = menu1.querySelectorAll('.algorithm-list'); // Getting all lists of algorithms
 let currentAlgId = ''; // Let for keeping the clicked algorithm id
 let addSceneButton = document.getElementById('add-scene'); // Button for adding a scene
-let graphIndicator = ''; // Let for keeping the state of the graph editor: if it has been enabled for adding a container or a scene
-let noAlgButton = document.getElementById('no-alg');
+let noAlgButton = document.getElementById('no-alg'); // Button "Сбросить"
 let indicateClick = 2; // Let for indicating adding or editing
-let editedSceneId = 0;
-let previousPicture = '';
+let editedSceneId = 0; // Edited scene id
+let previousPicture = ''; // Image og the previous scene
 
 // Adding event listeners for clicking on each algorithm
 for(let i = 0; i < algTree.length; i++) {
@@ -72,24 +71,24 @@ addSceneButton.onclick = function() {
     * Author: Elena Karelina
     */
     indicateClick = 0;
-    let header = document.getElementById('header');
-    let allPictures = header.querySelectorAll('img');
-    let frame = document.createElement('div');
+    let header = document.getElementById('header'); // Panel for all pictures
+    let allPictures = header.querySelectorAll('img'); // Getting all scenes of the algorithm
+    let frame = document.createElement('div'); // Creating frame for a new picture
     frame.classList.add('one-scene');
     frame.id = 'cur-frame';
     addSceneButton.before(frame);
-    let sceneImage = document.createElement('img');
+    let sceneImage = document.createElement('img'); // Creating image for the scene visualization
     frame.appendChild(sceneImage);
     sceneImage.classList.add('small-scene');
     sceneImage.id = 'cur-scene';
     let numberOfScenes = allPictures.length;
-    if(numberOfScenes === 0) {
+    if(numberOfScenes === 0) { // If there is no previous scene set the src as an empty picture
         sceneImage.src = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxcHgiIGhlaWdodD0iMXB4IiB2aWV3Qm94PSItMC41IC0wLjUgMSAxIiBjb250ZW50PSImbHQ7bXhmaWxlIGhvc3Q9JnF1b3Q7d3d3LmRyYXcuaW8mcXVvdDsgbW9kaWZpZWQ9JnF1b3Q7MjAyMC0wMi0yOVQwODozNzowMi4yMjRaJnF1b3Q7IGFnZW50PSZxdW90O01vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84MC4wLjM5ODcuMTIyIFNhZmFyaS81MzcuMzYmcXVvdDsgZXRhZz0mcXVvdDs4UnJ5dnJmd2pDZTJxMHZfd01UNiZxdW90OyB2ZXJzaW9uPSZxdW90OzEyLjcuOSZxdW90OyB0eXBlPSZxdW90O2RldmljZSZxdW90OyZndDsmbHQ7ZGlhZ3JhbSBpZD0mcXVvdDs1WmxOQmJHSXh6LWJjaEtlYTQtQyZxdW90OyBuYW1lPSZxdW90O1BhZ2UtMSZxdW90OyZndDtkWkhCRHNJZ0RJYWZodnNHeWRUem5Icnh0SU5uTXVvZ1lldkNNSnMrdlN5QWsweFBsSzkvS1g5TFdObk5aOE1IZVVVQm10Qk16SVFkQ2FVNXpRN3VXTWpUazRMdVBHaU5Fa0cwZ2xxOUlNQXMwSWNTTUNaQ2k2aXRHbExZWU45RFl4UEdqY0VwbGQxUnAxMEgzc0lHMUEzWFczcFR3a3BQOTlIRndpK2dXaGs3NTBVdzNQRW9EazVHeVFWT1g0aFZoSlVHMGZxb20wdlF5L0RpWEh6ZDZVLzI4ekVEdmYxUjRJTDFiWGRKTnNTcU53PT0mbHQ7L2RpYWdyYW0mZ3Q7Jmx0Oy9teGZpbGUmZ3Q7IiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpOyI+PGRlZnMvPjxnLz48L3N2Zz4=";
-    } else {
+    } else { // Else setting the src from the previous picture
         sceneImage.src = allPictures[numberOfScenes - 1].src;
     }
     DiagramEditor.editElement(sceneImage);
-    sceneImage.addEventListener('click', editSceneByEditor);
+    sceneImage.addEventListener('click', editSceneByEditor); // Adding event listener for editing
 };
 
 function onFinishEdit() {
@@ -119,7 +118,7 @@ function editSceneByEditor(event) {
     DiagramEditor.editElement(sceneImage); // Calling the editor
 }
 
-function cleanScenes () {
+function cleanScenes() {
     /* The function removes all child nodes from the
     * panel which displays images of the scenes.
     * Input parameter: none. Output parameter: none.
@@ -144,4 +143,4 @@ noAlgButton.onclick = function() {
     cleanScenes(); // Calling the function for cleaning the panel of the scenes
     currentAlgId = ''; // Resetting the current algorithm id
     addSceneButton.style.display = 'none'; // Disabling visibility for the button "Добавить сцену"
-}
+};

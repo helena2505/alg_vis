@@ -1,11 +1,8 @@
 let menu = document.getElementById('my-menu'); // Context menu let
 let menuState = 0; // Let of context's menu state (visible or not, not visible by default)
-let activeClassName = "context-menu--active" // Class name for enableing context menu's visibility
+let activeClassName = "context-menu--active"; // Class name for enableing context menu's visibility
 let taskItemClassName = 'one-algorithm'; // Menu's class name
 let taskItemClassName2 = 'one-scene'; // Menu's class name
-let menuPosition = 0; // Let for context menu's position
-let menuPositionX = 0; // Let for coordinate X of context menu
-let menuPositionY = 0; // Let for coordinate Y of context menu
 let windowWidth = 0; // Let for keeping the window's width
 let windowHeight = 0; // Let for keeping the window's height
 let clickCoords; // Let for keeping the coordinates where the click occured
@@ -43,7 +40,7 @@ window.onkeyup = function(event) {
     if (event.keyCode === 27) { // Checking that pressing escape has happened indeed
         toggleMenuOff(); // Disabling context menu visibility
     }
-}
+};
 
 //  Adding event listener of resizing window
 window.onresize = function(event) {
@@ -222,7 +219,7 @@ deleteContainer.onclick = function() {
         deleteAlgorithm(elementForDelete);
     if(typeForDelete === 'scene')
         deleteAlgorithm(elementForDelete);
-}
+};
 
 showInfo.onclick = function() {
     /* Event listener for clicking button "Посмотреть информацию" of the context menu
@@ -236,7 +233,7 @@ showInfo.onclick = function() {
         algorithmInfo(elementForDelete);
     if(typeForDelete === 'scene')
         deleteAlgorithm(elementForDelete);
-}
+};
 
 editInfo.onclick = function() {
     /* Event listener for clicking button "Редактировать" of the context menu
@@ -250,7 +247,7 @@ editInfo.onclick = function() {
         editAlgorithm(elementForDelete);
     if(typeForDelete === 'scene')
         editAlgorithm(elementForDelete);
-}
+};
 
 showSceneButton.onclick = function() {
     /* Event listener for clicking button "Показать сцену" of the context menu
@@ -259,7 +256,7 @@ showSceneButton.onclick = function() {
     * Author: Tatyana Shorygina
      */
     showScene(elementForDelete);
-}
+};
 
 deleteSceneButton.onclick = function() {
     /* Event listener for clicking button "Удалить сцену" of the context menu
@@ -268,4 +265,4 @@ deleteSceneButton.onclick = function() {
     * Authors: Tatyana Shorygina
      */
     deleteScene(elementForDelete);
-}
+};

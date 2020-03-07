@@ -218,9 +218,8 @@ require_once 'include/container_list.php';
     </div>
 
     <!--App's scripts-->
-    <script src="main.js" type="text/javascript"></script>
     <script src="drawio-integration/diagram-editor.js"></script>
-    <script src="ncontainer.js" type="module"></script>
+    <script src="add_container.js" type="module"></script>
     <script src="context_menu.js" type="text/javascript"></script>
     <script src="modal.js" type="text/javascript"></script>
     <script src="alg_list.js" type="text/javascript"></script>
@@ -229,10 +228,8 @@ require_once 'include/container_list.php';
     <script src="alg_edit.js" type="text/javascript"></script>
     <script src="alg_select.js" type="text/javascript"></script>
     <script src="container_edit.js" type="text/javascript"></script>
-    <script src="clear_canvas.js"></script>
     <script src="delete_container.js"></script>
     <script src="scene_add.js" type="text/javascript"></script>
-    <script src="scene_select.js" type="text/javascript"></script>
     <script src="scene_edit.js" type="text/javascript"></script>
     <script src="scene_show.js"></script>
     <script src="scene_delete.js" type="text/javascript"></script>
