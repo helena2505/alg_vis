@@ -219,7 +219,7 @@ require_once 'include/container_list.php';
 
     <!--App's scripts-->
     <script src="drawio-integration/diagram-editor.js"></script>
-    <script src="ncontainer.js" type="module"></script>
+    <script src="add_container.js" type="module"></script>
     <script src="context_menu.js" type="text/javascript"></script>
     <script src="modal.js" type="text/javascript"></script>
     <script src="alg_list.js" type="text/javascript"></script>

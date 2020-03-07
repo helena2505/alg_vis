@@ -65,7 +65,7 @@ confButton3.onclick = function () {
         algDesrcription3 = inputDescription3.value;
         algDifficulty3 = inputDifficulty3.value;
         let xhr = new XMLHttpRequest(); // Creating new HTTP request
-        xhr.open("POST", "include/edit_alg.php", true); // Setting destination and type
+        xhr.open("POST", "include/alg_edit.php", true); // Setting destination and type
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
         xhr.send('id=' + encodeURIComponent(algId3) + '&name=' + encodeURIComponent(algName3) + '&descr=' + encodeURIComponent(algDesrcription3)
             + '&diff=' + encodeURIComponent(algDifficulty3)); // Sending

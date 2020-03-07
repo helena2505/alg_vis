@@ -55,7 +55,7 @@ function addContainer(containerName, containerDescription) {
     * Author: Elena Karelina
     */
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    xhr.open("POST", "include/test.php", true); // Setting destination and type
+    xhr.open("POST", "include/container_add.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
     xhr.send('name=' + encodeURIComponent(containerName) + '&descr=' + encodeURIComponent(containerDescription)); // Sending
     // the container's name and description
