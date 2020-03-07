@@ -4,7 +4,7 @@ let currentAlgId = ''; // Let for keeping the clicked algorithm id
 let addSceneButton = document.getElementById('add-scene'); // Button for adding a scene
 let graphIndicator = ''; // Let for keeping the state of the graph editor: if it has been enabled for adding a container or a scene
 let noAlgButton = document.getElementById('no-alg');
-let indicateClick = 2;
+let indicateClick = 2; // Let for indicating adding or editing
 let editedSceneId = 0;
 let previousPicture = '';
 
@@ -21,7 +21,7 @@ function selectAlg(event) {
     * Author: Elena Karelina
      */
     let eventTarget = event.target.id;
-    let check = eventTarget.split('-') // Splitting the clicked element id
+    let check = eventTarget.split('-'); // Splitting the clicked element id
     if (check.length === 2) { // Checking that the click has been on an algorithm but not on the button
         // 'Добавить алгоритм'
         currentAlgId = check[1]; // Getting the algorithm's id which it has in the database
@@ -74,7 +74,6 @@ addSceneButton.onclick = function() {
     indicateClick = 0;
     let header = document.getElementById('header');
     let allPictures = header.querySelectorAll('img');
-    console.log(allPictures);
     let frame = document.createElement('div');
     frame.classList.add('one-scene');
     frame.id = 'cur-frame';
@@ -94,19 +93,30 @@ addSceneButton.onclick = function() {
 };
 
 function onFinishEdit() {
-    if(indicateClick === 0) {
-        addScene(currentAlgId);
+    /* The function is executed when the user finishes work with graph editor
+    * The function calls adding or editing a scene depend on the event which called the editor
+    * Input parameter: none. Output parameter: none
+    * Author: Elena Karelina
+    */
+    if(indicateClick === 0) { // If add button nas been clicked
+        addScene(currentAlgId); // Call function to add a scene
     } else {
-        editScene(editedSceneId);
+        editScene(editedSceneId); // Call function to edit a scene
     }
 }
 
 function editSceneByEditor(event) {
-    indicateClick = 1;
+    /* The event listener for clicking on a scene to be edited
+    * The function calls the graph editor to edit a scene
+    * and passes the picture which is request to be edited
+    * Input parameter: event. Output parameter: none
+    * Author: Elena Karelina
+    */
+    indicateClick = 1; // Marking that editing has been requested
     let sceneImage = document.getElementById(event.target.id);
     previousPicture = sceneImage.src;
     editedSceneId = event.target.id.split('-')[1];
-    DiagramEditor.editElement(sceneImage);
+    DiagramEditor.editElement(sceneImage); // Calling the editor
 }
 
 function cleanScenes () {
@@ -126,7 +136,7 @@ function cleanScenes () {
 }
 
 noAlgButton.onclick = function() {
-    /* The function relises exit from wroking with an algorithm mode
+    /* The function realises exit from working with an algorithm mode
     * and resets the current algorithm's id.
     * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina.
