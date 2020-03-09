@@ -60,5 +60,8 @@
         </div>
     </div>
 </div>
+
+    <script src="alg_list.js" type="text/javascript"></script>
+
 </body>
 </html>
