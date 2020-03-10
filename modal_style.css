@@ -116,7 +116,27 @@
     to{opacity: 1}
 }
 
+/* Algorithm edit info modal OK button fix */
+#conf3 {
+    margin-top: 5%;
+}
+
 /* Dialog window to edit info about a container fix */
 #dialog-edit-container-footer {
     padding: 15px;
+}
+
+/* Modal for adding algorithms size fix */
+#dialog-alg-add-content {
+    max-width: 42%;
+    min-width: 42%;
+}
+
+#conf1 {
+    margin-top: 5%;
+}
+
+.input-str {
+    font-size: 20px;
+    font-family: Arial;
 }
