@@ -21,20 +21,7 @@
     <!--Drawing window-->
     <div id="drawing">
         <div class="menu-draw">
-            <!--Editor menu with primitives-->
-            <div class="primitives" id="graph-primitives">
-                <ul class="editor">
-                    <li>
-                        <img id="rectangle" src="pictures1/rect.svg" width="80" height="50" alt="rectangle">
-                    </li>
-                    <li>
-                        <img id="circule" src="pictures1/circ.svg" width="100" height="70" alt="circle">
-                    </li>
-                    <!--Button to finish editing new structure primitive-->
-                    <li>
-                        <button class="btn btn5" id="qbutton">Готово</button>
-                    </li>
-            </div>
+
             <!--Zone where it's allowed to drop objects-->
             <div id="outer-dropzone" class="dropzone"></div>
         </div>
@@ -45,7 +32,7 @@
             <?php foreach ($containers as $container):
                     $id = strval($container["id"]);
                     ?>
-                <li class="one-container" id=$id><div>&#9773; <?=$container["container_name"]?></div></li>
+                <li class="one-container" id=$id><div><?=$container["container_name"]?></div></li>
                 <?php endforeach; ?>
             </ul>
         </div>
