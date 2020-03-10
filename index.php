@@ -34,7 +34,6 @@
                         <ul class="algorithm-list" id=<?="alg".$id?>></ul>
                     <?php endforeach; ?>
                 </ul>
-                <div id="add-a-container-div"><div id="add_a_container" class="one-container">+</div></div>
                 </ul>
             </div>
         </div>
