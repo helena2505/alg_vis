@@ -1,0 +1,20 @@
+/* Button to switch to next scene */
+#btn-next-scene {
+    max-width: fit-content;
+    max-height: 10%;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+/* Button to return to previous scene */
+#btn-prev-scene {
+    max-width: fit-content;
+    max-height: 10%;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
