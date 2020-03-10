@@ -116,7 +116,50 @@
     to{opacity: 1}
 }
 
+/* Algorithm edit info modal OK button fix */
+#conf3 {
+    margin-top: 5%;
+}
+
 /* Dialog window to edit info about a container fix */
 #dialog-edit-container-footer {
     padding: 15px;
+}
+
+/* Modal for adding algorithms size fix */
+#dialog-alg-add-content {
+    max-width: 42%;
+    min-width: 42%;
+}
+
+#conf1 {
+    margin-top: 5%;
+}
+
+/* Every user input line */
+.input-str {
+    font-size: 20px;
+    font-family: Arial;
+    min-width: 90%;
+    display: inline-block;
+    margin-top: 2%;
+    width: 60%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* Modal for showing info about algorithm fix */
+#modal-alg-info-content {
+    max-width: 42%;
+    min-width: 42%;
+}
+
+/* Modal for adding container fix */
+#add-container-modal-content {
+    max-width: 42%;
+    min-width: 42%;
+}
+
+#conf {
+    margin-top: 5%;
 }
