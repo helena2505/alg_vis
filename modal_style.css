@@ -115,3 +115,8 @@
     from{opacity : 0}
     to{opacity: 1}
 }
+
+/* Dialog window to edit info about a container fix */
+#dialog-edit-container-footer {
+    padding: 15px;
+}

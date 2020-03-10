@@ -176,7 +176,7 @@ require_once 'include/container_list.php';
                 <input class="input-str" id="str-edit-alg-dif" type="text">
                 <btn class="confirm" id="conf3">OK</btn>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" id="dialog-edit-alg-footer">
                 <h3> </h3>
             </div>
         </div>
@@ -196,7 +196,8 @@ require_once 'include/container_list.php';
                 <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-edit-container-info"></textarea>
                 <btn class="confirm" id="conf4">OK</btn>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" id="dialog-edit-container-footer">
+                <h3> </h3>
                 <h3> </h3>
             </div>
         </div>
