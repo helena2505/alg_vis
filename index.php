@@ -45,9 +45,8 @@
             <button class="btn btn4" id="op_button"> <a href="operator.php" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
         </div>
     </div>
-
-    <!--Scripts-->
-    <script src="alg_list.js" type="text/javascript"></script>
 </div>
+    <!--Scripts-->
+    <script src="student_alg_list.js" type="text/javascript"></script>
 </body>
 </html>
