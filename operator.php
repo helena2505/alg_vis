@@ -15,6 +15,7 @@ require_once 'include/container_list.php';
     <link rel="stylesheet" href="context_menu.css" />
     <link rel="stylesheet" href="modal_add.css" />
     <link rel="stylesheet" href="modal_style.css" />
+    <link rel="stylesheet" href="scene_buttons.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
@@ -26,7 +27,10 @@ require_once 'include/container_list.php';
         </div>
         <!--Drawing window-->
         <div id="drawing">
-            <div class="menu-draw"></div>
+            <div class="menu-draw">
+                <button class="btn btn2" id="btn-next-scene">Вперёд</button>
+                <button class="btn btn2" id="btn-prev-scene">Назад</button>
+            </div>
             <!--Structures menu-->
             <div id="structures-col">
                 <ul class="menu" id="available-containers">
