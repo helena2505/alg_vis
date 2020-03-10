@@ -87,7 +87,7 @@ require_once 'include/container_list.php';
     </nav>
     <!--Dialog window for entering info about a container-->
     <div class="modal" id="modal-window">
-        <div class="modal-content">
+        <div class="modal-content" id="add-container-modal-content">
             <div class="modal-header">
                 <span class="cross" id="cross1">&times</span>
                 <h2>Добавить структуру данных</h2>
