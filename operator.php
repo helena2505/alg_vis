@@ -122,14 +122,14 @@ require_once 'include/container_list.php';
 
     <!--Modal window for displaying info about an algorithm-->
     <div id="modal-alg-info" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" id="modal-alg-info-content">
             <div class="modal-header">
                 <span class="closeBtn" id="cross5">&times;</span>
                 <h2 id="alg-name-info"></h2>
             </div>
             <div class="modal-body">
                 <p id="alg-descr"></p>
-                <h5>Сложность алгоритма:</h5>
+                <h4>Сложность алгоритма:</h4>
                 <p id="alg-diff"></p>
             </div>
             <div class="modal-footer">
