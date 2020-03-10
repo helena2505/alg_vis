@@ -12,36 +12,36 @@
     <link rel="stylesheet" href="menu_style.css" />
     <link rel="stylesheet" href="footer_style.css" />
     <link rel="stylesheet" href="context_menu.css" />
+    <link rel="stylesheet" href="scene_buttons.css" />
 </head>
 <body>
 <!--Student mode-->
 <div class="operator">
-    <div id="header">
-    </div>
-    <!--Drawing window-->
-    <div id="drawing">
-        <div class="menu-draw">
-
-            <!--Zone where it's allowed to drop objects-->
-            <div id="outer-dropzone" class="dropzone"></div>
+    <div id="header"></div>
+        <!--Drawing window-->
+        <div id="drawing">
+            <div class="menu-draw">
+                <button class="btn btn2" id="btn-next-scene">Вперёд</button>
+                <button class="btn btn2" id="btn-prev-scene">Назад</button>
+            </div>
+            <!--Structures menu-->
+            <div id="structures-col">
+                <ul class="menu" id="available-containers">
+                <?php foreach ($containers as $container):
+                        $id = strval($container["id"]);
+                        ?>
+                        <li class="one-container" id=<?=$id?>><?=$container["container_name"]?></li>
+                        <ul class="algorithm-list" id=<?="alg".$id?>></ul>
+                    <?php endforeach; ?>
+                </ul>
+                <div id="add-a-container-div"><div id="add_a_container" class="one-container">+</div></div>
+                </ul>
+            </div>
         </div>
-        <!--Structures column-->
-        <div id="structures-col">
-            <!--Structures list-->
-            <ul class="menu" id="available-containers1">
-            <?php foreach ($containers as $container):
-                    $id = strval($container["id"]);
-                    ?>
-                <li class="one-container" id=$id><div><?=$container["container_name"]?></div></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    </div>
 
     <!--Footer-->
     <div id="footer">
         <div class="container">
-            <button class="btn btn2" id="no-alg2">Сбросить</button>
             <button class="btn btn4" id="op_button"> <a href="operator.php" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
         </div>
     </div>
