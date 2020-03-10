@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Algorithm and structure visualisation</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="menu_style.css" />
     <link rel="stylesheet" href="footer_style.css" />
@@ -16,7 +17,6 @@
 <!--Student mode-->
 <div class="operator">
     <div id="header">
-        <h1 id="student-mode">Режим обучаемого</h1>
     </div>
     <!--Drawing window-->
     <div id="drawing">
