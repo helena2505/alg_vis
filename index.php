@@ -12,53 +12,40 @@
     <link rel="stylesheet" href="menu_style.css" />
     <link rel="stylesheet" href="footer_style.css" />
     <link rel="stylesheet" href="context_menu.css" />
+    <link rel="stylesheet" href="scene_buttons.css" />
 </head>
 <body>
 <!--Student mode-->
 <div class="operator">
-    <div id="header">
-        <h1 id="student-mode">Режим обучаемого</h1>
-    </div>
-    <!--Drawing window-->
-    <div id="drawing">
-        <div class="menu-draw">
-            <!--Editor menu with primitives-->
-            <div class="primitives" id="graph-primitives">
-                <ul class="editor">
-                    <li>
-                        <img id="rectangle" src="pictures1/rect.svg" width="80" height="50" alt="rectangle">
-                    </li>
-                    <li>
-                        <img id="circule" src="pictures1/circ.svg" width="100" height="70" alt="circle">
-                    </li>
-                    <!--Button to finish editing new structure primitive-->
-                    <li>
-                        <button class="btn btn5" id="qbutton">Готово</button>
-                    </li>
+    <div id="header"></div>
+        <!--Drawing window-->
+        <div id="drawing">
+            <div class="menu-draw">
+                <button class="btn btn2" id="btn-next-scene">Вперёд</button>
+                <button class="btn btn2" id="btn-prev-scene">Назад</button>
             </div>
-            <!--Zone where it's allowed to drop objects-->
-            <div id="outer-dropzone" class="dropzone"></div>
+            <!--Structures menu-->
+            <div id="structures-col">
+                <ul class="menu" id="available-containers">
+                <?php foreach ($containers as $container):
+                        $id = strval($container["id"]);
+                        ?>
+                        <li class="one-container" id=<?=$id?>><?=$container["container_name"]?></li>
+                        <ul class="algorithm-list" id=<?="alg".$id?>></ul>
+                    <?php endforeach; ?>
+                </ul>
+                </ul>
+            </div>
         </div>
-        <!--Structures column-->
-        <div id="structures-col">
-            <!--Structures list-->
-            <ul class="menu" id="available-containers1">
-            <?php foreach ($containers as $container):
-                    $id = strval($container["id"]);
-                    ?>
-                <li class="one-container" id=$id><div>&#9773; <?=$container["container_name"]?></div></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    </div>
 
     <!--Footer-->
     <div id="footer">
         <div class="container">
-            <button class="btn btn2" id="no-alg2">Сбросить</button>
             <button class="btn btn4" id="op_button"> <a href="operator.php" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
         </div>
     </div>
 </div>
+    <!--Scripts-->
+    <script src="student_alg_list.js" type="text/javascript"></script>
 </body>
 </html>
