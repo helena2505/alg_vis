@@ -15,6 +15,7 @@ require_once 'include/container_list.php';
     <link rel="stylesheet" href="context_menu.css" />
     <link rel="stylesheet" href="modal_add.css" />
     <link rel="stylesheet" href="modal_style.css" />
+    <link rel="stylesheet" href="scene_buttons.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
@@ -26,7 +27,10 @@ require_once 'include/container_list.php';
         </div>
         <!--Drawing window-->
         <div id="drawing">
-            <div class="menu-draw"></div>
+            <div class="menu-draw">
+                <button class="btn btn2" id="btn-next-scene">Вперёд</button>
+                <button class="btn btn2" id="btn-prev-scene">Назад</button>
+            </div>
             <!--Structures menu-->
             <div id="structures-col">
                 <ul class="menu" id="available-containers">
@@ -87,7 +91,7 @@ require_once 'include/container_list.php';
     </nav>
     <!--Dialog window for entering info about a container-->
     <div class="modal" id="modal-window">
-        <div class="modal-content">
+        <div class="modal-content" id="add-container-modal-content">
             <div class="modal-header">
                 <span class="cross" id="cross1">&times</span>
                 <h2>Добавить структуру данных</h2>
@@ -122,14 +126,14 @@ require_once 'include/container_list.php';
 
     <!--Modal window for displaying info about an algorithm-->
     <div id="modal-alg-info" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" id="modal-alg-info-content">
             <div class="modal-header">
                 <span class="closeBtn" id="cross5">&times;</span>
                 <h2 id="alg-name-info"></h2>
             </div>
             <div class="modal-body">
                 <p id="alg-descr"></p>
-                <h5>Сложность алгоритма:</h5>
+                <h4>Сложность алгоритма:</h4>
                 <p id="alg-diff"></p>
             </div>
             <div class="modal-footer">
@@ -176,7 +180,7 @@ require_once 'include/container_list.php';
                 <input class="input-str" id="str-edit-alg-dif" type="text">
                 <btn class="confirm" id="conf3">OK</btn>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" id="dialog-edit-alg-footer">
                 <h3> </h3>
             </div>
         </div>
@@ -196,7 +200,8 @@ require_once 'include/container_list.php';
                 <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-edit-container-info"></textarea>
                 <btn class="confirm" id="conf4">OK</btn>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" id="dialog-edit-container-footer">
+                <h3> </h3>
                 <h3> </h3>
             </div>
         </div>
