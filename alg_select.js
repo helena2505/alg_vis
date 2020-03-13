@@ -39,7 +39,8 @@ function selectAlg(event) {
             */
             if (xhr1.readyState == 4) { // The answer has been got
                 if (xhr1.status == 200) {
-                    let fileName = JSON.parse(xhr1.responseText); // Parsing the answer to get information about
+                    let scenesInfo = JSON.parse(xhr1.responseText);
+                    let fileName = JSON.parse(scenesInfo['scenes']); // Parsing the answer to get information about
                     // each scene separately
                     for(let i = 0; i < fileName.length; i++) { // Going through each scene
                         let scenePict = document.createElement('div'); // Creating a frame for each scene's visualisation
