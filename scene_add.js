@@ -24,7 +24,7 @@ addSceneButton.onclick = function() {
         curTiming.id = 'cur-timing';
         curTiming.classList.add('timing');
         curTiming.contentEditable = 'true';
-        curTiming.innerHTML = '5';
+        curTiming.innerHTML = defaultTiming;
         frame.before(curTiming);
     }
     DiagramEditor.editElement(sceneImage);

@@ -1,4 +1,5 @@
-let prev = '5';
+const defaultTiming = '5';
+let prev = String(defaultTiming);
 
 function keepPrevious(event) {
     prev = event.target.textContent;

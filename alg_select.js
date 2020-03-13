@@ -39,12 +39,13 @@ function selectAlg(event) {
             */
             if (xhr1.readyState == 4) { // The answer has been got
                 if (xhr1.status == 200) {
-                    let scenesInfo = JSON.parse(xhr1.responseText);
-                    let fileName = JSON.parse(scenesInfo['scenes']); // Parsing the answer to get information about
+                    let scenesAndTimings = JSON.parse(xhr1.responseText);
+                    let scenesInfo = JSON.parse(scenesAndTimings['scenes']); // Parsing the answer to get information about
                     // each scene separately
-                    for(let i = 0; i < fileName.length; i++) { // Going through each scene
+                    let timeInfo = JSON.parse(scenesAndTimings['timings']);
+                    for(let i = 0; i < scenesInfo.length; i++) { // Going through each scene
                         let scenePict = document.createElement('div'); // Creating a frame for each scene's visualisation
-                        let sceneInfo = JSON.parse(fileName[i]); // Parsing the info about the scene
+                        let sceneInfo = JSON.parse(scenesInfo[i]); // Parsing the info about the scene
                         let sceneImg = new Image(); // Creating an interface image for a scene's visualisation
                         scenePict.id = 'scene-' + sceneInfo["s_id"]; // Setting an id for the frame
                         scenePict.classList.add("one-scene"); // Setting class for the frame
@@ -57,6 +58,18 @@ function selectAlg(event) {
                         scenePict.addEventListener('drop', drop); // Adding event listeners for swapping scenes
                         scenePict.addEventListener('dragover', allowDrop);
                         sceneImg.addEventListener('dragstart', drag);
+                        if(i < timeInfo.length) {
+                            let sceneTime = document.createElement('div');
+                            let timingInfo = JSON.parse(timeInfo[i]);
+                            sceneTime.id = 'timing-' + timingInfo['timings_id'];
+                            sceneTime.innerHTML = timingInfo['t_value'];
+                            sceneTime.classList.add('timing');
+                            sceneTime.contentEditable = 'true';
+                            scenePict.after(sceneTime);
+                            sceneTime.addEventListener('keyup', validateTime);
+                            sceneTime.addEventListener('keydown', keepPrevious);
+                            sceneTime.addEventListener('blur', editTiming);
+                        }
                     }
                     addSceneButton.style.display = 'block'; // Enabling visibility fo the button 'Добавить сцену'
                 }
