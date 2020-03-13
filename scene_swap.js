@@ -61,7 +61,8 @@ function drop(event) {
                         alert('При запросе к серверу произошла ошибка');
                     } else { // otherwise parsing the scenes' order in the algorithm
                         let scenePanel = document.getElementById('header'); // Getting the neccessary DOM's elements
-                        let scenesChanged = order[1] - order[0];
+                        let order0 = parseInt(order[0]);
+                        let order1 = parseInt(order[1]);
                         let newId = srcParent.id; // Setting the temporary variables
                         let tmpId = targetDiv.id;
                         let curPict = tgt, tmpPict = tgt, curId = tmpId;
@@ -69,13 +70,13 @@ function drop(event) {
                         srcParent.id = 'tmp-scene';
                         targetDiv.id = newId;
                         if(parseInt(order[1]) > parseInt(order[0])) { // If it is requested to reorder from lef to right
-                            nextPics = scenePanel.querySelectorAll('#' + newId + ' ~ div');
-                            for (i = 0; i < scenesChanged; i++) { // Passing through the scenes which are required to be changed
+                            nextPics = scenePanel.querySelectorAll('.one-scene');
+                            for (i = order0; i < order1; i++) { // Passing through the scenes which are required to be changed
                                 reorderScenes(); // Calling the function for shifting scenes
                             }
                         } else { // If it is requested to reorder from right to left
                             nextPics = scenePanel.querySelectorAll('.one-scene');
-                            for(i = parseInt(order[0]) - 2; i >= parseInt(order[1]) - 1; i--) {
+                            for(i = order0 - 2; i >= order1 - 1; i--) {
                                 reorderScenes(); //Calling the function for shifting scenes
                             }
                         }
