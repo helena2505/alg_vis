@@ -23,6 +23,7 @@ require_once 'include/container_list.php';
     <!--Operator mode-->
     <div class="operator">
         <div id="header" class="header">
+            <!--div id="cur-timing" class="timing" contenteditable="true">5</div-->
             <div id="add-scene" class="plus-scene">+Добавить сцену</div>
         </div>
         <!--Drawing window-->
@@ -233,6 +234,7 @@ require_once 'include/container_list.php';
     <script src="alg_edit.js" type="text/javascript"></script>
     <script src="alg_select.js" type="text/javascript"></script>
     <script src="container_edit.js" type="text/javascript"></script>
+    <script src="timings.js" type="text/javascript"></script>
     <script src="delete_container.js"></script>
     <script src="scene_add.js" type="text/javascript"></script>
     <script src="scene_edit.js" type="text/javascript"></script>

@@ -77,6 +77,12 @@ addSceneButton.onclick = function() {
     frame.classList.add('one-scene');
     frame.id = 'cur-frame';
     addSceneButton.before(frame);
+    /*let curTiming = document.createElement('div');
+    curTiming.id = 'cur-timing';
+    curTiming.classList.add('timing');
+    curTiming.contentEditable = 'true';
+    curTiming.innerHTML = '5';
+    frame.before(curTiming);*/
     let sceneImage = document.createElement('img'); // Creating image for the scene visualization
     frame.appendChild(sceneImage);
     sceneImage.classList.add('small-scene');
