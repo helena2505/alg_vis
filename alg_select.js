@@ -66,6 +66,7 @@ function selectAlg(event) {
                             sceneTime.classList.add('timing');
                             sceneTime.contentEditable = 'true';
                             scenePict.after(sceneTime);
+                            sceneTime.addEventListener('mousedown', keepStable);
                             sceneTime.addEventListener('keyup', validateTime);
                             sceneTime.addEventListener('keydown', keepPrevious);
                             sceneTime.addEventListener('blur', editTiming);

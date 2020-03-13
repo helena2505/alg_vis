@@ -71,6 +71,7 @@ function addScene(id) {
                     sceneImg.addEventListener('dragstart', drag);
                     if(sceneTime) {
                         sceneTime.id = 'timing-' + ids[1];
+                        sceneTime.addEventListener('mousedown', keepStable);
                         sceneTime.addEventListener('keyup', validateTime);
                         sceneTime.addEventListener('keydown', keepPrevious);
                         sceneTime.addEventListener('blur', editTiming);
