@@ -1,3 +1,17 @@
+function editSceneByEditor(event) {
+    /* The event listener for clicking on a scene to be edited
+    * The function calls the graph editor to edit a scene
+    * and passes the picture which is request to be edited
+    * Input parameter: event. Output parameter: none
+    * Author: Elena Karelina
+    */
+    indicateClick = 1; // Marking that editing has been requested
+    let sceneImage = document.getElementById(event.target.id);
+    previousPicture = sceneImage.src;
+    editedSceneId = event.target.id.split('-')[1];
+    DiagramEditor.editElement(sceneImage); // Calling the editor
+}
+
 function editScene(sceneId) {
     /* The function sends a request to update the scene visualisation
     * Input parameter: the id of the scene which is necessary to update

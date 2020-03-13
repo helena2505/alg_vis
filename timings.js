@@ -1,9 +1,11 @@
-let curTiming = document.getElementById('cur-timing');
+/*let curTiming = document.getElementById('cur-timing');
 let prev = '5';
 
 curTiming.addEventListener('keyup', validateTime);
 curTiming.addEventListener('keydown', keepPrevious);
-curTiming.addEventListener('blur', editTiming);
+curTiming.addEventListener('blur', editTiming);*/
+
+let prev = '5';
 
 function keepPrevious(event) {
     prev = event.target.textContent;

@@ -23,7 +23,6 @@ require_once 'include/container_list.php';
     <!--Operator mode-->
     <div class="operator">
         <div id="header" class="header">
-            <!--div id="cur-timing" class="timing" contenteditable="true">5</div-->
             <div id="add-scene" class="plus-scene">+Добавить сцену</div>
         </div>
         <!--Drawing window-->
