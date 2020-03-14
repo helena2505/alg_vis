@@ -21,7 +21,12 @@ function deleteScene(id) {
                     let deletedScene = document.getElementById(id); // Remember the element which is neccessary to delete
                     let borderOfScene = deletedScene.parentNode; // Border of scene element
                     let headerWithScenes = borderOfScene.parentNode; // Header element
+                    let nextElement = borderOfScene.nextSibling;//headerWithScenes.querySelectorAll('#' + id + ' + div');
+                    if(nextElement.id == 'add-scene') {
+                        nextElement = borderOfScene.previousSibling;
+                    }
                     headerWithScenes.removeChild(borderOfScene); // Recursively delete border with scene image from header
+                    headerWithScenes.removeChild(nextElement);
                 }
                 else {
                     alert('При удалении из базы данных произошла ошибка');
