@@ -18,3 +18,12 @@
     bottom: 0;
     right: 0;
 }
+
+.timing {
+    background-color: palegreen;
+    color: black;
+    height: 60px;
+    text-align: center;
+    width: 60px;
+    word-wrap: break-word;
+}

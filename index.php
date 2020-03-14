@@ -47,5 +47,6 @@
 </div>
     <!--Scripts-->
     <script src="student_alg_list.js" type="text/javascript"></script>
+>>>>>>> f1d908690b303f92d88fb83cd5c7df71c1727165
 </body>
 </html>

@@ -65,7 +65,7 @@ confButton1.onclick = function() {
         inputDifficulty.value = '';
         dialogAddAlg.style.display = 'none';
     }
-}
+};
 
 function inputAlgorithm(event) {
     /* Event listener for clicking on the button "Добавить контейнер"
