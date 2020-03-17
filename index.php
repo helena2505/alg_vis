@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="footer_style.css" />
     <link rel="stylesheet" href="context_menu.css" />
     <link rel="stylesheet" href="scene_buttons.css" />
+    <link rel="stylesheet" href="modal_add.css" />
+    <link rel="stylesheet" href="modal_style.css" />
 </head>
 <body>
 <!--Student mode-->
@@ -66,7 +68,7 @@
             </li>
         </ul>
 
-            <!--Modal window for displaying info about structures-->
+    <!--Modal window for displaying info about structures-->
     <div id="list1Modal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -103,6 +105,7 @@
 </div>
     <!--Scripts-->
     <script src="student_alg_list.js" type="text/javascript"></script>
+    <script src="student_modal.js" type="text/javascript"></script>
     <script src="student_context_menu.js" type="text/javascript"></script>
 </body>
 </html>
