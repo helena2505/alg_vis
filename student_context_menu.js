@@ -230,6 +230,7 @@ showSceneButton.onclick = function() {
     showScene(elementForDelete);
 };
 
+
 function containerInfo(elementForInfo) {
     /* The function makes modal window which displays information about a container visible
     * The function sends request to the server ang gey information about the requested container as a response
@@ -249,7 +250,7 @@ function containerInfo(elementForInfo) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
-                console.log('cont check');
+            console.log("here");
                 let info = JSON.parse(xhr.responseText);
                 modal_1wayList.style.display = 'block'; // Enabling visibility of modal window
                 contName.innerHTML = info["container_name"]; // Inserting information received into modal window
@@ -280,7 +281,6 @@ function algorithmInfo(currentId) {
             if(xhr.status == 200) { // The server's returned code 200 (success)
                 let algorithmInfo = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms
                 //algorithmInfo = JSON.parse(algorithmInfo[0]);
-                console.log('alg check');
                 algNameInfo.innerHTML = algorithmInfo["algorithm_name"];
                 algDescr.innerHTML = algorithmInfo["description"];
                 algDifficultyInfo.innerHTML = algorithmInfo["difficulty"];
