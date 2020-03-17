@@ -44,6 +44,62 @@
             <button class="btn btn4" id="op_button"> <a href="operator.php" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
         </div>
     </div>
+
+    <!--Context menu for show info-->
+        <nav class="context-menu" id="my-menu">
+        <ul class="context-menu__items">
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" id="show-info">
+                    <i class="fa fa-eye"></i> Посмотреть информацию
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+            <!--Context menu for a scene-->
+            <nav class="context-menu" id="scene-menu">
+        <ul class="context-menu__items">
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" id="show-scene-button">
+                    <i class="fa fa-eye"></i> Показать сцену
+                </a>
+            </li>
+        </ul>
+
+            <!--Modal window for displaying info about structures-->
+    <div id="list1Modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="closeBtn" id="cross0">&times;</span>
+                    <h2 id="cont-name"></h2>
+                </div>
+                <div class="modal-body">
+                    <p id="cont-descr"></p>
+                </div>
+                <div class="modal-footer">
+                    <h3> </h3>
+                </div>
+            </div>
+    </div>
+
+    <!--Modal window for displaying info about an algorithm-->
+    <div id="modal-alg-info" class="modal">
+        <div class="modal-content" id="modal-alg-info-content">
+            <div class="modal-header">
+                <span class="closeBtn" id="cross5">&times;</span>
+                <h2 id="alg-name-info"></h2>
+            </div>
+            <div class="modal-body">
+                <p id="alg-descr"></p>
+                <h4>Сложность алгоритма:</h4>
+                <p id="alg-diff"></p>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
 </div>
     <!--Scripts-->
     <script src="student_alg_list.js" type="text/javascript"></script>

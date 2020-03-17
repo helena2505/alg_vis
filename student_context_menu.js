@@ -8,14 +8,19 @@ let windowHeight = 0; // Let for keeping the window's height
 let clickCoords; // Let for keeping the coordinates where the click occured
 let clickCoordsX; // Let for keeping the coordinate X where the click occured
 let clickCoordsY; // Let for keeping the coordinate Y where the click occured
-let deleteContainer = document.getElementById("delete-container"); // Let of context menu's button "Удалить контейнер"
 let elementForDelete = ''; // ID of target elemet (algorithm or container)
 let typeForDelete = ''; // Type of target element (algorithm or container)
 let showInfo = document.getElementById("show-info"); // Context menu button "Посмотреть информацию"
-let editInfo = document.getElementById("edit-info"); // Context menu button "Редактировать"
 let sceneMenu = document.getElementById('scene-menu'); // Context menu
 let showSceneButton = document.getElementById('show-scene-button'); // Context menu button "Показать сцену"
 let deleteSceneButton = document.getElementById("scene-delete-button"); // Context menu's button "Удалить сцену"
+let modal_1wayList = document.getElementById('list1Modal'); // Get modal element for structure
+let algInfoModal = document.getElementById('modal-alg-info'); // Get modal element for algorithm
+let contName = document.getElementById('cont-name'); // Container name
+let contDescr = document.getElementById('cont-descr'); // Container description
+let algNameInfo = document.getElementById('alg-name-info'); // Algorithm name
+let algDescr = document.getElementById('alg-descr'); // Algorithm description
+let algDifficultyInfo = document.getElementById('alg-diff'); // Algorithm description
 
 // Adding event listener of left click for all document's area
 document.addEventListener( "click", function(event) {
@@ -60,11 +65,6 @@ function clickInsideElement(event, className) {
     * Author: Elena Karelina
     */
     let el = event.srcElement || event.target; // Getting the element on which the click has been
-    if (el.id === 'add_a_container' || el.classList.contains("add-alg-button") || el.id === 'plus-scene') { // If it was the button "Добавить контейнер" or "Добавить алгоритм" or "Добавить сцену", disable default listener
-        // and don't enable context menu visibility (for not enabling returning false)
-        event.preventDefault();
-        return 0;
-    }
     if (el.classList.contains("small-scene") || el.classList.contains("one-scene")) {
         elementForDelete = el.id;
         typeForDelete = 'scene';
@@ -207,20 +207,6 @@ function positionMenu(event) {
     }
 }
 
-deleteContainer.onclick = function() {
-    /* Event listener for clicking button "Удалить" of the context menu
-    * The function calls a neccessary function of deleting according to the clicked element (algorithm or container)
-    * Input parameter: none. Output parameter: none.
-    * Authors: Elena Karelina, Tatyana Shorygina
-     */
-    if(typeForDelete === 'cont')
-        deleteAContainer(elementForDelete);
-    if(typeForDelete === 'alg')
-        deleteAlgorithm(elementForDelete);
-    if(typeForDelete === 'scene')
-        deleteAlgorithm(elementForDelete);
-};
-
 showInfo.onclick = function() {
     /* Event listener for clicking button "Посмотреть информацию" of the context menu
     * The function calls a neccessary function of sowing information according to the clicked element (algorithm or container)
@@ -235,20 +221,6 @@ showInfo.onclick = function() {
         deleteAlgorithm(elementForDelete);
 };
 
-editInfo.onclick = function() {
-    /* Event listener for clicking button "Редактировать" of the context menu
-    * The function calls a neccessary function of editing according to the clicked element (algorithm or container)
-    * Input parameter: none. Output parameter: none.
-    * Authors: Elena Karelina, Tatyana Shorygina
-     */
-    if(typeForDelete === 'cont')
-        editContainer(elementForDelete);
-    if(typeForDelete === 'alg')
-        editAlgorithm(elementForDelete);
-    if(typeForDelete === 'scene')
-        editAlgorithm(elementForDelete);
-};
-
 showSceneButton.onclick = function() {
     /* Event listener for clicking button "Показать сцену" of the context menu
     * The function calls a neccessary function of showing a scene
@@ -258,11 +230,62 @@ showSceneButton.onclick = function() {
     showScene(elementForDelete);
 };
 
-deleteSceneButton.onclick = function() {
-    /* Event listener for clicking button "Удалить сцену" of the context menu
-    * The function calls a neccessary function of deleting a scene
+function containerInfo(elementForInfo) {
+    /* The function makes modal window which displays information about a container visible
+    * The function sends request to the server ang gey information about the requested container as a response
     * Input parameter: none. Output parameter: none.
-    * Authors: Tatyana Shorygina
-     */
-    deleteScene(elementForDelete);
-};
+    * Author: Elena Karelina.
+    */
+    let xhr = new XMLHttpRequest(); // Creating new HTTP request
+    let idForInf = elementForInfo; // Getting id for the clicked container
+    xhr.open("POST", "include/container_info.php", true); // Setting destination and type
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
+    xhr.send('id=' + idForInf); // Sending the container's id for which information is requested
+    xhr.onreadystatechange = function() { // Waiting for the server's answer
+        /* Event listener for getting response from server
+        * Inserts the information from server into a modal window
+        * Input parameter: event. Output parameter: none.
+        * Author: Elena Karelina
+        */
+        if (xhr.readyState == 4) { // The answer has been got
+            if(xhr.status == 200) { // The server's returned code 200 (success)
+                console.log('cont check');
+                let info = JSON.parse(xhr.responseText);
+                modal_1wayList.style.display = 'block'; // Enabling visibility of modal window
+                contName.innerHTML = info["container_name"]; // Inserting information received into modal window
+                contDescr.innerHTML = info["description"]; // Inserting information received into modal window
+            }
+        }
+    };
+}
+
+function algorithmInfo(currentId) {
+    /* The function makes modal window which displays information about an algorithm visible
+    * The function sends request to the server ang gey information about the requested container as a response
+    * Input parameter: none. Output parameter: none
+    * Author: Tatyana Shorygina
+    */
+    algId3 = currentId.split('-')[1]; // Getting id for the clicked algorithm
+    let xhr = new XMLHttpRequest(); // Creating new HTTP request
+    xhr.open("POST", "include/alg_info.php", true); // Setting destination and type
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
+    xhr.send('id=' + encodeURIComponent(algId3));
+    xhr.onreadystatechange = function() { // Waiting for the server's answer
+        /* Event listener for getting response from server
+        * Inserts the information about the algorithm into the modal window and makes it visible
+        * Input parameter: none. Output parameter: none
+        * Author: Tatyana Shorygina
+        */
+        if (xhr.readyState == 4) { // The answer has been got
+            if(xhr.status == 200) { // The server's returned code 200 (success)
+                let algorithmInfo = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms
+                //algorithmInfo = JSON.parse(algorithmInfo[0]);
+                console.log('alg check');
+                algNameInfo.innerHTML = algorithmInfo["algorithm_name"];
+                algDescr.innerHTML = algorithmInfo["description"];
+                algDifficultyInfo.innerHTML = algorithmInfo["difficulty"];
+                algInfoModal.style.display = 'block';
+            }
+        }
+    };
+}
