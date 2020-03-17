@@ -47,5 +47,6 @@
 </div>
     <!--Scripts-->
     <script src="student_alg_list.js" type="text/javascript"></script>
+    <script src="student_context_menu.js" type="text/javascript"></script>
 </body>
 </html>
