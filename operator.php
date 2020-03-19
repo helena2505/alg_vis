@@ -49,7 +49,7 @@ require_once 'include/container_list.php';
         <div id="footer">
             <div class="container">
                 <button class="btn btn2" id="no-alg">Сбросить</button>
-                <button class="btn btn2" id="op_button"> <a href="index.php" class="btn-ref" unselectable="on">Выйти из режима
+                <button class="btn btn2" id="op_button"> <a href="/?action=out" class="btn-ref" unselectable="on">Выйти из режима
                         оператора</a></button>
             </div>
         </div>
