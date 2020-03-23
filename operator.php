@@ -8,6 +8,10 @@ $got_password = md5($_POST["password"]);
 $STH->execute(array("login" => $_POST["login"]));
 $STH->setFetchMode(PDO::FETCH_NUM);
 $pass = $STH->fetchAll();
+if(count($pass) == 0) {
+    echo "User not found";
+    exit();
+}
 $pass = $pass[0][0];
 if($pass == $got_password) { ?>
 
