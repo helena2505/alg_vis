@@ -1,6 +1,23 @@
+<?php
+
+require_once("include/database.php");
+
+
+$STH = $DB->prepare("SELECT user_password FROM users WHERE user_login = :login");
+$got_password = md5($_POST["password"]);
+$STH->execute(array("login" => $_POST["login"]));
+$STH->setFetchMode(PDO::FETCH_NUM);
+$pass = $STH->fetchAll();
+if(count($pass) == 0) {
+    echo "User not found";
+    exit();
+}
+$pass = $pass[0][0];
+if($pass == $got_password) { ?>
+
 <!DOCTYPE html>
 <?php
-require_once 'include/database.php';
+require_once 'include/container_list.php';
 ?>
 <html lang="en">
 
@@ -15,61 +32,21 @@ require_once 'include/database.php';
     <link rel="stylesheet" href="context_menu.css" />
     <link rel="stylesheet" href="modal_add.css" />
     <link rel="stylesheet" href="modal_style.css" />
+    <link rel="stylesheet" href="scene_buttons.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <!--Operator mode-->
     <div class="operator">
-        <div id="header">
+        <div id="header" class="header">
             <div id="add-scene" class="plus-scene">+Добавить сцену</div>
         </div>
         <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw">
-                <div class="primitives" id="graph-primitives">
-                    <!--Primitives editor-->
-                    <ul class="editor">
-                        <button class="btn btn4" id="qbutton">Готово</button>
-                        <li>
-                            <img id="rectangle" src="pictures1/rect.svg" width="80" height="50" alt="draw rectangle">
-                        </li>
-                        <li>
-                            <img id="circule" src="pictures1/circ.svg" width="100" height="70" alt="draw circle">
-                        </li>
-                        <li>
-                            <img id="right_arrow" src="pictures1/right_arrow.svg" width="100" height="70"
-                                alt="draw right arrow">
-                        </li>
-                        <li>
-                            <img id="left_arrow" src="pictures1/left_arrow.svg" width="100" height="70"
-                                alt="draw left arrow">
-                        </li>
-                        <li>
-                            <img id="left_down_arrow" src="pictures1/left_down_arrow.svg" width="100" height="70"
-                                alt="draw left down arrow">
-                        </li>
-                        <li>
-                            <img id="right_down_arrow" src="pictures1/right_down_arrow.svg" width="100" height="70"
-                                alt="draw right down arrow">
-                        </li>
-                        <li>
-                            <img id="stack_queue_without_arrow" src="pictures1/stack_queue_without_arrow.svg"
-                                width="100" height="70" alt="draw stack/queue without arrow">
-                        </li>
-                        <li>
-                            <img id="tree_node" src="pictures1/tree_node.svg" width="100" height="70"
-                                alt="draw tree_node">
-                        </li>
-                        <li>
-                            <img id="rectangle" src="pictures1/rectangle.svg" width="100" height="70"
-                                alt="draw variable">
-                        </li>
-                        <li>
-                            <img id="array" src="pictures1/try.svg" width="100" height="70" alt="draw array element">
-                        </li>
-                </div>
-                <!--Zone where it's allowed to drop objects-->
-                <div id="outer-dropzone" class="dropzone"></div>
+                <button class="btn btn2" id="btn-next-scene">Вперёд</button>
+                <button class="btn btn2" id="btn-prev-scene">Назад</button>
             </div>
             <!--Structures menu-->
             <div id="structures-col">
@@ -77,14 +54,11 @@ require_once 'include/database.php';
                 <?php foreach ($containers as $container):
                         $id = strval($container["id"]);
                         ?>
-                        <li class="one-container" id=<?=$id?>>&#9773; <?=$container["container_name"]?></li>
+                        <li class="one-container" id=<?=$id?>><?=$container["container_name"]?></li>
                         <ul class="algorithm-list" id=<?="alg".$id?>></ul>
                     <?php endforeach; ?>
                 </ul>
-                <ul class="menu">
-                    <li>
-                        <div id="add_a_container" class="one-container">+ Создать новый контейнер</div>
-                    </li>
+                <div id="add-a-container-div"><div id="add_a_container" class="one-container">+</div></div>
                 </ul>
             </div>
         </div>
@@ -92,7 +66,7 @@ require_once 'include/database.php';
         <div id="footer">
             <div class="container">
                 <button class="btn btn2" id="no-alg">Сбросить</button>
-                <button class="btn btn4" id="op_button"> <a href="index.php" class="btn-ref">Выйти из режима
+                <button class="btn btn2" id="op_button"> <a href="/?action=out" class="btn-ref" unselectable="on">Выйти из режима
                         оператора</a></button>
             </div>
         </div>
@@ -117,9 +91,24 @@ require_once 'include/database.php';
             </li>
         </ul>
     </nav>
+        <!--Context menu for a scene-->
+        <nav class="context-menu" id="scene-menu">
+        <ul class="context-menu__items">
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" id="show-scene-button">
+                    <i class="fa fa-eye"></i> Показать сцену
+                </a>
+            </li>
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" id="scene-delete-button">
+                    <i class="fa fa-eye"></i> Удалить сцену
+                </a>
+            </li>
+        </ul>
+    </nav>
     <!--Dialog window for entering info about a container-->
     <div class="modal" id="modal-window">
-        <div class="modal-content">
+        <div class="modal-content" id="add-container-modal-content">
             <div class="modal-header">
                 <span class="cross" id="cross1">&times</span>
                 <h2>Добавить структуру данных</h2>
@@ -154,14 +143,14 @@ require_once 'include/database.php';
 
     <!--Modal window for displaying info about an algorithm-->
     <div id="modal-alg-info" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" id="modal-alg-info-content">
             <div class="modal-header">
                 <span class="closeBtn" id="cross5">&times;</span>
                 <h2 id="alg-name-info"></h2>
             </div>
             <div class="modal-body">
                 <p id="alg-descr"></p>
-                <h5>Сложность алгоритма:</h5>
+                <h4>Сложность алгоритма:</h4>
                 <p id="alg-diff"></p>
             </div>
             <div class="modal-footer">
@@ -172,7 +161,7 @@ require_once 'include/database.php';
 
     <!--Dialog window for entering info about an algorithm-->
     <div class="modal" id="dialog-add-alg">
-        <div class="modal-content">
+        <div class="modal-content" id="dialog-alg-add-content">
             <div class="modal-header">
                 <span class="cross" id="cross2">&times;</span>
                 <h2 id="dialog-header">Добавить новый алгоритм</h2>
@@ -208,7 +197,7 @@ require_once 'include/database.php';
                 <input class="input-str" id="str-edit-alg-dif" type="text">
                 <btn class="confirm" id="conf3">OK</btn>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" id="dialog-edit-alg-footer">
                 <h3> </h3>
             </div>
         </div>
@@ -228,15 +217,31 @@ require_once 'include/database.php';
                 <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-edit-container-info"></textarea>
                 <btn class="confirm" id="conf4">OK</btn>
             </div>
+            <div class="modal-footer" id="dialog-edit-container-footer">
+                <h3> </h3>
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
+    <!--Dialog window for showing a scene-->
+    <div class="modal" id="modal-show-scene">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="cross" id="cross6">&times</span>
+                <h2>Просмотр сцены</h2>
+            </div>
+            <div class="show-scene-wrap">
+            <p class="modal-body" id="show-scene"></p></div>
             <div class="modal-footer">
                 <h3> </h3>
             </div>
         </div>
     </div>
 
-    <!--Scripts-->
-    <script src="main.js"></script>
-    <script src="ncontainer.js" type="module"></script>
+    <!--App's scripts-->
+    <script src="drawio-integration/diagram-editor.js"></script>
+    <script src="add_container.js" type="module"></script>
     <script src="context_menu.js" type="text/javascript"></script>
     <script src="modal.js" type="text/javascript"></script>
     <script src="alg_list.js" type="text/javascript"></script>
@@ -245,11 +250,18 @@ require_once 'include/database.php';
     <script src="alg_edit.js" type="text/javascript"></script>
     <script src="alg_select.js" type="text/javascript"></script>
     <script src="container_edit.js" type="text/javascript"></script>
+    <script src="timings.js" type="text/javascript"></script>
     <script src="delete_container.js"></script>
-
     <script src="scene_add.js" type="text/javascript"></script>
-    <script src="scene_select.js" type="text/javascript"></script>
+    <script src="scene_edit.js" type="text/javascript"></script>
+    <script src="scene_show.js" type="text/javascript"></script>
+    <script src="scene_delete.js" type="text/javascript"></script>
+    <script src="scene_swap.js" type="text/javascript"></script>
 
 </body>
 
 </html>
+    <?php
+} else {
+    echo "Incorrect password";
+}

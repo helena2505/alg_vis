@@ -8,7 +8,7 @@ function deleteAlgorithm(elementForDelete) {
     let clickedId = elementForDelete;
     let deletedAlgId = clickedId.split('-')[1]
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    xhr.open("POST", "include/del_alg.php", true); // Setting type and address
+    xhr.open("POST", "include/alg_delete.php", true); // Setting type and address
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
     xhr.send('id=' + encodeURIComponent(deletedAlgId));
     xhr.onreadystatechange = function() { // Waiting for the server's response
@@ -19,7 +19,7 @@ function deleteAlgorithm(elementForDelete) {
         */
         if (xhr.readyState == 4) { // The answer has been recieved
             if(xhr.status == 200) { // The returned server's answer is 200 (OK)
-                if(xhr.responseText === "1") { // If the deleting was succesful delete from the interface
+                if(xhr.responseText == "1") { // If the deleting was succesful delete from the interface
                     let deletedAlgorithm = document.getElementById(clickedId); // Remember the element which is neccessary to delete
                     // its ID has been saved in function clickInsideElement
                     let algorithmMenu = deletedAlgorithm.parentNode;

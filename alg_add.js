@@ -16,7 +16,7 @@ close2.onclick = function() {
     * Author: Elena Karelina
     */
     cleanDialogAdd();
-}
+};
 
 confButton1.onclick = function() {
     /* Event listener for clicking on the button "OK"
@@ -33,7 +33,7 @@ confButton1.onclick = function() {
         algDesrcription = inputDescription1.value;
         algDifficulty = inputDifficulty.value;
         let xhr = new XMLHttpRequest(); // Creating new HTTP request
-        xhr.open("POST", "include/add_alg.php", true); // Setting destination and type
+        xhr.open("POST", "include/alg_add.php", true); // Setting destination and type
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
         xhr.send('name=' + encodeURIComponent(algName) + '&descr=' + encodeURIComponent(algDesrcription)
             + '&diff=' + encodeURIComponent(algDifficulty) + '&cont=' + encodeURIComponent(algContainer)); // Sending
@@ -65,7 +65,7 @@ confButton1.onclick = function() {
         inputDifficulty.value = '';
         dialogAddAlg.style.display = 'none';
     }
-}
+};
 
 function inputAlgorithm(event) {
     /* Event listener for clicking on the button "Добавить контейнер"
