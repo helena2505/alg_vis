@@ -1,5 +1,5 @@
 <?php
-require_once('database.php');
+require_once('../database.php');
 $STH = $DB->prepare("INSERT INTO users (user_login, user_password) VALUES (:user_name, :password);");
 $user = $argv[1];
 $pass = md5($argv[2]);
