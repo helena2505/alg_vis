@@ -43,7 +43,7 @@
     <!--Footer-->
     <div id="footer">
         <div class="container">
-            <button class="btn btn4" id="op_button"> <a href="operator.php" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
+            <button class="btn btn4" id="op_button"> <a href="login.html" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
         </div>
     </div>
 

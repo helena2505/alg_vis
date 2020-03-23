@@ -1,3 +1,20 @@
+<?php
+
+require_once("include/database.php");
+
+
+$STH = $DB->prepare("SELECT user_password FROM users WHERE user_login = :login");
+$got_password = md5($_POST["password"]);
+$STH->execute(array("login" => $_POST["login"]));
+$STH->setFetchMode(PDO::FETCH_NUM);
+$pass = $STH->fetchAll();
+if(count($pass) == 0) {
+    echo "User not found";
+    exit();
+}
+$pass = $pass[0][0];
+if($pass == $got_password) { ?>
+
 <!DOCTYPE html>
 <?php
 require_once 'include/container_list.php';
@@ -49,7 +66,7 @@ require_once 'include/container_list.php';
         <div id="footer">
             <div class="container">
                 <button class="btn btn2" id="no-alg">Сбросить</button>
-                <button class="btn btn2" id="op_button"> <a href="index.php" class="btn-ref" unselectable="on">Выйти из режима
+                <button class="btn btn2" id="op_button"> <a href="/?action=out" class="btn-ref" unselectable="on">Выйти из режима
                         оператора</a></button>
             </div>
         </div>
@@ -244,3 +261,7 @@ require_once 'include/container_list.php';
 </body>
 
 </html>
+    <?php
+} else {
+    echo "Incorrect password";
+}
