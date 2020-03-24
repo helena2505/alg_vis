@@ -14,13 +14,6 @@ let showInfo = document.getElementById("show-info"); // Context menu button "П�
 let sceneMenu = document.getElementById('scene-menu'); // Context menu
 let showSceneButton = document.getElementById('show-scene-button'); // Context menu button "Показать сцену"
 let deleteSceneButton = document.getElementById("scene-delete-button"); // Context menu's button "Удалить сцену"
-let modal_1wayList = document.getElementById('list1Modal'); // Get modal element for structure
-let algInfoModal = document.getElementById('modal-alg-info'); // Get modal element for algorithm
-let contName = document.getElementById('cont-name'); // Container name
-let contDescr = document.getElementById('cont-descr'); // Container description
-let algNameInfo = document.getElementById('alg-name-info'); // Algorithm name
-let algDescr = document.getElementById('alg-descr'); // Algorithm description
-let algDifficultyInfo = document.getElementById('alg-diff'); // Algorithm description
 
 // Adding event listener of left click for all document's area
 document.addEventListener( "click", function(event) {
@@ -250,7 +243,6 @@ function containerInfo(elementForInfo) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
-            console.log("container");
                 let info = JSON.parse(xhr.responseText);
                 modal_1wayList.style.display = 'block'; // Enabling visibility of modal window
                 contName.innerHTML = info["container_name"]; // Inserting information received into modal window
@@ -279,9 +271,7 @@ function algorithmInfo(currentId) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
-                console.log("algorithm");
                 let algorithmInfo = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms
-                //algorithmInfo = JSON.parse(algorithmInfo[0]);
                 algNameInfo.innerHTML = algorithmInfo["algorithm_name"];
                 algDescr.innerHTML = algorithmInfo["description"];
                 algDifficultyInfo.innerHTML = algorithmInfo["difficulty"];

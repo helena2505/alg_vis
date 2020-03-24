@@ -1,16 +1,3 @@
-let lst = document.getElementById('available-containers'); // Getting the list of containers
-lst.onclick = function(event) {
-    /* Event listener for clicking on the list of the containers
-    * The function calls the function of showing list of the container's algorithms
-    * Input parameter: event. Output parameter: none.
-    * Author: Elena Karelina
-    */
-    event.preventDefault();
-    let clickedArea = document.getElementById(event.target.id);
-    if(clickedArea.classList.contains("one-container")) // If the click has been on one of the containers from the list
-        showAlgorithms(event); // Calling the function
-};
-
 function showAlgorithms(event) {
     /* The function gets the list of algorithms of the container from the server's database
     * The function makes the received list visible on the user's page

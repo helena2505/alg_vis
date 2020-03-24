@@ -81,6 +81,9 @@ body {
     padding: 0px;
     position: relative;
     width: 80%;
+    white-space : nowrap;
+    display: inline-block;
+    white-space : normal;
 }
 
 /* Primitives edit menu */

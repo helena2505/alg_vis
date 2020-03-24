@@ -15,6 +15,10 @@
     animation-duration: 0.6s;
 }
 
+#my-menu {
+    height: 23.33px;
+}
+
 /* Display context menu */
 .context-menu--active {
     display: block;
