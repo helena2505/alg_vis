@@ -11,7 +11,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -60%);
     color: #333;
 }
 
@@ -31,3 +31,44 @@ body {
     margin: 8px 0;
     border-bottom: 1px solid #333;
 }
+
+.textbox i {
+    width: 26px;
+    float: left;
+    text-align: center;
+}
+
+.textbox input {
+    border: none;
+    outline: none;
+    color: #333;
+    font-size: 18px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+}
+
+#login_btn {
+    width: 100%;
+    background: none;
+    border: 2px solid #333;
+    color: #333;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+#login-username {
+    background: transparent;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }
