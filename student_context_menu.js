@@ -14,13 +14,6 @@ let showInfo = document.getElementById("show-info"); // Context menu button "П�
 let sceneMenu = document.getElementById('scene-menu'); // Context menu
 let showSceneButton = document.getElementById('show-scene-button'); // Context menu button "Показать сцену"
 let deleteSceneButton = document.getElementById("scene-delete-button"); // Context menu's button "Удалить сцену"
-let modal_1wayList = document.getElementById('list1Modal'); // Get modal element for structure
-let algInfoModal = document.getElementById('modal-alg-info'); // Get modal element for algorithm
-let contName = document.getElementById('cont-name'); // Container name
-let contDescr = document.getElementById('cont-descr'); // Container description
-let algNameInfo = document.getElementById('alg-name-info'); // Algorithm name
-let algDescr = document.getElementById('alg-descr'); // Algorithm description
-let algDifficultyInfo = document.getElementById('alg-diff'); // Algorithm description
 
 // Adding event listener of left click for all document's area
 document.addEventListener( "click", function(event) {
