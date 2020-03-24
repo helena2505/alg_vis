@@ -68,6 +68,8 @@
             </li>
         </ul>
 
+</div>
+
     <!--Modal window for displaying info about structures-->
     <div id="list1Modal" class="modal">
             <div class="modal-content">
@@ -102,7 +104,21 @@
         </div>
     </div>
 
-</div>
+        <!--Dialog window for showing a scene-->
+        <div class="modal" id="modal-show-scene">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="cross" id="cross6">&times</span>
+                <h2>Просмотр сцены</h2>
+            </div>
+            <div class="show-scene-wrap">
+            <p class="modal-body" id="show-scene"></p></div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+    
     <!--Scripts-->
     <script src="student_alg_list.js" type="text/javascript"></script>
     <script src="student_modal.js" type="text/javascript"></script>
