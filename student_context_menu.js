@@ -243,7 +243,6 @@ function containerInfo(elementForInfo) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
-            console.log("container");
                 let info = JSON.parse(xhr.responseText);
                 modal_1wayList.style.display = 'block'; // Enabling visibility of modal window
                 contName.innerHTML = info["container_name"]; // Inserting information received into modal window
@@ -272,9 +271,7 @@ function algorithmInfo(currentId) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if(xhr.status == 200) { // The server's returned code 200 (success)
-                console.log("algorithm");
                 let algorithmInfo = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms
-                //algorithmInfo = JSON.parse(algorithmInfo[0]);
                 algNameInfo.innerHTML = algorithmInfo["algorithm_name"];
                 algDescr.innerHTML = algorithmInfo["description"];
                 algDifficultyInfo.innerHTML = algorithmInfo["difficulty"];
