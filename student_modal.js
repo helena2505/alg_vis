@@ -8,8 +8,9 @@ let algDescr = document.getElementById('alg-descr'); // Algorithm description
 let algDifficultyInfo = document.getElementById('alg-diff'); // Algorithm description
 let closeBtn = document.getElementsByClassName('closeBtn')[0]; // Get close button
 let close5 = document.getElementById("cross5"); // The modal window's cross
-let close6 = document.getElementById("cross6"); // The modal window's cross
+let close0 = document.getElementById("cross0"); // The modal window's cross
 let showSceneModal = document.getElementById('modal-show-scene'); // Get modal element for showing scene
+let dialogAddAlg = document.getElementById("dialog-add-alg"); // The modal window for inputting information about an algorithm
 
 closeBtn.addEventListener('click', closeModal); // Listen for close click
 window.addEventListener('click', outsideClick); // Listen for outside click
@@ -34,7 +35,7 @@ function closeModal() {
     modal_1wayList.style.display = 'none';
 }
 
-close6.onclick = function() {
+close0.onclick = function() {
     /* Event listener for the cross of the modal window
     * The function disables visibity of the modal window and cleans input strings
     * Input parameter: none. Output parameter: none.
@@ -64,9 +65,6 @@ function outsideClick(event) {
     if (event.target === dialogAddAlg){
         cleanDialogAdd();
     }
-    if (event.target === dialogEditAlg){
-        cleandialogEditAlg();
-    }
     if (event.target === algInfoModal){
         algInfoModal.style.display = 'none';
     }
@@ -74,3 +72,15 @@ function outsideClick(event) {
         showSceneModal.style.display = 'none';
     }
 }
+
+lst.onclick = function(event) {
+    /* Event listener for clicking on the list of the containers
+    * The function calls the function of showing list of the container's algorithms
+    * Input parameter: event. Output parameter: none.
+    * Author: Elena Karelina
+    */
+    event.preventDefault();
+    let clickedArea = document.getElementById(event.target.id);
+    if(clickedArea.classList.contains("one-container")) // If the click has been on one of the containers from the list
+        showAlgorithms(event); // Calling the function
+};
