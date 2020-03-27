@@ -1,4 +1,4 @@
-let menu = document.getElementById('my-menu'); // Context menu let
+let menu = document.getElementById('my-menu-student'); // Context menu let
 let menuState = 0; // Let of context's menu state (visible or not, not visible by default)
 let activeClassName = "context-menu--active"; // Class name for enableing context menu's visibility
 let taskItemClassName = 'one-algorithm'; // Menu's class name
