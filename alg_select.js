@@ -21,6 +21,7 @@ function selectAlg(event) {
      */
     let eventTarget = event.target.id;
     let check = eventTarget.split('-'); // Splitting the clicked element id
+    console.log(check);
     if (check.length === 2) { // Checking that the click has been on an algorithm but not on the button
         // 'Добавить алгоритм'
         currentAlgId = check[1]; // Getting the algorithm's id which it has in the database

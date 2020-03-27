@@ -1,7 +1,6 @@
 let menu1 = document.getElementById('available-containers'); // Containers' menu
 let algTree = menu1.querySelectorAll('.algorithm-list'); // Getting all lists of algorithms
 let currentAlgId = ''; // Let for keeping the clicked algorithm id
-let graphEditor = document.getElementById("palette-zone"); // Graphical primitives menu
 let graphIndicator = ''; // Let for keeping the state of the graph editor: if it has been enabled for adding a container or a scene
 let noAlgButton = document.getElementById('no-alg2');
 
@@ -18,9 +17,9 @@ function selectAlg(event) {
     * Author: Elena Karelina
      */
     let eventTarget = event.target.id;
-    let check = eventTarget.split('-') // Splitting the clicked element id
+    let check = eventTarget.split('-'); // Splitting the clicked element id
     console.log(check);
-    if (check.length === 2) { // Checkking that the click has been on an algorithm but not on the buttton
+    if (check.length === 2) { // Checking that the click has been on an algorithm but not on the button
         // 'Добавить алгоритм'
         currentAlgId = check[1]; // Getting the algorithm's id which it has in the database
         cleanScenes();
@@ -38,29 +37,42 @@ function selectAlg(event) {
             */
             if (xhr1.readyState == 4) { // The answer has been got
                 if (xhr1.status == 200) {
-                    console.log("success");
-                    let fileName = JSON.parse(xhr1.responseText); // Parsing the answer to get information about
+                    let scenesAndTimings = JSON.parse(xhr1.responseText);
+                    let scenesInfo = JSON.parse(scenesAndTimings['scenes']); // Parsing the answer to get information about
                     // each scene separately
-                    for(let i = 0; i < fileName.length; i++) { // Going through each scene
+                    //let timeInfo = JSON.parse(scenesAndTimings['timings']);
+                    for(let i = 0; i < scenesInfo.length; i++) { // Going through each scene
                         let scenePict = document.createElement('div'); // Creating a frame for each scene's visualisation
-                        let sceneInfo = JSON.parse(fileName[i]); // Parsing the info about the scene
+                        let sceneInfo = JSON.parse(scenesInfo[i]); // Parsing the info about the scene
                         let sceneImg = new Image(); // Creating an interface image for a scene's visualisation
                         scenePict.id = 'scene-' + sceneInfo["s_id"]; // Setting an id for the frame
                         scenePict.classList.add("one-scene"); // Setting class for the frame
-                        scenePict.addEventListener('click', selectScene); // Setting event listener for working with the scene
-                        sceneImg.src = sceneInfo["s_picture"]; // Setting the pictures content got from the server
+                        
+                        sceneImg.src = sceneInfo["xml_code"]; // Setting the pictures content gor from the server
                         sceneImg.id = 'scenevis-' + sceneInfo["s_id"]; // Setting id for the image
                         sceneImg.classList.add('small-scene'); // Setting class for the image
                         scenePict.appendChild(sceneImg); // Appending the image to the frame
-                        scenePict.addEventListener('drop', drop); // Adding event listeners for swapping scenes
-                        scenePict.addEventListener('dragover', allowDrop);
-                        sceneImg.addEventListener('dragstart', drag);
+                        //scenePict.addEventListener('drop', drop); // Adding event listeners for swapping scenes
+                        //scenePict.addEventListener('dragover', allowDrop);
+                        //sceneImg.addEventListener('dragstart', drag);
+                        /*if(i < timeInfo.length) {
+                            let sceneTime = document.createElement('div');
+                            let timingInfo = JSON.parse(timeInfo[i]);
+                            sceneTime.id = 'timing-' + timingInfo['timings_id'];
+                            sceneTime.innerHTML = timingInfo['t_value'];
+                            sceneTime.classList.add('timing');
+                            sceneTime.contentEditable = 'true';
+                            scenePict.after(sceneTime);
+                            sceneTime.addEventListener('mousedown', keepStable);
+                            sceneTime.addEventListener('keyup', validateTime);
+                            sceneTime.addEventListener('keydown', keepPrevious);
+                            sceneTime.addEventListener('blur', editTiming);*/
+                        }
                     }
                 }
             }
         };
     }
-}
 
 function cleanScenes () {
     /* The function removes all child nodes from the

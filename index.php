@@ -19,7 +19,9 @@
 <body>
 <!--Student mode-->
 <div class="operator">
-    <div id="header"></div>
+    <div id="header">
+        <div id="add-scene" class="plus-scene">+Добавить сцену</div>
+    </div>
         <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw">
@@ -126,5 +128,7 @@
     <script src="student_context_menu.js" type="text/javascript"></script>
     <script src="scene_show.js" type="text/javascript"></script>
     <script src="student_alg_select.js" type="text/javascript"></script>
+    <script src="scene_show.js" type="text/javascript"></script>
+    <script src="student_alg_show.js" type="text/javascript"></script>
 </body>
 </html>
