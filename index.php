@@ -48,7 +48,7 @@
     </div>
 
     <!--Context menu for show info-->
-        <nav class="context-menu" id="my-menu">
+        <nav class="context-menu" id="my-menu-student">
         <ul class="context-menu__items">
             <li class="context-menu__item">
                 <a href="#" class="context-menu__link" id="show-info">
