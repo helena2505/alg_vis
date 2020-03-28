@@ -14,7 +14,7 @@ body {
     margin: 0;
     overflow: hidden; /* Hide scrollbars */
     /*font-size: large;*/
-	font-family: Arial;
+	font-family: 'Roboto', sans-serif;
 	font-size: large;
 }
 
@@ -39,7 +39,7 @@ body {
 }
 
 #student-mode {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Drawing window */
@@ -132,7 +132,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     display: none;
-    font: 14pt Arial, white, sans-serif;
+    font: 14pt 'Roboto', white, sans-serif;
     line-height: 5em;
     height: 5em;
     text-align: center;
