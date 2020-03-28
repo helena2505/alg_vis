@@ -19,7 +19,9 @@
 <body>
 <!--Student mode-->
 <div class="operator">
-    <div id="header"></div>
+    <div id="header">
+        <div id="add-scene" class="plus-scene">+Добавить сцену</div>
+    </div>
         <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw">
@@ -43,6 +45,7 @@
     <!--Footer-->
     <div id="footer">
         <div class="container">
+            <button class="btn btn2" id="no-alg2">Сбросить</button>
             <button class="btn btn4" id="op_button"> <a href="login.html" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
         </div>
     </div>
@@ -123,5 +126,9 @@
     <script src="student_alg_list.js" type="text/javascript"></script>
     <script src="student_modal.js" type="text/javascript"></script>
     <script src="student_context_menu.js" type="text/javascript"></script>
+    <script src="scene_show.js" type="text/javascript"></script>
+    <script src="student_alg_select.js" type="text/javascript"></script>
+    <script src="scene_show.js" type="text/javascript"></script>
+    <script src="student_alg_show.js" type="text/javascript"></script>
 </body>
 </html>

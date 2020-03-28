@@ -1,11 +1,8 @@
 let menu1 = document.getElementById('available-containers'); // Containers' menu
 let algTree = menu1.querySelectorAll('.algorithm-list'); // Getting all lists of algorithms
 let currentAlgId = ''; // Let for keeping the clicked algorithm id
-let addSceneButton = document.getElementById('add-scene'); // Button for adding a scene
-let noAlgButton = document.getElementById('no-alg'); // Button "Сбросить"
-let indicateClick = 2; // Let for indicating adding or editing
-let editedSceneId = 0; // Edited scene id
-let previousPicture = ''; // Image og the previous scene
+let graphIndicator = ''; // Let for keeping the state of the graph editor: if it has been enabled for adding a container or a scene
+let noAlgButton = document.getElementById('no-alg2');
 
 // Adding event listeners for clicking on each algorithm
 for(let i = 0; i < algTree.length; i++) {
@@ -43,23 +40,22 @@ function selectAlg(event) {
                     let scenesAndTimings = JSON.parse(xhr1.responseText);
                     let scenesInfo = JSON.parse(scenesAndTimings['scenes']); // Parsing the answer to get information about
                     // each scene separately
-                    let timeInfo = JSON.parse(scenesAndTimings['timings']);
+                    //let timeInfo = JSON.parse(scenesAndTimings['timings']);
                     for(let i = 0; i < scenesInfo.length; i++) { // Going through each scene
                         let scenePict = document.createElement('div'); // Creating a frame for each scene's visualisation
                         let sceneInfo = JSON.parse(scenesInfo[i]); // Parsing the info about the scene
                         let sceneImg = new Image(); // Creating an interface image for a scene's visualisation
                         scenePict.id = 'scene-' + sceneInfo["s_id"]; // Setting an id for the frame
                         scenePict.classList.add("one-scene"); // Setting class for the frame
-                        scenePict.addEventListener('click', editSceneByEditor); // Setting event listener for working with the scene
+                        
                         sceneImg.src = sceneInfo["xml_code"]; // Setting the pictures content gor from the server
                         sceneImg.id = 'scenevis-' + sceneInfo["s_id"]; // Setting id for the image
                         sceneImg.classList.add('small-scene'); // Setting class for the image
-                        addSceneButton.before(scenePict); // Inserting the frame into the user's interface
                         scenePict.appendChild(sceneImg); // Appending the image to the frame
-                        scenePict.addEventListener('drop', drop); // Adding event listeners for swapping scenes
-                        scenePict.addEventListener('dragover', allowDrop);
-                        sceneImg.addEventListener('dragstart', drag);
-                        if(i < timeInfo.length) {
+                        //scenePict.addEventListener('drop', drop); // Adding event listeners for swapping scenes
+                        //scenePict.addEventListener('dragover', allowDrop);
+                        //sceneImg.addEventListener('dragstart', drag);
+                        /*if(i < timeInfo.length) {
                             let sceneTime = document.createElement('div');
                             let timingInfo = JSON.parse(timeInfo[i]);
                             sceneTime.id = 'timing-' + timingInfo['timings_id'];
@@ -70,30 +66,15 @@ function selectAlg(event) {
                             sceneTime.addEventListener('mousedown', keepStable);
                             sceneTime.addEventListener('keyup', validateTime);
                             sceneTime.addEventListener('keydown', keepPrevious);
-                            sceneTime.addEventListener('blur', editTiming);
+                            sceneTime.addEventListener('blur', editTiming);*/
                         }
                     }
-                    addSceneButton.style.display = 'block'; // Enabling visibility fo the button 'Добавить сцену'
                 }
             }
         };
     }
-}
 
-function onFinishEdit() {
-    /* The function is executed when the user finishes work with graph editor
-    * The function calls adding or editing a scene depend on the event which called the editor
-    * Input parameter: none. Output parameter: none
-    * Author: Elena Karelina
-    */
-    if(indicateClick === 0) { // If add button nas been clicked
-        addScene(currentAlgId); // Call function to add a scene
-    } else {
-        editScene(editedSceneId); // Call function to edit a scene
-    }
-}
-
-function cleanScenes() {
+function cleanScenes () {
     /* The function removes all child nodes from the
     * panel which displays images of the scenes.
     * Input parameter: none. Output parameter: none.
@@ -110,12 +91,11 @@ function cleanScenes() {
 }
 
 noAlgButton.onclick = function() {
-    /* The function realises exit from working with an algorithm mode
+    /* The function relises exit from wroking with an algorithm mode
     * and resets the current algorithm's id.
     * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina.
      */
     cleanScenes(); // Calling the function for cleaning the panel of the scenes
     currentAlgId = ''; // Resetting the current algorithm id
-    addSceneButton.style.display = 'none'; // Disabling visibility for the button "Добавить сцену"
-};
+}

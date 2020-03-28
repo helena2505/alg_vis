@@ -6,7 +6,7 @@
 }
 /* Footer style */
 #footer {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: lavender;
   height: 9%;
   width: 100%;
@@ -133,11 +133,42 @@
 
 /* Button to exit operator mode */
 #op_button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
   float: right;
   margin-top: 0px;
   outline: none;
   padding-left: 0.77%;
   padding-right: 0.77%;
+  padding-top: 0.7%;
+  padding-bottom: 0.7%;
+  max-width: 17.3%;
+  min-width: 17.3%;
+  background-color: white;
+  border-radius: 5px;
+  border: solid rgb(130, 130, 165);
+  -webkit-box-shadow: 0px 6px 0px rgb(130, 130, 165);
+  -moz-box-shadow: 0px 6px 0px rgb(130, 130, 165);
+  box-shadow: 0px 6px 0px rgb(130, 130, 165);
+}
+
+#no-alg, #no-alg2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  margin-top: 0px;
+  padding-left: 0.77%;
+  padding-right: 0.77%;
+  font-size: 18px;
+  max-width: 17.3%;
+  min-width: 17.3%;
+  padding-top: 0.7%;
+  padding-bottom: 0.7%;
+  background-color: white;
+  border-radius: 5px;
+  border: solid rgb(130, 130, 165);
+  -webkit-box-shadow: 0px 6px 0px rgb(130, 130, 165);
+  -moz-box-shadow: 0px 6px 0px rgb(130, 130, 165);
+  box-shadow: 0px 6px 0px rgb(130, 130, 165);
 }
 
 .small-scene {
