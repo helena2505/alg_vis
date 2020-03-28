@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="scene_buttons.css" />
     <link rel="stylesheet" href="modal_add.css" />
     <link rel="stylesheet" href="modal_style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 <!--Student mode-->
@@ -127,8 +128,5 @@
     <script src="student_modal.js" type="text/javascript"></script>
     <script src="student_context_menu.js" type="text/javascript"></script>
     <script src="scene_show.js" type="text/javascript"></script>
-    <script src="student_alg_select.js" type="text/javascript"></script>
-    <script src="scene_show.js" type="text/javascript"></script>
-    <script src="student_alg_show.js" type="text/javascript"></script>
 </body>
 </html>
