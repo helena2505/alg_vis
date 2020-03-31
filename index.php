@@ -29,7 +29,9 @@
                 <div class="column">
                     <button class="btn btn2" id="btn-prev-scene">Назад</button>
                 </div>
-                <div class="showing-scene" id="show-scene"></div>
+                <div class="showing-scene" id="show-scene">
+                    <!--img class="editor" id="current-scene" border-image="none"-->
+                </div>
                 <div class="column">
                     <button class="btn btn2" id="btn-next-scene">Вперёд</button>
                 </div>
