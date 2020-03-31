@@ -9,7 +9,7 @@ for(let i = 0; i < algorithms; i++) {
 function getScenes(event) {
     let requiredId = event.target.id.split('-')[1];
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
-    xhr.open("POST", "include/scene_list.php", true); // Setting destination and type
+    xhr.open("POST", "include/scenes_for_students.php", true); // Setting destination and type
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
     xhr.send('id=' + encodeURIComponent(requiredId));
     xhr.onreadystatechange = function () { // Waiting for the server's answer
@@ -22,8 +22,7 @@ function getScenes(event) {
         */
         if (xhr.readyState == 4) { // The answer has been got
             if (xhr.status == 200) {
-                let scenesAndTimings = JSON.parse(xhr.responseText);
-                let scenes = JSON.parse(scenesAndTimings['scenes']);
+                let scenes = JSON.parse(xhr.responseText);
                 let canvas = document.getElementById('show-scene');
                 let curScene = document.createElement('img');
                 let code = JSON.parse(scenes[0]);
