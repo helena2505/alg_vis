@@ -77,10 +77,15 @@
 }
 
 .show-scene-wrap {
-    width: 100%;
-    height: 100%;
     display: flex;
     background-color: white;
+    max-height: 30%;
+    overflow: hidden;
+}
+
+#modal-show-scene-content {
+    max-height: 90%;
+    max-width: 90%;
 }
 
 /* Modal footer */
