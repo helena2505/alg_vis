@@ -4,6 +4,7 @@ let scenes = [];
 let curSceneNum = 0;
 let nextButton = document.getElementById('btn-next-scene');
 let prevButton = document.getElementById('btn-prev-scene');
+let resetButton = document.getElementById('no-alg2');
 
 for(let i = 0; i < algorithms; i++) {
     let curAlgTree = algorithms[i];
@@ -62,4 +63,11 @@ prevButton.onclick = function() {
         const tmp = JSON.parse(scenes[curSceneNum]);
         img.src = tmp["xml_code"];
     }
+};
+
+resetButton.onclick = function() {
+    curSceneNum = 0;
+    scenes = [];
+    let img = document.getElementById('current-scene');
+    img.parentNode.removeChild(img);
 };
