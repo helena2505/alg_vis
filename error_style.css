@@ -6,6 +6,7 @@ body {
     background-color: white;
 }
 
+/* Div that holds the information */
 .textbox {
     font-size: 25px;
     position: fixed;
@@ -16,11 +17,13 @@ body {
     text-align: center;
 }
 
+/* Icon of the error */
 .user-icon {
     font-size: 80px;
     text-align: center;
 }
 
+/* Makes it impossible to highlight text and objects */
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
