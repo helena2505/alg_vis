@@ -226,7 +226,7 @@ require_once 'include/container_list.php';
 
     <!--Dialog window for showing a scene-->
     <div class="modal" id="modal-show-scene">
-        <div class="modal-content">
+        <div class="modal-content" id="modal-show-scene-content">
             <div class="modal-header">
                 <span class="cross" id="cross6">&times</span>
                 <h2>Просмотр сцены</h2>
