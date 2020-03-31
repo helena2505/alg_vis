@@ -127,7 +127,5 @@
     <script src="student_alg_list.js" type="text/javascript"></script>
     <script src="student_modal.js" type="text/javascript"></script>
     <script src="student_context_menu.js" type="text/javascript"></script>
-    <script src="scene_show.js" type="text/javascript"></script>
-    <script src="student_alg_select.js" type="text/javascript"></script>
 </body>
 </html>
