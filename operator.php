@@ -9,7 +9,23 @@ $STH->execute(array("login" => $_POST["login"]));
 $STH->setFetchMode(PDO::FETCH_NUM);
 $pass = $STH->fetchAll();
 if(count($pass) == 0) {
-    echo "User not found";
+    //echo "User not found";
+    ?> <!DOCTYPE html> 
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="error_style.css" />
+            <title>Error</title>
+        </head>
+        <body id="body-error" class="noselect">
+            <div class="textbox">
+                <div class="user-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+                <p>User not found!</p>
+            </div>
+        </body>
+    </html> <?php
     exit();
 }
 $pass = $pass[0][0];
@@ -263,5 +279,21 @@ require_once 'include/container_list.php';
 </html>
     <?php
 } else {
-    echo "Incorrect password";
+    //echo "Incorrect password";
+    ?> <!DOCTYPE html> 
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="error_style.css" />
+            <title>Error</title>
+        </head>
+        <body id="body-error" class="noselect">
+            <div class="textbox">
+                <div class="user-icon"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                <p>Incorrect password!</p>
+            </div>
+        </body>
+    </html> <?php
 }
