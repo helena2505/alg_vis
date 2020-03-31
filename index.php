@@ -26,8 +26,13 @@
         <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw" id="menu-draw">
-                <button class="btn btn2" id="btn-prev-scene">Назад</button>
-                <button class="btn btn2" id="btn-next-scene">Вперёд</button>
+                <div class="column">
+                    <button class="btn btn2" id="btn-prev-scene">Назад</button>
+                </div>
+                <div class="showing-scene" id="show-scene"></div>
+                <div class="column">
+                    <button class="btn btn2" id="btn-next-scene">Вперёд</button>
+                </div>
             </div>
             <!--Structures menu-->
             <div id="structures-col">

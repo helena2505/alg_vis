@@ -156,3 +156,13 @@ body {
     height: 100%;
     width: 100%;
 }
+
+.showing-scene {
+    height: 100%;
+    width: 70%;
+}
+
+.column {
+    height: 100%;
+    width: 15%;
+}

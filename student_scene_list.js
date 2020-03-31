@@ -24,10 +24,10 @@ function getScenes(event) {
             if (xhr.status == 200) {
                 let scenesAndTimings = JSON.parse(xhr.responseText);
                 let scenes = JSON.parse(scenesAndTimings['scenes']);
-                let canvas = document.getElementById('menu-draw');
-                console.log(canvas);
+                let canvas = document.getElementById('show-scene');
                 let curScene = document.createElement('img');
                 let code = JSON.parse(scenes[0]);
+                curScene.classList.add('editor');
                 curScene.src = code["xml_code"];
                 canvas.appendChild(curScene);
                 console.log(scenes);
