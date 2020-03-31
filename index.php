@@ -25,7 +25,7 @@
     </div>
         <!--Drawing window-->
         <div id="drawing">
-            <div class="menu-draw">
+            <div class="menu-draw" id="menu-draw">
                 <button class="btn btn2" id="btn-prev-scene">Назад</button>
                 <button class="btn btn2" id="btn-next-scene">Вперёд</button>
             </div>
@@ -127,5 +127,6 @@
     <script src="student_alg_list.js" type="text/javascript"></script>
     <script src="student_modal.js" type="text/javascript"></script>
     <script src="student_context_menu.js" type="text/javascript"></script>
+    <script src="student_scene_list.js" type="text/javascript"></script>
 </body>
 </html>
