@@ -19,7 +19,7 @@
 </head>
 <body>
 <!--Student mode-->
-<div class="operator">
+<div class="operator noselect">
     <div id="header">
         <div id="add-scene" class="plus-scene">+Добавить сцену</div>
     </div>
@@ -55,7 +55,7 @@
         <div class="container">
             <button class="btn btn2" id="watch-scenes">Посмотреть алгоритм</button>
             <button class="btn btn2" id="no-alg2">Сбросить</button>
-            <button class="btn btn4" id="op_button"> <a href="login.html" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
+            <button class="btn btn4" id="op_button"> <a href="login.html" class="btn-ref">Войти в режим оператора</a></button>
         </div>
     </div>
 

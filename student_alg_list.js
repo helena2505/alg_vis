@@ -15,6 +15,7 @@ function getScenes(event) {
         if (xhr.readyState == 4) { // The answer has been got
             if (xhr.status == 200) {
                 let curScene;
+                nextButton.classList.remove("inactive");
                 scenes = JSON.parse(xhr.responseText);
                 let canvas = document.getElementById('show-scene');
                 const check = canvas.querySelectorAll('#current-scene');
@@ -33,9 +34,10 @@ function getScenes(event) {
                     let img = document.getElementById('current-scene');
                     img.parentNode.removeChild(img);
                     modalNoScenes.style.display = 'block';
+                    nextButton.classList.add("inactive");
+                    prevButton.classList.add("inactive");
                     return 0;
                 }
-                console.log(scenes[0]);
                 let code = JSON.parse(scenes[0]);
                 curScene.src = code["xml_code"];
                 curSceneNum = 0;
@@ -73,7 +75,7 @@ function showAlgorithms(event) {
             */
             if (xhr.readyState == 4) { // The answer has been got
                 if(xhr.status == 200) { // The server's returned code 200 (success)
-                    let algorithms = JSON.parse(xhr.responseText); // Unpackaging the servr's response to get all algorithms'
+                    let algorithms = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms'
                     // names with their ids
                     let new_element;
                     let res;
