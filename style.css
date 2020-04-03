@@ -132,9 +132,9 @@ body {
     border-radius: 5px;
     cursor: pointer;
     display: none;
-    font: 14pt 'Roboto', white, sans-serif;
+    font: 14pt 'Roboto', #333, sans-serif;
     line-height: 5em;
-    height: 5em;
+    height: 90%;
     text-align: center;
     width: 10%;
 }

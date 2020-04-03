@@ -63,7 +63,7 @@ function selectAlg(event) {
                             let sceneTime = document.createElement('div');
                             let timingInfo = JSON.parse(timeInfo[i]);
                             sceneTime.id = 'timing-' + timingInfo['timings_id'];
-                            sceneTime.innerHTML = timingInfo['t_value'];
+                            sceneTime.innerHTML = timingInfo['t_value'] + "s";
                             sceneTime.classList.add('timing');
                             sceneTime.contentEditable = 'true';
                             scenePict.after(sceneTime);

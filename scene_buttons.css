@@ -37,10 +37,12 @@
 }
 
 .timing {
-    background-color: palegreen;
+    background-color: white;
     color: black;
-    height: 60px;
+    height: 25px;
     text-align: center;
-    width: 60px;
+    width: 50px;
     word-wrap: break-word;
+    padding-top: 3px;
+    border: solid rgb(245, 245, 255);
 }
