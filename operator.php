@@ -61,8 +61,6 @@ require_once 'include/container_list.php';
         <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw">
-                <button class="btn btn2" id="btn-next-scene">Вперёд</button>
-                <button class="btn btn2" id="btn-prev-scene">Назад</button>
             </div>
             <!--Structures menu-->
             <div id="structures-col">
