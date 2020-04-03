@@ -53,6 +53,7 @@
     <!--Footer-->
     <div id="footer">
         <div class="container">
+            <button class="btn btn2" id="watch-scenes">Посмотреть алгоритм</button>
             <button class="btn btn2" id="no-alg2">Сбросить</button>
             <button class="btn btn4" id="op_button"> <a href="login.html" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
         </div>
