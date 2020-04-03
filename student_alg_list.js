@@ -1,3 +1,49 @@
+function getScenes(event) {
+    let requiredId = event.target.id.split('-')[1];
+    let xhr = new XMLHttpRequest(); // Creating new HTTP request
+    xhr.open("POST", "include/scenes_for_students.php", true); // Setting destination and type
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
+    xhr.send('id=' + encodeURIComponent(requiredId));
+    xhr.onreadystatechange = function () { // Waiting for the server's answer
+        /* Event listener for getting response from server.
+        * The function unpackages the info about the visualisation of each scene
+        * and about their ids. The function inserts the recived scenes' visualisation
+        * into the list of the scenes.
+        * Input parameter: none. Output parameter: none.
+        * Author: Elena Karelina
+        */
+        if (xhr.readyState == 4) { // The answer has been got
+            if (xhr.status == 200) {
+                let curScene;
+                scenes = JSON.parse(xhr.responseText);
+                let canvas = document.getElementById('show-scene');
+                const check = canvas.querySelectorAll('#current-scene');
+                if(check.length == 0) {
+                    curScene = document.createElement('img');
+                    curScene.classList.add('editor');
+                    curScene.id = 'current-scene';
+                    canvas.appendChild(curScene);
+                } else {
+                    curScene = document.getElementById('current-scene');
+                }
+                if (typeof scenes[0] === 'undefined')
+                {
+                    curSceneNum = 0;
+                    scenes = [];
+                    let img = document.getElementById('current-scene');
+                    img.parentNode.removeChild(img);
+                    modalNoScenes.style.display = 'block';
+                    return 0;
+                }
+                console.log(scenes[0]);
+                let code = JSON.parse(scenes[0]);
+                curScene.src = code["xml_code"];
+                curSceneNum = 0;
+            }
+        }
+    }
+}
+
 function showAlgorithms(event) {
     /* The function gets the list of algorithms of the container from the server's database
     * The function makes the received list visible on the user's page
