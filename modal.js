@@ -1,6 +1,7 @@
 let lst = document.getElementById('available-containers'); // Getting the list of containers
 let modal_1wayList = document.getElementById('list1Modal'); // Get modal element for structure
 let algInfoModal = document.getElementById('modal-alg-info'); // Get modal element for algorithm
+let dialogEditContainer = document.getElementById('dialog-edit-container'); // Get modal element for algorithm
 let contName = document.getElementById('cont-name'); // Container name
 let contDescr = document.getElementById('cont-descr'); // Container description
 let algNameInfo = document.getElementById('alg-name-info'); // Algorithm name

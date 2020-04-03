@@ -116,7 +116,7 @@
     </div>
 
         <!--Dialog window for showing a scene-->
-        <div class="modal" id="modal-show-scene">
+    <div class="modal" id="modal-show-scene">
         <div class="modal-content">
             <div class="modal-header">
                 <span class="cross" id="cross6">&times</span>
@@ -129,6 +129,23 @@
             </div>
         </div>
     </div>
+
+    <!--Modal window for telling the user there are no scenes in algorithm-->
+    <div id="modal-no-scenes" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeBtn" id="cross7">&times;</span>
+                <h2>Ошибка</h2>
+            </div>
+            <div class="modal-body">
+                <p>Нет сцен для показа!</p>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
     
     <!--Scripts-->
     <script src="student_alg_list.js" type="text/javascript"></script>
