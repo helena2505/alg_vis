@@ -6,6 +6,8 @@ let nextButton = document.getElementById('btn-next-scene');
 let prevButton = document.getElementById('btn-prev-scene');
 let resetButton = document.getElementById('no-alg2');
 
+prevButton.classList.add("inactive");
+nextButton.classList.add("inactive");
 for(let i = 0; i < algorithms; i++) {
     let curAlgTree = algorithms[i];
     curAlgTree.addEventListener('click', selectAlg)

@@ -16,7 +16,6 @@ function getScenes(event) {
             if (xhr.status == 200) {
                 let curScene;
                 nextButton.classList.remove("inactive");
-                prevButton.classList.remove("inactive");
                 scenes = JSON.parse(xhr.responseText);
                 let canvas = document.getElementById('show-scene');
                 const check = canvas.querySelectorAll('#current-scene');
@@ -35,6 +34,8 @@ function getScenes(event) {
                     let img = document.getElementById('current-scene');
                     img.parentNode.removeChild(img);
                     modalNoScenes.style.display = 'block';
+                    nextButton.classList.add("inactive");
+                    prevButton.classList.add("inactive");
                     return 0;
                 }
                 let code = JSON.parse(scenes[0]);

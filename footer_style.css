@@ -130,7 +130,7 @@
 }
 
 .inactive {
-  color: red;
+  color: gray;
   background-color: gray;
 }
 
@@ -143,4 +143,15 @@ width: 100%;
   height: 2%;
   clear: both;
   background-color: lavender;
+}
+
+/* Makes it impossible to highlight text and objects */
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
 }

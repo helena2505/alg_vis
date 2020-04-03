@@ -101,6 +101,9 @@ function outsideClick(event) {
     if (event.target === showSceneModal){
         showSceneModal.style.display = 'none';
     }
+    if (event.target === modalNoScenes){
+        modalNoScenes.style.display = 'none';
+    }
 }
 
 lst.onclick = function(event) {
