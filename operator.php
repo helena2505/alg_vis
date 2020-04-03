@@ -52,7 +52,7 @@ require_once 'include/container_list.php';
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="noselect">
     <!--Operator mode-->
     <div class="operator">
         <div id="header" class="header">
