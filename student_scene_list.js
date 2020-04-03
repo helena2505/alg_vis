@@ -41,6 +41,10 @@ function getScenes(event) {
                 }
                 if (typeof scenes[0] === 'undefined')
                 {
+                    curSceneNum = 0;
+                    scenes = [];
+                    let img = document.getElementById('current-scene');
+                    img.parentNode.removeChild(img);
                     return 0;
                 }
                 console.log(scenes[0]);
