@@ -15,7 +15,7 @@ function getScenes(event) {
         if (xhr.readyState == 4) { // The answer has been got
             if (xhr.status == 200) {
                 let curScene;
-                nextButton.classList.remove("inactive");
+                nextButton.disabled = false;
                 scenes = JSON.parse(xhr.responseText);
                 let canvas = document.getElementById('show-scene');
                 const check = canvas.querySelectorAll('#current-scene');
@@ -34,9 +34,12 @@ function getScenes(event) {
                     let img = document.getElementById('current-scene');
                     img.parentNode.removeChild(img);
                     modalNoScenes.style.display = 'block';
-                    nextButton.classList.add("inactive");
-                    prevButton.classList.add("inactive");
+                    nextButton.disabled = true;
+                    prevButton.disabled = true;
                     return 0;
+                }  
+                if (1 == scenes.length) {
+                    nextButton.disabled = true;
                 }
                 let code = JSON.parse(scenes[0]);
                 curScene.src = code["xml_code"];
