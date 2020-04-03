@@ -39,7 +39,13 @@ function getScenes(event) {
                 } else {
                     curScene = document.getElementById('current-scene');
                 }
+                if (typeof scenes[0] === 'undefined')
+                {
+                    return 0;
+                }
+                console.log(scenes[0]);
                 let code = JSON.parse(scenes[0]);
+                //console.log(code);
                 curScene.src = code["xml_code"];
                 curSceneNum = 0;
             }
