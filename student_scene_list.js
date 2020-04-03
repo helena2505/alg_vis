@@ -6,8 +6,9 @@ let nextButton = document.getElementById('btn-next-scene');
 let prevButton = document.getElementById('btn-prev-scene');
 let resetButton = document.getElementById('no-alg2');
 
-prevButton.classList.add("inactive");
-nextButton.classList.add("inactive");
+prevButton.disabled = true;
+nextButton.disabled = true;
+
 for(let i = 0; i < algorithms; i++) {
     let curAlgTree = algorithms[i];
     curAlgTree.addEventListener('click', selectAlg)
@@ -15,33 +16,33 @@ for(let i = 0; i < algorithms; i++) {
 
 nextButton.onclick = function() {
     if(curSceneNum + 1 < scenes.length) {
-        prevButton.classList.remove("inactive");
+        prevButton.disabled = false;
         curSceneNum++;
         let img = document.getElementById('current-scene');
         const tmp = JSON.parse(scenes[curSceneNum]);
         img.src = tmp["xml_code"];
     }
-    else {
-        nextButton.classList.add("inactive");
+    if(curSceneNum + 1 == scenes.length) {
+        nextButton.disabled = true;
     }
 };
 
 prevButton.onclick = function() {
     if(curSceneNum > 0) {
-        nextButton.classList.remove("inactive");
+        nextButton.disabled = false;
         curSceneNum--;
         let img = document.getElementById('current-scene');
         const tmp = JSON.parse(scenes[curSceneNum]);
         img.src = tmp["xml_code"];
     }
-    else {
-        prevButton.classList.add("inactive");
+    if(curSceneNum == 0) {
+        prevButton.disabled = true;
     }
 };
 
 resetButton.onclick = function() {
-    nextButton.classList.remove("inactive");
-    prevButton.classList.remove("inactive");
+    nextButton.disabled = false;
+    prevButton.disabled = false;
     curSceneNum = 0;
     scenes = [];
     let img = document.getElementById('current-scene');
