@@ -38,6 +38,7 @@ function showAlgorithms(event) {
                         new_element.innerText = res["algorithm_name"]; // Adding text - the name of the algorithm
                         new_element.id = "alg-" + res["id"];; // Setting the id according to the id in database
                         new_element.classList.add("one-algorithm");
+                        new_element.addEventListener('click', getScenes);
                         algList.appendChild(new_element); // Adding new element to the interface list
                     }
                 }
