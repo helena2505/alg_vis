@@ -63,7 +63,7 @@ close5.onclick = function() {
     * Author: Tatyana Shorygina
     */
     algInfoModal.style.display = 'none';
-}
+};
 
 close6.onclick = function() {
     /* Event listener for the cross of the modal window
@@ -72,7 +72,7 @@ close6.onclick = function() {
     * Author: Tatyana Shorygina
     */
    showSceneModal.style.display = 'none';
-}
+};
 
 close7.onclick = function() {
     /* Event listener for the cross of the modal window
@@ -81,7 +81,7 @@ close7.onclick = function() {
     * Author: Tatyana Shorygina
     */
     modalNoScenes.style.display = 'none';
-}
+};
 
 function outsideClick(event) {
     /* Function has no input parameters
