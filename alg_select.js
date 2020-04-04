@@ -21,7 +21,6 @@ function selectAlg(event) {
      */
     let eventTarget = event.target.id;
     let check = eventTarget.split('-'); // Splitting the clicked element id
-    console.log(check);
     if (check.length === 2) { // Checking that the click has been on an algorithm but not on the button
         // 'Добавить алгоритм'
         currentAlgId = check[1]; // Getting the algorithm's id which it has in the database
@@ -63,7 +62,7 @@ function selectAlg(event) {
                             let sceneTime = document.createElement('div');
                             let timingInfo = JSON.parse(timeInfo[i]);
                             sceneTime.id = 'timing-' + timingInfo['timings_id'];
-                            sceneTime.innerHTML = timingInfo['t_value'] + "s";
+                            sceneTime.innerHTML = timingInfo['t_value'];
                             sceneTime.classList.add('timing');
                             sceneTime.contentEditable = 'true';
                             scenePict.after(sceneTime);

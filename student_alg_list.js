@@ -1,3 +1,5 @@
+let showedAlg = 0;
+
 function getScenes(event) {
     let requiredId = event.target.id.split('-')[1];
     let xhr = new XMLHttpRequest(); // Creating new HTTP request
@@ -44,9 +46,11 @@ function getScenes(event) {
                 let code = JSON.parse(scenes[0]);
                 curScene.src = code["xml_code"];
                 curSceneNum = 0;
+                showedAlg = parseInt(requiredId);
             }
         }
-    }
+    };
+    timersIds = []; // Clearing the timers ids
 }
 
 function showAlgorithms(event) {
@@ -87,7 +91,7 @@ function showAlgorithms(event) {
                         // id and name
                         new_element = document.createElement('LI'); // Creating new li element
                         new_element.innerText = res["algorithm_name"]; // Adding text - the name of the algorithm
-                        new_element.id = "alg-" + res["id"];; // Setting the id according to the id in database
+                        new_element.id = "alg-" + res["id"]; // Setting the id according to the id in database
                         new_element.classList.add("one-algorithm");
                         new_element.addEventListener('click', getScenes);
                         algList.appendChild(new_element); // Adding new element to the interface list
