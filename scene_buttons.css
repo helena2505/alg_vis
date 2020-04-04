@@ -43,7 +43,7 @@
 
 #btn-next-scene:disabled, #btn-prev-scene:disabled {
     color: gray;
-    background-color: rgb(200, 200, 200);
+    background-color: rgb(223, 223, 223);
 }
 
 .timing {
