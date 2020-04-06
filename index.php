@@ -15,16 +15,26 @@
     <link rel="stylesheet" href="scene_buttons.css" />
     <link rel="stylesheet" href="modal_add.css" />
     <link rel="stylesheet" href="modal_style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 <!--Student mode-->
-<div class="operator">
-    <div id="header"></div>
+<div class="operator noselect">
+    <div id="header">
+        <div id="add-scene" class="plus-scene">+Добавить сцену</div>
+    </div>
         <!--Drawing window-->
         <div id="drawing">
-            <div class="menu-draw">
-                <button class="btn btn2" id="btn-prev-scene">Назад</button>
-                <button class="btn btn2" id="btn-next-scene">Вперёд</button>
+            <div class="menu-draw" id="menu-draw">
+                <div class="column">
+                    <button class="btn btn2" id="btn-prev-scene">Назад</button>
+                </div>
+                <div class="showing-scene" id="show-scene">
+                    <!--img class="editor" id="current-scene" border-image="none"-->
+                </div>
+                <div class="column">
+                    <button class="btn btn2" id="btn-next-scene">Вперёд</button>
+                </div>
             </div>
             <!--Structures menu-->
             <div id="structures-col">
@@ -43,7 +53,9 @@
     <!--Footer-->
     <div id="footer">
         <div class="container">
-            <button class="btn btn4" id="op_button"> <a href="login.html" class="btn-ref" unselectable="on">Войти в режим оператора</a></button>
+            <button class="btn btn2" id="watch-scenes">Посмотреть алгоритм</button>
+            <button class="btn btn2" id="no-alg2">Сбросить</button>
+            <button class="btn btn4" id="op_button"> <a href="login.html" class="btn-ref">Войти в режим оператора</a></button>
         </div>
     </div>
 
@@ -105,7 +117,7 @@
     </div>
 
         <!--Dialog window for showing a scene-->
-        <div class="modal" id="modal-show-scene">
+    <div class="modal" id="modal-show-scene">
         <div class="modal-content">
             <div class="modal-header">
                 <span class="cross" id="cross6">&times</span>
@@ -118,10 +130,28 @@
             </div>
         </div>
     </div>
+
+    <!--Modal window for telling the user there are no scenes in algorithm-->
+    <div id="modal-no-scenes" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeBtn" id="cross7">&times;</span>
+                <h2>Ошибка</h2>
+            </div>
+            <div class="modal-body">
+                <p>Нет сцен для показа!</p>
+            </div>
+            <div class="modal-footer">
+                <h3> </h3>
+            </div>
+        </div>
+    </div>
+
     
     <!--Scripts-->
     <script src="student_alg_list.js" type="text/javascript"></script>
     <script src="student_modal.js" type="text/javascript"></script>
     <script src="student_context_menu.js" type="text/javascript"></script>
+    <script src="student_scene_list.js" type="text/javascript"></script>
 </body>
 </html>

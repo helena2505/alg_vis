@@ -6,6 +6,7 @@ body {
     background-color: white;
 }
 
+/* Div for the whole login form */
 .login-box {
     width: 280px;
     position: absolute;
@@ -23,6 +24,7 @@ body {
     padding: 13px 0;
 }
 
+/* Div for entering info */
 .textbox {
     width: 100%;
     overflow: hidden;
@@ -38,6 +40,7 @@ body {
     text-align: center;
 }
 
+/* Input area of the textbox div */
 .textbox input {
     border: none;
     outline: none;
@@ -48,6 +51,7 @@ body {
     margin: 0 10px;
 }
 
+/* Button to log in to the operator mode */
 #login_btn {
     width: 100%;
     background: none;
@@ -59,10 +63,12 @@ body {
     margin: 12px 0;
 }
 
+/* Username area */
 #login-username {
     background: transparent;
 }
 
+/* Makes it impossible to highlight text and objects */
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */

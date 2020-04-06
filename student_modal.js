@@ -9,8 +9,11 @@ let algDifficultyInfo = document.getElementById('alg-diff'); // Algorithm descri
 let closeBtn = document.getElementsByClassName('closeBtn')[0]; // Get close button
 let close5 = document.getElementById("cross5"); // The modal window's cross
 let close0 = document.getElementById("cross0"); // The modal window's cross
+let close6 = document.getElementById("cross6"); // The modal window's cross
+let close7 = document.getElementById("cross7"); // The modal window's cross
 let showSceneModal = document.getElementById('modal-show-scene'); // Get modal element for showing scene
 let dialogAddAlg = document.getElementById("dialog-add-alg"); // The modal window for inputting information about an algorithm
+let modalNoScenes = document.getElementById("modal-no-scenes"); // Modal window for telling the user there are no scenes in algorithm
 
 closeBtn.addEventListener('click', closeModal); // Listen for close click
 window.addEventListener('click', outsideClick); // Listen for outside click
@@ -24,6 +27,15 @@ function outsideClick(e) {
     */
     if (e.target == showSceneModal){
         showSceneModal.style.display = 'none';
+    }
+    if (e.target == modal_1wayList){
+        showSceneModal.style.display = 'none';
+    }
+    if (e.target == showSceneModal){
+        algInfoModal.style.display = 'none';
+    }
+    if (e.target == showSceneModal){
+        modalNoScenes.style.display = 'none';
     }
 }
 
@@ -41,7 +53,7 @@ close0.onclick = function() {
     * Input parameter: none. Output parameter: none.
     * Author: Tatyana Shorygina
     */
-    showSceneModal.style.display = 'none';
+    modal_1wayList.style.display = 'none';
 };
 
 close5.onclick = function() {
@@ -51,7 +63,25 @@ close5.onclick = function() {
     * Author: Tatyana Shorygina
     */
     algInfoModal.style.display = 'none';
-}
+};
+
+close6.onclick = function() {
+    /* Event listener for the cross of the modal window
+    * The function disables visibity of the modal window and cleans input strings
+    * Input parameter: none. Output parameter: none.
+    * Author: Tatyana Shorygina
+    */
+   showSceneModal.style.display = 'none';
+};
+
+close7.onclick = function() {
+    /* Event listener for the cross of the modal window
+    * The function disables visibity of the modal window and cleans input strings
+    * Input parameter: none. Output parameter: none.
+    * Author: Tatyana Shorygina
+    */
+    modalNoScenes.style.display = 'none';
+};
 
 function outsideClick(event) {
     /* Function has no input parameters
@@ -70,6 +100,9 @@ function outsideClick(event) {
     }
     if (event.target === showSceneModal){
         showSceneModal.style.display = 'none';
+    }
+    if (event.target === modalNoScenes){
+        modalNoScenes.style.display = 'none';
     }
 }
 

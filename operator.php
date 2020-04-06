@@ -9,7 +9,23 @@ $STH->execute(array("login" => $_POST["login"]));
 $STH->setFetchMode(PDO::FETCH_NUM);
 $pass = $STH->fetchAll();
 if(count($pass) == 0) {
-    echo "User not found";
+    //echo "User not found";
+    ?> <!DOCTYPE html> 
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="error_style.css" />
+            <title>Error</title>
+        </head>
+        <body id="body-error" class="noselect">
+            <div class="textbox">
+                <div class="user-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+                <p>User not found!</p>
+            </div>
+        </body>
+    </html> <?php
     exit();
 }
 $pass = $pass[0][0];
@@ -36,7 +52,7 @@ require_once 'include/container_list.php';
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="noselect">
     <!--Operator mode-->
     <div class="operator">
         <div id="header" class="header">
@@ -45,8 +61,6 @@ require_once 'include/container_list.php';
         <!--Drawing window-->
         <div id="drawing">
             <div class="menu-draw">
-                <button class="btn btn2" id="btn-next-scene">Вперёд</button>
-                <button class="btn btn2" id="btn-prev-scene">Назад</button>
             </div>
             <!--Structures menu-->
             <div id="structures-col">
@@ -66,7 +80,7 @@ require_once 'include/container_list.php';
         <div id="footer">
             <div class="container">
                 <button class="btn btn2" id="no-alg">Сбросить</button>
-                <button class="btn btn2" id="op_button"> <a href="/?action=out" class="btn-ref" unselectable="on">Выйти из режима
+                <button class="btn btn4" id="op_button"> <a href="/?action=out" class="btn-ref" ="on">Выйти из режима
                         оператора</a></button>
             </div>
         </div>
@@ -226,7 +240,7 @@ require_once 'include/container_list.php';
 
     <!--Dialog window for showing a scene-->
     <div class="modal" id="modal-show-scene">
-        <div class="modal-content">
+        <div class="modal-content" id="modal-show-scene-content">
             <div class="modal-header">
                 <span class="cross" id="cross6">&times</span>
                 <h2>Просмотр сцены</h2>
@@ -263,5 +277,21 @@ require_once 'include/container_list.php';
 </html>
     <?php
 } else {
-    echo "Incorrect password";
+    //echo "Incorrect password";
+    ?> <!DOCTYPE html> 
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="error_style.css" />
+            <title>Error</title>
+        </head>
+        <body id="body-error" class="noselect">
+            <div class="textbox">
+                <div class="user-icon"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                <p>Incorrect password!</p>
+            </div>
+        </body>
+    </html> <?php
 }

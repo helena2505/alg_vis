@@ -1,5 +1,7 @@
 /* Button to switch to next scene */
 #btn-prev-scene {
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
     max-width: fit-content;
     max-height: 10%;
     position: absolute;
@@ -8,23 +10,49 @@
     right: inherit;
     display: inline-block;
     white-space : normal;
+    background-color: white;
+    border-radius: 5px;
+    border: solid rgb(130, 130, 165);
+    -webkit-box-shadow: 0px 6px 0px rgb(130, 130, 165);
+    -moz-box-shadow: 0px 6px 0px rgb(130, 130, 165);
+    box-shadow: 0px 6px 0px rgb(130, 130, 165);
 }
 
 /* Button to return to previous scene */
 #btn-next-scene {
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
     max-width: fit-content;
     max-height: 10%;
     display: inline-block;
     position: absolute;
     bottom: 0;
     right: 0;
+    background-color: white;
+    border-radius: 5px;
+    border: solid rgb(130, 130, 165);
+    -webkit-box-shadow: 0px 6px 0px rgb(130, 130, 165);
+    -moz-box-shadow: 0px 6px 0px rgb(130, 130, 165);
+    box-shadow: 0px 6px 0px rgb(130, 130, 165);
+}
+
+#btn-next-scene:active, #btn-prev-scene:active {
+    background-color:rgb(187, 187, 216);
+    transform: scale(1.03);
+}
+
+#btn-next-scene:disabled, #btn-prev-scene:disabled {
+    color: gray;
+    background-color: rgb(200, 200, 200);
 }
 
 .timing {
-    background-color: palegreen;
+    background-color: white;
     color: black;
-    height: 60px;
+    height: 25px;
     text-align: center;
-    width: 60px;
+    width: 50px;
     word-wrap: break-word;
+    padding-top: 3px;
+    border: solid rgb(245, 245, 255);
 }

@@ -1,3 +1,58 @@
+let showedAlg = 0;
+
+function getScenes(event) {
+    let requiredId = event.target.id.split('-')[1];
+    let xhr = new XMLHttpRequest(); // Creating new HTTP request
+    xhr.open("POST", "include/scenes_for_students.php", true); // Setting destination and type
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
+    xhr.send('id=' + encodeURIComponent(requiredId));
+    xhr.onreadystatechange = function () { // Waiting for the server's answer
+        /* Event listener for getting response from server.
+        * The function unpackages the info about the visualisation of each scene
+        * and about their ids. The function inserts the recived scenes' visualisation
+        * into the list of the scenes.
+        * Input parameter: none. Output parameter: none.
+        * Author: Elena Karelina
+        */
+        if (xhr.readyState == 4) { // The answer has been got
+            if (xhr.status == 200) {
+                let curScene;
+                nextButton.disabled = false;
+                scenes = JSON.parse(xhr.responseText);
+                let canvas = document.getElementById('show-scene');
+                const check = canvas.querySelectorAll('#current-scene');
+                if(check.length == 0) {
+                    curScene = document.createElement('img');
+                    curScene.classList.add('editor');
+                    curScene.id = 'current-scene';
+                    canvas.appendChild(curScene);
+                } else {
+                    curScene = document.getElementById('current-scene');
+                }
+                if (typeof scenes[0] === 'undefined')
+                {
+                    curSceneNum = 0;
+                    scenes = [];
+                    let img = document.getElementById('current-scene');
+                    img.parentNode.removeChild(img);
+                    modalNoScenes.style.display = 'block';
+                    nextButton.disabled = true;
+                    prevButton.disabled = true;
+                    return 0;
+                }  
+                if (1 == scenes.length) {
+                    nextButton.disabled = true;
+                }
+                let code = JSON.parse(scenes[0]);
+                curScene.src = code["xml_code"];
+                curSceneNum = 0;
+                showedAlg = parseInt(requiredId);
+            }
+        }
+    };
+    timersIds = []; // Clearing the timers ids
+}
+
 function showAlgorithms(event) {
     /* The function gets the list of algorithms of the container from the server's database
     * The function makes the received list visible on the user's page
@@ -27,7 +82,7 @@ function showAlgorithms(event) {
             */
             if (xhr.readyState == 4) { // The answer has been got
                 if(xhr.status == 200) { // The server's returned code 200 (success)
-                    let algorithms = JSON.parse(xhr.responseText); // Unpackaging the servr's response to get all algorithms'
+                    let algorithms = JSON.parse(xhr.responseText); // Unpackaging the server's response to get all algorithms'
                     // names with their ids
                     let new_element;
                     let res;
@@ -36,8 +91,9 @@ function showAlgorithms(event) {
                         // id and name
                         new_element = document.createElement('LI'); // Creating new li element
                         new_element.innerText = res["algorithm_name"]; // Adding text - the name of the algorithm
-                        new_element.id = "alg-" + res["id"];; // Setting the id according to the id in database
+                        new_element.id = "alg-" + res["id"]; // Setting the id according to the id in database
                         new_element.classList.add("one-algorithm");
+                        new_element.addEventListener('click', getScenes);
                         algList.appendChild(new_element); // Adding new element to the interface list
                     }
                 }
